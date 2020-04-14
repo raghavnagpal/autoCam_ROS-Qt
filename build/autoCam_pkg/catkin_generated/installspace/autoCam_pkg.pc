@@ -1,0 +1,8 @@
+prefix=/home/swhite/autoCam_ws/install
+
+Name: autoCam_pkg
+Description: Description of autoCam_pkg
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
