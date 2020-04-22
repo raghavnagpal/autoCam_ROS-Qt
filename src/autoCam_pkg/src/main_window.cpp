@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <iostream>
 #include "../include/autoCam_pkg/main_window.hpp"
+#include "../include/autoCam_pkg/saveeditview.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -35,7 +36,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
 //    ReadSettings();
 	setWindowIcon(QIcon(":/images/icon.png"));
-	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
+//	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
     QObject::connect(&qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
 
   /*********************
@@ -167,5 +168,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
 	QMainWindow::closeEvent(event);
 }
 
-}  // namespace autoCam_pkg
+void MainWindow::on_SetPoint_SaveViewButton_clicked()
+{
+    SaveEditView saveeditview;
+    saveeditview.setModal(true);
+    saveeditview.exec();
+}
 
+}  // namespace autoCam_pkg
