@@ -586,7 +586,16 @@
       <Unit filename="/home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp">
          <Option target="autoCam_pkg"/>
       </Unit>
+      <Unit filename="/home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp">
+         <Option target="autoCam_pkg"/>
+      </Unit>
       <Unit filename="/home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window.ui">
+         <Option target="autoCam_pkg"/>
+      </Unit>
+      <Unit filename="/home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window_backup.ui">
+         <Option target="autoCam_pkg"/>
+      </Unit>
+      <Unit filename="/home/swhite/autoCam_ws/src/autoCam_pkg/ui/saveeditview.ui">
          <Option target="autoCam_pkg"/>
       </Unit>
       <Unit filename="/usr/src/gmock/src/gmock-all.cc">

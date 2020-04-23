@@ -14,6 +14,10 @@
 ../../../../src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
 
+/home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_saveeditview.cxx
+../../../../src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
+
 /home/swhite/autoCam_ws/build/autoCam_pkg/qrc_images.cxx
 QtCore/qglobal.h
 -
@@ -36,6 +40,12 @@ QThread
 QStringListModel
 -
 
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
+QDialog
+-
+ui_saveeditview.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/ui_saveeditview.h
+
 /home/swhite/autoCam_ws/src/autoCam_pkg/src/main.cpp
 QtGui
 -
@@ -51,8 +61,12 @@ QMessageBox
 -
 iostream
 -
+ui_main_window.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/src/ui_main_window.h
 ../include/autoCam_pkg/main_window.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/main_window.hpp
+../include/autoCam_pkg/saveeditview.hpp
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp
 ros/ros.h
@@ -67,6 +81,12 @@ sstream
 -
 ../include/autoCam_pkg/qnode.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
+
+/home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp
+QDebug
+-
+../include/autoCam_pkg/saveeditview.hpp
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -774,13 +794,13 @@ list
 qdatetime.h
 /usr/include/qt4/QtCore/qdatetime.h
 
+/usr/include/qt4/QtCore/QDebug
+qdebug.h
+/usr/include/qt4/QtCore/qdebug.h
+
 /usr/include/qt4/QtCore/QList
 qlist.h
 /usr/include/qt4/QtCore/qlist.h
-
-/usr/include/qt4/QtCore/QLocale
-qlocale.h
-/usr/include/qt4/QtCore/qlocale.h
 
 /usr/include/qt4/QtCore/QObject
 qobject.h
@@ -2256,10 +2276,6 @@ qapplication.h
 qbuttongroup.h
 /usr/include/qt4/QtGui/qbuttongroup.h
 
-/usr/include/qt4/QtGui/QCheckBox
-qcheckbox.h
-/usr/include/qt4/QtGui/qcheckbox.h
-
 /usr/include/qt4/QtGui/QCleanlooksStyle
 qcleanlooksstyle.h
 /usr/include/qt4/QtGui/qcleanlooksstyle.h
@@ -2268,9 +2284,9 @@ qcleanlooksstyle.h
 qcommonstyle.h
 /usr/include/qt4/QtGui/qcommonstyle.h
 
-/usr/include/qt4/QtGui/QDockWidget
-qdockwidget.h
-/usr/include/qt4/QtGui/qdockwidget.h
+/usr/include/qt4/QtGui/QDialog
+qdialog.h
+/usr/include/qt4/QtGui/qdialog.h
 
 /usr/include/qt4/QtGui/QFileDialog
 qfiledialog.h
@@ -2280,21 +2296,9 @@ qfiledialog.h
 qfont.h
 /usr/include/qt4/QtGui/qfont.h
 
-/usr/include/qt4/QtGui/QFrame
-qframe.h
-/usr/include/qt4/QtGui/qframe.h
-
 /usr/include/qt4/QtGui/QGridLayout
 qgridlayout.h
 /usr/include/qt4/QtGui/qgridlayout.h
-
-/usr/include/qt4/QtGui/QGroupBox
-qgroupbox.h
-/usr/include/qt4/QtGui/qgroupbox.h
-
-/usr/include/qt4/QtGui/QHBoxLayout
-qboxlayout.h
-/usr/include/qt4/QtGui/qboxlayout.h
 
 /usr/include/qt4/QtGui/QHeaderView
 qheaderview.h
@@ -2308,14 +2312,6 @@ qlabel.h
 qlayout.h
 /usr/include/qt4/QtGui/qlayout.h
 
-/usr/include/qt4/QtGui/QLineEdit
-qlineedit.h
-/usr/include/qt4/QtGui/qlineedit.h
-
-/usr/include/qt4/QtGui/QListView
-qlistview.h
-/usr/include/qt4/QtGui/qlistview.h
-
 /usr/include/qt4/QtGui/QMainWindow
 qmainwindow.h
 /usr/include/qt4/QtGui/qmainwindow.h
@@ -2323,14 +2319,6 @@ qmainwindow.h
 /usr/include/qt4/QtGui/QMatrix4x4
 qmatrix4x4.h
 /usr/include/qt4/QtGui/qmatrix4x4.h
-
-/usr/include/qt4/QtGui/QMenu
-qmenu.h
-/usr/include/qt4/QtGui/qmenu.h
-
-/usr/include/qt4/QtGui/QMenuBar
-qmenubar.h
-/usr/include/qt4/QtGui/qmenubar.h
 
 /usr/include/qt4/QtGui/QMessageBox
 qmessagebox.h
@@ -2352,9 +2340,9 @@ qprinter.h
 qpushbutton.h
 /usr/include/qt4/QtGui/qpushbutton.h
 
-/usr/include/qt4/QtGui/QSpacerItem
-qlayoutitem.h
-/usr/include/qt4/QtGui/qlayoutitem.h
+/usr/include/qt4/QtGui/QSlider
+qslider.h
+/usr/include/qt4/QtGui/qslider.h
 
 /usr/include/qt4/QtGui/QStatusBar
 qstatusbar.h
@@ -2364,17 +2352,13 @@ qstatusbar.h
 qstringlistmodel.h
 /usr/include/qt4/QtGui/qstringlistmodel.h
 
-/usr/include/qt4/QtGui/QTabWidget
-qtabwidget.h
-/usr/include/qt4/QtGui/qtabwidget.h
+/usr/include/qt4/QtGui/QTextEdit
+qtextedit.h
+/usr/include/qt4/QtGui/qtextedit.h
 
 /usr/include/qt4/QtGui/QTransform
 qtransform.h
 /usr/include/qt4/QtGui/qtransform.h
-
-/usr/include/qt4/QtGui/QVBoxLayout
-qboxlayout.h
-/usr/include/qt4/QtGui/qboxlayout.h
 
 /usr/include/qt4/QtGui/QVector3D
 qvector3d.h
@@ -4633,8 +4617,6 @@ QtGui/qwidget.h
 -
 
 ui_main_window.h
-QtCore/QLocale
--
 QtCore/QVariant
 -
 QtGui/QAction
@@ -4643,42 +4625,38 @@ QtGui/QApplication
 -
 QtGui/QButtonGroup
 -
-QtGui/QCheckBox
--
-QtGui/QDockWidget
--
-QtGui/QFrame
--
 QtGui/QGridLayout
 -
-QtGui/QGroupBox
+QtGui/QHeaderView
 -
-QtGui/QHBoxLayout
+QtGui/QMainWindow
+-
+QtGui/QPushButton
+-
+QtGui/QStatusBar
+-
+QtGui/QWidget
+-
+
+ui_saveeditview.h
+QtCore/QVariant
+-
+QtGui/QAction
+-
+QtGui/QApplication
+-
+QtGui/QButtonGroup
+-
+QtGui/QDialog
 -
 QtGui/QHeaderView
 -
 QtGui/QLabel
 -
-QtGui/QLineEdit
--
-QtGui/QListView
--
-QtGui/QMainWindow
--
-QtGui/QMenu
--
-QtGui/QMenuBar
--
 QtGui/QPushButton
 -
-QtGui/QSpacerItem
+QtGui/QSlider
 -
-QtGui/QStatusBar
--
-QtGui/QTabWidget
--
-QtGui/QVBoxLayout
--
-QtGui/QWidget
+QtGui/QTextEdit
 -
 

@@ -49,7 +49,7 @@ public Q_SLOTS:
 //	void on_actionAbout_triggered();
 //	void on_button_connect_clicked(bool check );
 //	void on_checkbox_use_environment_stateChanged(int state);
-  void on_Manual_SwitchButton_clicked();
+//  void on_Manual_SwitchButton_clicked();
 
   void on_SetPoint_SaveViewButton_clicked();
     /******************************************
@@ -58,7 +58,7 @@ public Q_SLOTS:
 //    void updateLoggingView(); // no idea why this can't connect automatically
 
 private:
-	Ui::MainWindowDesign ui;
+  Ui::MainWindow ui;
 	QNode qnode;
 };
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.2, 2020-04-09T21:10:41. -->
+<!-- Written by QtCreator 4.9.2, 2020-04-23T00:20:59. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -56,7 +56,8 @@
   <variable>ProjectExplorer.Project.PluginSettings</variable>
   <valuemap type="QVariantMap">
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey"/>
-   <value type="bool" key="ClangCodeModel.UseGlobalConfig">true</value>
+   <value type="bool" key="ClangCodeModel.UseGlobalConfig">false</value>
+   <value type="QString" key="ClangCodeModel.WarningConfigId">{06a80f3d-c69e-49e7-b239-9d3938c7959f}</value>
   </valuemap>
  </data>
  <data>
@@ -125,7 +126,7 @@
      <value type="QString">ROS_PYTHON_VERSION=2</value>
      <value type="QString">ROS_ROOT=/opt/ros/kinetic/share/ros</value>
      <value type="QString">ROS_VERSION=1</value>
-     <value type="QString">SHLVL=70</value>
+     <value type="QString">SHLVL=322</value>
      <value type="QString">TERM=xterm</value>
      <value type="QString">TURTLEBOT_3D_SENSOR=asus_xtion_pro</value>
      <value type="QString">TURTLEBOT_BASE=kobuki</value>

@@ -63,23 +63,36 @@ qrc_images.cxx: /home/swhite/autoCam_ws/src/autoCam_pkg/resources/images.qrc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qrc_images.cxx"
 	/usr/lib/x86_64-linux-gnu/qt4/bin/rcc -name images -o /home/swhite/autoCam_ws/build/autoCam_pkg/qrc_images.cxx /home/swhite/autoCam_ws/src/autoCam_pkg/resources/images.qrc
 
+ui_main_window_backup.h: /home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window_backup.ui
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ui_main_window_backup.h"
+	/usr/lib/x86_64-linux-gnu/qt4/bin/uic -o /home/swhite/autoCam_ws/build/autoCam_pkg/ui_main_window_backup.h /home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window_backup.ui
+
 ui_main_window.h: /home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window.ui
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ui_main_window.h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ui_main_window.h"
 	/usr/lib/x86_64-linux-gnu/qt4/bin/uic -o /home/swhite/autoCam_ws/build/autoCam_pkg/ui_main_window.h /home/swhite/autoCam_ws/src/autoCam_pkg/ui/main_window.ui
+
+ui_saveeditview.h: /home/swhite/autoCam_ws/src/autoCam_pkg/ui/saveeditview.ui
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ui_saveeditview.h"
+	/usr/lib/x86_64-linux-gnu/qt4/bin/uic -o /home/swhite/autoCam_ws/build/autoCam_pkg/ui_saveeditview.h /home/swhite/autoCam_ws/src/autoCam_pkg/ui/saveeditview.ui
 
 include/autoCam_pkg/moc_main_window.cxx: /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/main_window.hpp
 include/autoCam_pkg/moc_main_window.cxx: include/autoCam_pkg/moc_main_window.cxx_parameters
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating include/autoCam_pkg/moc_main_window.cxx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating include/autoCam_pkg/moc_main_window.cxx"
 	cd /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg && /usr/lib/x86_64-linux-gnu/qt4/bin/moc @/home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_main_window.cxx_parameters
 
 include/autoCam_pkg/moc_qnode.cxx: /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
 include/autoCam_pkg/moc_qnode.cxx: include/autoCam_pkg/moc_qnode.cxx_parameters
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating include/autoCam_pkg/moc_qnode.cxx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating include/autoCam_pkg/moc_qnode.cxx"
 	cd /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg && /usr/lib/x86_64-linux-gnu/qt4/bin/moc @/home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_qnode.cxx_parameters
+
+include/autoCam_pkg/moc_saveeditview.cxx: /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
+include/autoCam_pkg/moc_saveeditview.cxx: include/autoCam_pkg/moc_saveeditview.cxx_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating include/autoCam_pkg/moc_saveeditview.cxx"
+	cd /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg && /usr/lib/x86_64-linux-gnu/qt4/bin/moc @/home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_saveeditview.cxx_parameters
 
 CMakeFiles/autoCam_pkg.dir/src/main.cpp.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/src/main.cpp.o: /home/swhite/autoCam_ws/src/autoCam_pkg/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/src/main.cpp.o -c /home/swhite/autoCam_ws/src/autoCam_pkg/src/main.cpp
 
 CMakeFiles/autoCam_pkg.dir/src/main.cpp.i: cmake_force
@@ -103,7 +116,7 @@ CMakeFiles/autoCam_pkg.dir/src/main.cpp.o.provides.build: CMakeFiles/autoCam_pkg
 
 CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o: /home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o -c /home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp
 
 CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.i: cmake_force
@@ -125,9 +138,33 @@ CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o.provides: CMakeFiles/autoCam_pkg.dir/
 CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o.provides.build: CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o
 
 
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o: CMakeFiles/autoCam_pkg.dir/flags.make
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o: /home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o -c /home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp
+
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp > CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.i
+
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp -o CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.s
+
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.requires:
+
+.PHONY : CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.requires
+
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.provides: CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.requires
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.provides.build
+.PHONY : CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.provides
+
+CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.provides.build: CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o
+
+
 CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o: /home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o -c /home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp
 
 CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.i: cmake_force
@@ -151,7 +188,7 @@ CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o.provides.build: CMakeFiles/auto
 
 CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o: qrc_images.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o -c /home/swhite/autoCam_ws/build/autoCam_pkg/qrc_images.cxx
 
 CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.i: cmake_force
@@ -175,7 +212,7 @@ CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o.provides.build: CMakeFiles/autoCam_p
 
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o: include/autoCam_pkg/moc_main_window.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o -c /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_main_window.cxx
 
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.i: cmake_force
@@ -199,7 +236,7 @@ CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o.provides.bu
 
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o: CMakeFiles/autoCam_pkg.dir/flags.make
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o: include/autoCam_pkg/moc_qnode.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o -c /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_qnode.cxx
 
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.i: cmake_force
@@ -221,24 +258,52 @@ CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o.provides: CMakeFi
 CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o.provides.build: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o
 
 
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o: CMakeFiles/autoCam_pkg.dir/flags.make
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o: include/autoCam_pkg/moc_saveeditview.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o -c /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_saveeditview.cxx
+
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_saveeditview.cxx > CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.i
+
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/swhite/autoCam_ws/build/autoCam_pkg/include/autoCam_pkg/moc_saveeditview.cxx -o CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.s
+
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.requires:
+
+.PHONY : CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.requires
+
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.provides: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.requires
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.provides.build
+.PHONY : CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.provides
+
+CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.provides.build: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o
+
+
 # Object files for target autoCam_pkg
 autoCam_pkg_OBJECTS = \
 "CMakeFiles/autoCam_pkg.dir/src/main.cpp.o" \
 "CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o" \
+"CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o" \
 "CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o" \
 "CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o" \
 "CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o" \
-"CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o"
+"CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o" \
+"CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o"
 
 # External object files for target autoCam_pkg
 autoCam_pkg_EXTERNAL_OBJECTS =
 
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/src/main.cpp.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o
+/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o
+/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/build.make
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: /usr/lib/x86_64-linux-gnu/libQtGui.so
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: /usr/lib/x86_64-linux-gnu/libQtCore.so
@@ -262,7 +327,7 @@ autoCam_pkg_EXTERNAL_OBJECTS =
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
 /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg: CMakeFiles/autoCam_pkg.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/autoCam_pkg.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -272,10 +337,12 @@ CMakeFiles/autoCam_pkg.dir/build: /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/
 
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/src/main.cpp.o.requires
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o.requires
+CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o.requires
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o.requires
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o.requires
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o.requires
 CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o.requires
+CMakeFiles/autoCam_pkg.dir/requires: CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o.requires
 
 .PHONY : CMakeFiles/autoCam_pkg.dir/requires
 
@@ -284,9 +351,12 @@ CMakeFiles/autoCam_pkg.dir/clean:
 .PHONY : CMakeFiles/autoCam_pkg.dir/clean
 
 CMakeFiles/autoCam_pkg.dir/depend: qrc_images.cxx
+CMakeFiles/autoCam_pkg.dir/depend: ui_main_window_backup.h
 CMakeFiles/autoCam_pkg.dir/depend: ui_main_window.h
+CMakeFiles/autoCam_pkg.dir/depend: ui_saveeditview.h
 CMakeFiles/autoCam_pkg.dir/depend: include/autoCam_pkg/moc_main_window.cxx
 CMakeFiles/autoCam_pkg.dir/depend: include/autoCam_pkg/moc_qnode.cxx
+CMakeFiles/autoCam_pkg.dir/depend: include/autoCam_pkg/moc_saveeditview.cxx
 	cd /home/swhite/autoCam_ws/build/autoCam_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/swhite/autoCam_ws/src/autoCam_pkg /home/swhite/autoCam_ws/src/autoCam_pkg /home/swhite/autoCam_ws/build/autoCam_pkg /home/swhite/autoCam_ws/build/autoCam_pkg /home/swhite/autoCam_ws/build/autoCam_pkg/CMakeFiles/autoCam_pkg.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/autoCam_pkg.dir/depend
 

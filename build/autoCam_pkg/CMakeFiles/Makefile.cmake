@@ -256,6 +256,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "resources/images.qrc.depends"
   "include/autoCam_pkg/moc_main_window.cxx_parameters"
   "include/autoCam_pkg/moc_qnode.cxx_parameters"
+  "include/autoCam_pkg/moc_saveeditview.cxx_parameters"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "gtest/gtest/CMakeFiles/CMakeDirectoryInformation.cmake"

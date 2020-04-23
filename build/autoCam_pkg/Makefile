@@ -544,6 +544,33 @@ include/autoCam_pkg/moc_qnode.cxx.s:
 	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.s
 .PHONY : include/autoCam_pkg/moc_qnode.cxx.s
 
+include/autoCam_pkg/moc_saveeditview.o: include/autoCam_pkg/moc_saveeditview.cxx.o
+
+.PHONY : include/autoCam_pkg/moc_saveeditview.o
+
+# target to build an object file
+include/autoCam_pkg/moc_saveeditview.cxx.o:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o
+.PHONY : include/autoCam_pkg/moc_saveeditview.cxx.o
+
+include/autoCam_pkg/moc_saveeditview.i: include/autoCam_pkg/moc_saveeditview.cxx.i
+
+.PHONY : include/autoCam_pkg/moc_saveeditview.i
+
+# target to preprocess a source file
+include/autoCam_pkg/moc_saveeditview.cxx.i:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.i
+.PHONY : include/autoCam_pkg/moc_saveeditview.cxx.i
+
+include/autoCam_pkg/moc_saveeditview.s: include/autoCam_pkg/moc_saveeditview.cxx.s
+
+.PHONY : include/autoCam_pkg/moc_saveeditview.s
+
+# target to generate assembly for a file
+include/autoCam_pkg/moc_saveeditview.cxx.s:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.s
+.PHONY : include/autoCam_pkg/moc_saveeditview.cxx.s
+
 qrc_images.o: qrc_images.cxx.o
 
 .PHONY : qrc_images.o
@@ -652,6 +679,33 @@ src/qnode.cpp.s:
 	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.s
 .PHONY : src/qnode.cpp.s
 
+src/saveeditview.o: src/saveeditview.cpp.o
+
+.PHONY : src/saveeditview.o
+
+# target to build an object file
+src/saveeditview.cpp.o:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o
+.PHONY : src/saveeditview.cpp.o
+
+src/saveeditview.i: src/saveeditview.cpp.i
+
+.PHONY : src/saveeditview.i
+
+# target to preprocess a source file
+src/saveeditview.cpp.i:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.i
+.PHONY : src/saveeditview.cpp.i
+
+src/saveeditview.s: src/saveeditview.cpp.s
+
+.PHONY : src/saveeditview.s
+
+# target to generate assembly for a file
+src/saveeditview.cpp.s:
+	$(MAKE) -f CMakeFiles/autoCam_pkg.dir/build.make CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.s
+.PHONY : src/saveeditview.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -696,6 +750,9 @@ help:
 	@echo "... include/autoCam_pkg/moc_qnode.o"
 	@echo "... include/autoCam_pkg/moc_qnode.i"
 	@echo "... include/autoCam_pkg/moc_qnode.s"
+	@echo "... include/autoCam_pkg/moc_saveeditview.o"
+	@echo "... include/autoCam_pkg/moc_saveeditview.i"
+	@echo "... include/autoCam_pkg/moc_saveeditview.s"
 	@echo "... qrc_images.o"
 	@echo "... qrc_images.i"
 	@echo "... qrc_images.s"
@@ -708,6 +765,9 @@ help:
 	@echo "... src/qnode.o"
 	@echo "... src/qnode.i"
 	@echo "... src/qnode.s"
+	@echo "... src/saveeditview.o"
+	@echo "... src/saveeditview.i"
+	@echo "... src/saveeditview.s"
 .PHONY : help
 
 
