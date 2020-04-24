@@ -20,6 +20,7 @@
 //    https://bugreports.qt.io/browse/QTBUG-22829
 #ifndef Q_MOC_RUN
 #include <ros/ros.h>
+#include <image_transport/image_transport.h>
 #endif
 #include <string>
 #include <QThread>
@@ -67,7 +68,9 @@ private:
 	int init_argc;
 	char** init_argv;
 	ros::Publisher chatter_publisher;
-    QStringListModel logging_model;
+  ros::Subscriber image_sub;
+  QStringListModel logging_model;
+  void imageCallback(const sensor_msgs::ImageConstPtr &msg);
 };
 
 }  // namespace autoCam_pkg

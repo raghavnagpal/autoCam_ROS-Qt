@@ -18,6 +18,14 @@ include_directories(${catkin_INCLUDE_DIRS})
 catkin_package()
 
 ##############################################################################
+# OpenCV
+##############################################################################
+# Specify OpenCV folder, and take care of dependenciesand includes
+set(OpenCV_DIR "/home/swhite/Downloads/opencv-4.1.1/")
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+##############################################################################
 # Qt Environment
 ##############################################################################
 
@@ -48,6 +56,6 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 ##############################################################################
 
 add_executable(autoCam_pkg ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
-target_link_libraries(autoCam_pkg ${QT_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(autoCam_pkg ${QT_LIBRARIES} ${catkin_LIBRARIES} ${OpenCV_LIBS})
 install(TARGETS autoCam_pkg RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 

@@ -40,6 +40,10 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 //	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
     QObject::connect(&qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
 
+    if ( !qnode.init() ) {
+      showNoMasterMessage();
+    }
+
   /*********************
   ** Logging
   **********************/
@@ -62,7 +66,7 @@ MainWindow::~MainWindow() {}
 
 void MainWindow::showNoMasterMessage() {
 	QMessageBox msgBox;
-	msgBox.setText("Couldn't find the ros master.");
+  msgBox.setText("Couldn't find the ROS master.");
 	msgBox.exec();
     close();
 }

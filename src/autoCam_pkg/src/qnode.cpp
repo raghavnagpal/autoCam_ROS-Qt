@@ -9,13 +9,18 @@
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
-
+#ifndef Q_MOC_RUN
 #include <ros/ros.h>
 #include <ros/network.h>
 #include <string>
 #include <std_msgs/String.h>
+#include <sensor_msgs/Image.h>
+#endif
 #include <sstream>
 #include "../include/autoCam_pkg/qnode.hpp"
+#include <image_transport/image_transport.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
 
 /*****************************************************************************
 ** Namespaces
@@ -65,6 +70,11 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 	ros::NodeHandle n;
 	// Add your ros communications here.
 	chatter_publisher = n.advertise<std_msgs::String>("chatter", 1000);
+  cv::namedWindow("view");
+  cv::startWindowThread();
+  image_transport::ImageTransport it(n);
+  image_transport::Subscriber image_sub = it.subscribe("camera/image", 1, imageCallback);
+  cv::destroyWindow("view");
 	start();
 	return true;
 }
@@ -122,6 +132,17 @@ void QNode::log( const LogLevel &level, const std::string &msg) {
 	QVariant new_row(QString(logging_model_msg.str().c_str()));
 	logging_model.setData(logging_model.index(logging_model.rowCount()-1),new_row);
 	Q_EMIT loggingUpdated(); // used to readjust the scrollbar
+}
+
+void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
+  try {
+    cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
+    cv::waitKey(30);
+  }
+  catch (cv_bridge::Exception& e) {
+    ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
+  }
+
 }
 
 }  // namespace autoCam_pkg

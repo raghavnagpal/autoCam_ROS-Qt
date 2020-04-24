@@ -38,6 +38,7 @@ Not searching for unused variables given on the command line.
 -- Using Python nosetests: /usr/bin/nosetests-2.7
 -- catkin 0.7.20
 -- BUILD_SHARED_LIBS is on
+-- Found OpenCV: /opt/ros/kinetic (found version "3.3.1")
 -- Looking for Q_WS_X11
 -- Looking for Q_WS_X11 - found
 -- Looking for Q_WS_WIN
