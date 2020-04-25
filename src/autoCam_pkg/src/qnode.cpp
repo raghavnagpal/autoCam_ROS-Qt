@@ -56,11 +56,11 @@ bool QNode::init() {
   ros::NodeHandle nh;
 	// Add your ros communications here.
 	chatter_publisher = n.advertise<std_msgs::String>("chatter", 1000);
-  cv::namedWindow("view");
-  cv::startWindowThread();
+  //cv::namedWindow("view");
+ // cv::startWindowThread();
   image_transport::ImageTransport it(nh);
   image_sub = it.subscribe("camera/image", 1, &QNode::imageCallback, this);
-  cv::destroyWindow("view");
+//  cv::destroyWindow("view");
 	start();
 	return true;
 }
@@ -138,8 +138,8 @@ void QNode::log( const LogLevel &level, const std::string &msg) {
 
 void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
   try {
-    cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
-    cv::waitKey(30);
+   // cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
+   // cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e) {
     ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
