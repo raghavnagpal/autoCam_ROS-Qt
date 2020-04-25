@@ -67,11 +67,12 @@ Q_SIGNALS:
 private:
 	int init_argc;
 	char** init_argv;
-	ros::Publisher chatter_publisher;
-  ros::Subscriber image_sub;
+  ros::Publisher chatter_publisher;
+  image_transport::Subscriber image_sub;
   QStringListModel logging_model;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
 };
+
 
 }  // namespace autoCam_pkg
 

@@ -1,18 +1,18 @@
-[  6%] [34m[1mGenerating qrc_images.cxx[0m
-[ 12%] [34m[1mGenerating include/autoCam_pkg/moc_saveeditview.cxx[0m
-[ 18%] [34m[1mGenerating ui_main_window.h[0m
-[ 31%] [34m[1mGenerating ui_main_window_backup.h[0m
-[ 31%] [34m[1mGenerating ui_saveeditview.h[0m
+[  6%] [34m[1mGenerating include/autoCam_pkg/moc_main_window.cxx[0m
+[ 25%] [34m[1mGenerating ui_main_window_backup.h[0m
+[ 25%] [34m[1mGenerating include/autoCam_pkg/moc_saveeditview.cxx[0m
+[ 25%] [34m[1mGenerating qrc_images.cxx[0m
+[ 31%] [34m[1mGenerating ui_main_window.h[0m
+[ 37%] [34m[1mGenerating ui_saveeditview.h[0m
 [ 43%] [34m[1mGenerating include/autoCam_pkg/moc_qnode.cxx[0m
-[ 43%] [34m[1mGenerating include/autoCam_pkg/moc_main_window.cxx[0m
-usr/include/boost/type_traits/detail/has_binary_operator.hp:50: Parse error at "BOOST_JOIN"
-CMakeFiles/autoCam_pkg.dir/build.make:85: recipe for target 'include/autoCam_pkg/moc_qnode.cxx' failed
-make[2]: *** [include/autoCam_pkg/moc_qnode.cxx] Error 1
-make[2]: *** Waiting for unfinished jobs....
-usr/include/boost/type_traits/detail/has_binary_operator.hp:50: Parse error at "BOOST_JOIN"
-CMakeFiles/autoCam_pkg.dir/build.make:80: recipe for target 'include/autoCam_pkg/moc_main_window.cxx' failed
-make[2]: *** [include/autoCam_pkg/moc_main_window.cxx] Error 1
-CMakeFiles/Makefile2:259: recipe for target 'CMakeFiles/autoCam_pkg.dir/all' failed
-make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
-Makefile:138: recipe for target 'all' failed
-make: *** [all] Error 2
+[35m[1mScanning dependencies of target autoCam_pkg[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/saveeditview.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/qrc_images.cxx.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o[0m
+[ 87%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o[0m
+[ 93%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_saveeditview.cxx.o[0m
+[100%] [32m[1mLinking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg[0m
+[100%] Built target autoCam_pkg

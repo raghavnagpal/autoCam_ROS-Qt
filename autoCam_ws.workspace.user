@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.2, 2020-04-23T23:28:19. -->
+<!-- Written by QtCreator 4.9.2, 2020-04-24T16:14:13. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -126,7 +126,7 @@
      <value type="QString">ROS_PYTHON_VERSION=2</value>
      <value type="QString">ROS_ROOT=/opt/ros/kinetic/share/ros</value>
      <value type="QString">ROS_VERSION=1</value>
-     <value type="QString">SHLVL=382</value>
+     <value type="QString">SHLVL=418</value>
      <value type="QString">TERM=xterm</value>
      <value type="QString">TURTLEBOT_3D_SENSOR=asus_xtion_pro</value>
      <value type="QString">TURTLEBOT_BASE=kobuki</value>
@@ -494,8 +494,8 @@
       <value type="bool" key="ROSProjectManager.ROSGenericStep.DebugContinueOnAttach">false</value>
       <value type="QString" key="ROSProjectManager.ROSGenericStep.Package">autoCam_pkg</value>
       <value type="QString" key="ROSProjectManager.ROSGenericStep.PackagePath">/home/swhite/autoCam_ws/src/autoCam_pkg</value>
-      <value type="QString" key="ROSProjectManager.ROSGenericStep.Target"></value>
-      <value type="QString" key="ROSProjectManager.ROSGenericStep.TargetPath"></value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.Target">autoCam_pkg</value>
+      <value type="QString" key="ROSProjectManager.ROSGenericStep.TargetPath">/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg</value>
      </valuemap>
      <value type="int" key="ProjectExplorer.RunStepList.StepsCount">1</value>
     </valuemap>

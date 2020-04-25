@@ -15,12 +15,13 @@
 #include <string>
 #include <std_msgs/String.h>
 #include <sensor_msgs/Image.h>
+#include <image_transport/image_transport.h>
+#include <cv_bridge/cv_bridge.h>
 #endif
 #include <sstream>
 #include "../include/autoCam_pkg/qnode.hpp"
-#include <image_transport/image_transport.h>
 #include <opencv2/highgui/highgui.hpp>
-#include <cv_bridge/cv_bridge.h>
+
 
 /*****************************************************************************
 ** Namespaces
@@ -52,8 +53,14 @@ bool QNode::init() {
 	}
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	ros::NodeHandle n;
+  ros::NodeHandle nh;
 	// Add your ros communications here.
 	chatter_publisher = n.advertise<std_msgs::String>("chatter", 1000);
+  cv::namedWindow("view");
+  cv::startWindowThread();
+  image_transport::ImageTransport it(nh);
+  image_sub = it.subscribe("camera/image", 1, &QNode::imageCallback, this);
+  cv::destroyWindow("view");
 	start();
 	return true;
 }
@@ -67,14 +74,9 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 		return false;
 	}
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
-	ros::NodeHandle n;
+  ros::NodeHandle n;
 	// Add your ros communications here.
 	chatter_publisher = n.advertise<std_msgs::String>("chatter", 1000);
-  cv::namedWindow("view");
-  cv::startWindowThread();
-  image_transport::ImageTransport it(n);
-  image_transport::Subscriber image_sub = it.subscribe("camera/image", 1, imageCallback);
-  cv::destroyWindow("view");
 	start();
 	return true;
 }

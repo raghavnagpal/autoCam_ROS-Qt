@@ -1,7 +1,0 @@
-usr/include/boost/type_traits/detail/has_binary_operator.hp:50: Parse error at "BOOST_JOIN"
-make[2]: *** [include/autoCam_pkg/moc_qnode.cxx] Error 1
-make[2]: *** Waiting for unfinished jobs....
-usr/include/boost/type_traits/detail/has_binary_operator.hp:50: Parse error at "BOOST_JOIN"
-make[2]: *** [include/autoCam_pkg/moc_main_window.cxx] Error 1
-make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
-make: *** [all] Error 2
