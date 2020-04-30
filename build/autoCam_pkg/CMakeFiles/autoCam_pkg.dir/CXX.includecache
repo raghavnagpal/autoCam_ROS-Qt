@@ -22,6 +22,22 @@
 QtCore/qglobal.h
 -
 
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
+ros/ros.h
+-
+ros/network.h
+-
+string
+-
+std_msgs/String.h
+-
+sensor_msgs/Image.h
+-
+image_transport/image_transport.h
+-
+cv_bridge/cv_bridge.h
+-
+
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/main_window.hpp
 QtGui/QMainWindow
 -
@@ -29,18 +45,26 @@ ui_main_window.h
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/ui_main_window.h
 qnode.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
+QPixmap
+-
+QGraphicsPixmapItem
+-
+QImage
+-
+QGraphicsScene
+-
+common.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
-ros/ros.h
--
-image_transport/image_transport.h
--
 string
 -
 QThread
 -
 QStringListModel
 -
+common.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
 QDialog
@@ -49,6 +73,8 @@ ui_saveeditview.h
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/ui_saveeditview.h
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/src/main.cpp
+../include/autoCam_pkg/common.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
 QtGui
 -
 QApplication
@@ -69,28 +95,18 @@ ui_main_window.h
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/main_window.hpp
 ../include/autoCam_pkg/saveeditview.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/saveeditview.hpp
+../include/autoCam_pkg/common.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp
-ros/ros.h
--
-ros/network.h
--
-string
--
-std_msgs/String.h
--
-sensor_msgs/Image.h
--
-image_transport/image_transport.h
--
-cv_bridge/cv_bridge.h
--
 sstream
 -
 ../include/autoCam_pkg/qnode.hpp
 /home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/qnode.hpp
 opencv2/highgui/highgui.hpp
 -
+../include/autoCam_pkg/common.h
+/home/swhite/autoCam_ws/src/autoCam_pkg/include/autoCam_pkg/common.h
 
 /home/swhite/autoCam_ws/src/autoCam_pkg/src/saveeditview.cpp
 QDebug
@@ -3818,6 +3834,18 @@ qfiledialog.h
 qfont.h
 /usr/include/qt4/QtGui/qfont.h
 
+/usr/include/qt4/QtGui/QGraphicsPixmapItem
+qgraphicsitem.h
+/usr/include/qt4/QtGui/qgraphicsitem.h
+
+/usr/include/qt4/QtGui/QGraphicsScene
+qgraphicsscene.h
+/usr/include/qt4/QtGui/qgraphicsscene.h
+
+/usr/include/qt4/QtGui/QGraphicsView
+qgraphicsview.h
+/usr/include/qt4/QtGui/qgraphicsview.h
+
 /usr/include/qt4/QtGui/QGridLayout
 qgridlayout.h
 /usr/include/qt4/QtGui/qgridlayout.h
@@ -3825,6 +3853,10 @@ qgridlayout.h
 /usr/include/qt4/QtGui/QHeaderView
 qheaderview.h
 /usr/include/qt4/QtGui/qheaderview.h
+
+/usr/include/qt4/QtGui/QImage
+qimage.h
+/usr/include/qt4/QtGui/qimage.h
 
 /usr/include/qt4/QtGui/QLabel
 qlabel.h
@@ -3849,6 +3881,10 @@ qmessagebox.h
 /usr/include/qt4/QtGui/QPalette
 qpalette.h
 /usr/include/qt4/QtGui/qpalette.h
+
+/usr/include/qt4/QtGui/QPixmap
+qpixmap.h
+/usr/include/qt4/QtGui/qpixmap.h
 
 /usr/include/qt4/QtGui/QPlatformWindow
 qplatformwindow_qpa.h
@@ -6146,6 +6182,8 @@ QtGui/QAction
 QtGui/QApplication
 -
 QtGui/QButtonGroup
+-
+QtGui/QGraphicsView
 -
 QtGui/QGridLayout
 -

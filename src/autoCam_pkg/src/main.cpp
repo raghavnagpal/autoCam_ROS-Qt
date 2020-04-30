@@ -8,7 +8,7 @@
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
-
+#include "../include/autoCam_pkg/common.h"
 #include <QtGui>
 #include <QApplication>
 #include "../include/autoCam_pkg/main_window.hpp"

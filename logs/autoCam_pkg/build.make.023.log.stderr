@@ -1,0 +1,19 @@
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:[m[K In constructor '[01m[KautoCam_pkg::MainWindow::MainWindow(int, char**, QWidget*)[m[K':
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:50:40:[m[K [01;31m[Kerror: [m[K'[01m[Kpixmap[m[K' was not declared in this scope
+     ui.graphicsView->scene()->addItem(&pixmap);
+[01;32m[K                                        ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:63:28:[m[K [01;31m[Kerror: [m[K'[01m[KBORDER_REFLECT[m[K' was not declared in this scope
+                            BORDER_REFLECT);
+[01;32m[K                            ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:63:28:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/core.hpp:54:0[m[K,
+                 from [01m[K/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/core/core.hpp:48[m[K,
+                 from [01m[K/opt/ros/kinetic/include/cv_bridge/cv_bridge.h:43[m[K,
+                 from [01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/../include/autoCam_pkg/common.h:7[m[K,
+                 from [01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:18[m[K:
+[01m[K/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv2/core/base.hpp:271:5:[m[K [01;36m[Knote: [m[K  '[01m[KBORDER_REFLECT[m[K'
+     BORDER_REFLECT     = 2, //!< `fedcba|abcdefgh|hgfedcb`
+[01;32m[K     ^[m[K
+make[2]: *** [CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o] Error 1
+make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
+make: *** [all] Error 2

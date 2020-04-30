@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QGraphicsView>
 #include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QMainWindow>
@@ -36,6 +37,7 @@ public:
     QPushButton *Follow_ResetButton;
     QPushButton *SetPoint_SideViewButton;
     QPushButton *Manual_SwitchButton;
+    QGraphicsView *graphicsView;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -127,6 +129,9 @@ public:
 
         gridLayout->addWidget(Manual_SwitchButton, 0, 6, 1, 1);
 
+        graphicsView = new QGraphicsView(centralwidget);
+        graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
+        graphicsView->setGeometry(QRect(30, 80, 881, 651));
         MainWindow->setCentralWidget(centralwidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));

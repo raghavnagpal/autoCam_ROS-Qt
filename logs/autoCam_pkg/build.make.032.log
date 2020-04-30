@@ -1,0 +1,18 @@
+[35m[1mScanning dependencies of target autoCam_pkg[0m
+[  6%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o[0m
+[ 37%] [32m[1mLinking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg[0m
+CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o: In function `autoCam_pkg::QNode::imageCallback(boost::shared_ptr<sensor_msgs::Image_<std::allocator<void> > const> const&)':
+/home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp:136: undefined reference to `autoCam_pkg::cv_ptr'
+CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o: In function `autoCam_pkg::MainWindow::MainWindow(int, char**, QWidget*)':
+/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:52: undefined reference to `autoCam_pkg::cv_ptr'
+collect2: error: ld returned 1 exit status
+CMakeFiles/autoCam_pkg.dir/build.make:390: recipe for target '/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg' failed
+make[2]: *** [/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/autoCam_pkg.dir/all' failed
+make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
+Makefile:138: recipe for target 'all' failed
+make: *** [all] Error 2

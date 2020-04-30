@@ -15,6 +15,7 @@
 #include "ui_main_window.h"
 #include "../include/autoCam_pkg/main_window.hpp"
 #include "../include/autoCam_pkg/saveeditview.hpp"
+#include "../include/autoCam_pkg/common.h"
 
 /*****************************************************************************
 ** Namespaces
@@ -27,6 +28,7 @@ using namespace Qt;
 /*****************************************************************************
 ** Implementation [MainWindow]
 *****************************************************************************/
+
 
 MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	: QMainWindow(parent)
@@ -43,6 +45,29 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     if ( !qnode.init() ) {
       showNoMasterMessage();
     }
+
+    ui.graphicsView->setScene(new QGraphicsScene(this));
+    ui.graphicsView->scene()->addItem(&pixmap);
+
+    if(my_global_cv_ptr != NULL){
+      cv::Mat frame = my_global_cv_ptr->image;
+      while(true)
+      {
+          if(!frame.empty())
+          {
+              QImage qimg(frame.data,
+                          frame.cols,
+                          frame.rows,
+                          frame.step,
+                          QImage::Format_RGB888);
+              pixmap.setPixmap( QPixmap::fromImage(qimg.rgbSwapped()) );
+              ui.graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
+          }
+          qApp->processEvents();
+      }
+    }
+
+
 
   /*********************
   ** Logging

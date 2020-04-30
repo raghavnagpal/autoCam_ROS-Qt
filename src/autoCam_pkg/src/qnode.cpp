@@ -9,25 +9,18 @@
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
-#ifndef Q_MOC_RUN
-#include <ros/ros.h>
-#include <ros/network.h>
-#include <string>
-#include <std_msgs/String.h>
-#include <sensor_msgs/Image.h>
-#include <image_transport/image_transport.h>
-#include <cv_bridge/cv_bridge.h>
-#endif
 #include <sstream>
 #include "../include/autoCam_pkg/qnode.hpp"
 #include <opencv2/highgui/highgui.hpp>
-
+#include "../include/autoCam_pkg/common.h"
 
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
 
 namespace autoCam_pkg {
+
+cv_bridge::CvImagePtr my_global_cv_ptr;
 
 /*****************************************************************************
 ** Implementation
@@ -59,7 +52,7 @@ bool QNode::init() {
   //cv::namedWindow("view");
  // cv::startWindowThread();
   image_transport::ImageTransport it(nh);
-  image_sub = it.subscribe("camera/image", 1, &QNode::imageCallback, this);
+  image_sub = it.subscribe("/usb_cam/image_raw", 1, &QNode::imageCallback, this);
 //  cv::destroyWindow("view");
 	start();
 	return true;
@@ -138,6 +131,17 @@ void QNode::log( const LogLevel &level, const std::string &msg) {
 
 void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
   try {
+
+    try {
+      my_global_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    }
+    catch (cv_bridge::Exception& e) {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+
+//    bridge = cv_bridge::CvBridge()
+//    cv_image = bridge.imgmsg_to_cv2(image_message, desired_encoding='passthrough')
    // cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
    // cv::waitKey(30);
   }

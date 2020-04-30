@@ -16,6 +16,12 @@
 #include "ui_main_window.h"
 //#include "saveeditview.hpp"
 #include "qnode.hpp"
+#include <QPixmap>
+#include <QGraphicsPixmapItem>
+#include <QImage>
+#include <QGraphicsScene>
+#include "common.h"
+
 
 /*****************************************************************************
 ** Namespace
@@ -60,6 +66,8 @@ public Q_SLOTS:
 private:
   Ui::MainWindow ui;
 	QNode qnode;
+  QGraphicsPixmapItem pixmap;
+
 };
 
 }  // namespace autoCam_pkg
