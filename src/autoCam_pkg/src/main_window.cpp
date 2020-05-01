@@ -49,26 +49,6 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     ui.graphicsView->setScene(new QGraphicsScene(this));
     ui.graphicsView->scene()->addItem(&pixmap);
 
-    if(my_global_cv_ptr != NULL){
-      cv::Mat frame = my_global_cv_ptr->image;
-      while(true)
-      {
-          if(!frame.empty())
-          {
-              QImage qimg(frame.data,
-                          frame.cols,
-                          frame.rows,
-                          frame.step,
-                          QImage::Format_RGB888);
-              pixmap.setPixmap( QPixmap::fromImage(qimg.rgbSwapped()) );
-              ui.graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
-          }
-          qApp->processEvents();
-      }
-    }
-
-
-
   /*********************
   ** Logging
   **********************/
@@ -204,5 +184,27 @@ void MainWindow::on_SetPoint_SaveViewButton_clicked()
     saveeditview.setModal(true);
     saveeditview.exec();
 }
+
+void MainWindow::on_Manual_SwitchButton_pressed()
+{
+  if(my_global_cv_ptr != NULL){
+    std::cout << "Display: image not null \n";
+    cv::Mat frame = my_global_cv_ptr->image;
+    while(true) {
+        if(!frame.empty()) {
+          std::cout << "Display Loop: image updated \n";
+          QImage qimg(frame.data,
+                      frame.cols,
+                      frame.rows,
+                      frame.step,
+                      QImage::Format_RGB888);
+          pixmap.setPixmap( QPixmap::fromImage(qimg.rgbSwapped()) );
+          ui.graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
+        }
+        qApp->processEvents();
+    }
+  }
+}
+
 
 }  // namespace autoCam_pkg

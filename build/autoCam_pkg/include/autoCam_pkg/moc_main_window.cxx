@@ -30,14 +30,14 @@ static const uint qt_meta_data_autoCam_pkg__MainWindow[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      25,   24,   24,   24, 0x0a,
+      25,   24,   24,   24, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_autoCam_pkg__MainWindow[] = {
     "autoCam_pkg::MainWindow\0\0"
-    "on_SetPoint_SaveViewButton_clicked()\0"
+    "on_Manual_SwitchButton_pressed()\0"
 };
 
 void autoCam_pkg::MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,7 +46,7 @@ void autoCam_pkg::MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call 
         Q_ASSERT(staticMetaObject.cast(_o));
         MainWindow *_t = static_cast<MainWindow *>(_o);
         switch (_id) {
-        case 0: _t->on_SetPoint_SaveViewButton_clicked(); break;
+        case 0: _t->on_Manual_SwitchButton_pressed(); break;
         default: ;
         }
     }

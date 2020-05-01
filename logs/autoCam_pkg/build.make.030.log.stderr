@@ -1,8 +1,0 @@
-CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o: In function `autoCam_pkg::QNode::imageCallback(boost::shared_ptr<sensor_msgs::Image_<std::allocator<void> > const> const&)':
-/home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp:136: undefined reference to `autoCam_pkg::cv_ptr'
-CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o: In function `autoCam_pkg::MainWindow::MainWindow(int, char**, QWidget*)':
-/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:52: undefined reference to `autoCam_pkg::cv_ptr'
-collect2: error: ld returned 1 exit status
-make[2]: *** [/home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg] Error 1
-make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
-make: *** [all] Error 2

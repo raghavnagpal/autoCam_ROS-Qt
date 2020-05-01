@@ -47,6 +47,7 @@ public:
 
 	void closeEvent(QCloseEvent *event); // Overloaded function
 	void showNoMasterMessage();
+  void on_SetPoint_SaveViewButton_clicked();
 
 public Q_SLOTS:
 	/******************************************
@@ -57,11 +58,13 @@ public Q_SLOTS:
 //	void on_checkbox_use_environment_stateChanged(int state);
 //  void on_Manual_SwitchButton_clicked();
 
-  void on_SetPoint_SaveViewButton_clicked();
     /******************************************
     ** Manual connections
     *******************************************/
 //    void updateLoggingView(); // no idea why this can't connect automatically
+
+private Q_SLOTS:
+  void on_Manual_SwitchButton_pressed();
 
 private:
   Ui::MainWindow ui;

@@ -133,7 +133,12 @@ void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
   try {
 
     try {
+      std::cout << "Subscriber: image updated \n";
       my_global_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+
+      if(my_global_cv_ptr != NULL){
+        std::cout << "Image is not NULL \n";
+      }
     }
     catch (cv_bridge::Exception& e) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
