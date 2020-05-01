@@ -70,6 +70,8 @@ private:
   Ui::MainWindow ui;
 	QNode qnode;
   QGraphicsPixmapItem pixmap;
+  bool imageStream;
+  cv::Mat frame;
 
 };
 

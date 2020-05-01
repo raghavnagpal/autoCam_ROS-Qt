@@ -1,9 +1,9 @@
 [  6%] [34m[1mGenerating include/autoCam_pkg/moc_qnode.cxx[0m
 [35m[1mScanning dependencies of target autoCam_pkg[0m
-[ 12%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o[0m
-[ 18%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
 [ 25%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o[0m
-[ 37%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_main_window.cxx.o[0m
 [ 37%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/include/autoCam_pkg/moc_qnode.cxx.o[0m
 [ 43%] [32m[1mLinking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg[0m
 [100%] Built target autoCam_pkg

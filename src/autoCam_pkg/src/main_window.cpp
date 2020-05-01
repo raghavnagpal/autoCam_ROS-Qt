@@ -174,6 +174,7 @@ void MainWindow::showNoMasterMessage() {
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+  imageStream = false;
   //WriteSettings();
 	QMainWindow::closeEvent(event);
 }
@@ -188,15 +189,16 @@ void MainWindow::on_SetPoint_SaveViewButton_clicked()
 void MainWindow::on_Manual_SwitchButton_pressed()
 {
   if(my_global_cv_ptr != NULL){
-    std::cout << "Display: image not null \n";
-    cv::Mat frame = my_global_cv_ptr->image;
-    while(true) {
-        if(!frame.empty()) {
-          std::cout << "Display Loop: image updated \n";
-          QImage qimg(frame.data,
-                      frame.cols,
-                      frame.rows,
-                      frame.step,
+    imageStream = true;
+//    std::cout << "Display: image not null \n";
+    while(imageStream) {
+//        frame = my_global_cv_ptr->image;
+        if(!my_global_cv_ptr->image.empty()) {
+//          std::cout << "Display Loop: image updated \n";
+          QImage qimg(my_global_cv_ptr->image.data,
+                      my_global_cv_ptr->image.cols,
+                      my_global_cv_ptr->image.rows,
+                      my_global_cv_ptr->image.step,
                       QImage::Format_RGB888);
           pixmap.setPixmap( QPixmap::fromImage(qimg.rgbSwapped()) );
           ui.graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);

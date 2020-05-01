@@ -40,33 +40,15 @@ public:
 	QNode(int argc, char** argv );
 	virtual ~QNode();
 	bool init();
-	bool init(const std::string &master_url, const std::string &host_url);
-	void run();
-
-	/*********************
-	** Logging
-	**********************/
-	enum LogLevel {
-	         Debug,
-	         Info,
-	         Warn,
-	         Error,
-	         Fatal
-	 };
-
-	QStringListModel* loggingModel() { return &logging_model; }
-	void log( const LogLevel &level, const std::string &msg);
+  void run();
 
 Q_SIGNALS:
-	void loggingUpdated();
     void rosShutdown();
 
 private:
 	int init_argc;
 	char** init_argv;
-  ros::Publisher chatter_publisher;
   image_transport::Subscriber image_sub;
-  QStringListModel logging_model;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
 };
 

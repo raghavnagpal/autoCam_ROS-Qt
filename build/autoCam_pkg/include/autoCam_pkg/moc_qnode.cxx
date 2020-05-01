@@ -22,23 +22,21 @@ static const uint qt_meta_data_autoCam_pkg__QNode[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       20,   19,   19,   19, 0x05,
-      37,   19,   19,   19, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_autoCam_pkg__QNode[] = {
-    "autoCam_pkg::QNode\0\0loggingUpdated()\0"
-    "rosShutdown()\0"
+    "autoCam_pkg::QNode\0\0rosShutdown()\0"
 };
 
 void autoCam_pkg::QNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,8 +45,7 @@ void autoCam_pkg::QNode::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         Q_ASSERT(staticMetaObject.cast(_o));
         QNode *_t = static_cast<QNode *>(_o);
         switch (_id) {
-        case 0: _t->loggingUpdated(); break;
-        case 1: _t->rosShutdown(); break;
+        case 0: _t->rosShutdown(); break;
         default: ;
         }
     }
@@ -87,22 +84,16 @@ int autoCam_pkg::QNode::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 1;
     }
     return _id;
 }
 
 // SIGNAL 0
-void autoCam_pkg::QNode::loggingUpdated()
-{
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
-}
-
-// SIGNAL 1
 void autoCam_pkg::QNode::rosShutdown()
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, 0);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

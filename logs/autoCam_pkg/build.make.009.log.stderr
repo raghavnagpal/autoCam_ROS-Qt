@@ -1,0 +1,6 @@
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/qnode.cpp:56:17:[m[K [01;31m[Kerror: [m[Kno '[01m[Kvoid autoCam_pkg::QNode::run()[m[K' member function declared in class '[01m[KautoCam_pkg::QNode[m[K'
+ void QNode::run() {
+[01;32m[K                 ^[m[K
+make[2]: *** [CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o] Error 1
+make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
+make: *** [all] Error 2
