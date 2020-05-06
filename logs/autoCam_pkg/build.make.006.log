@@ -1,5 +1,0 @@
-[35m[1mScanning dependencies of target autoCam_pkg[0m
-[  6%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/qnode.cpp.o[0m
-[ 12%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
-[ 18%] [32m[1mLinking CXX executable /home/swhite/autoCam_ws/devel/lib/autoCam_pkg/autoCam_pkg[0m
-[100%] Built target autoCam_pkg

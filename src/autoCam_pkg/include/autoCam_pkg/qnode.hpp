@@ -49,7 +49,10 @@ private:
 	int init_argc;
 	char** init_argv;
   image_transport::Subscriber image_sub;
+  image_transport::Subscriber image_sub_2;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
+  void imageCallback_2(const sensor_msgs::ImageConstPtr &msg);
+
 };
 
 

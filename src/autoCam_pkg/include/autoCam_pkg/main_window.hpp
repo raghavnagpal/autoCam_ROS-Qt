@@ -69,9 +69,10 @@ private Q_SLOTS:
 private:
   Ui::MainWindow ui;
 	QNode qnode;
+  int switchCounter;
   QGraphicsPixmapItem pixmap;
+  QGraphicsPixmapItem pixmap_2;
   bool imageStream;
-  cv::Mat frame;
 
 };
 

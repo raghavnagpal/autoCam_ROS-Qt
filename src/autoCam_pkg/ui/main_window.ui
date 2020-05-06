@@ -180,7 +180,7 @@ background-color: grey;
         </size>
        </property>
        <property name="text">
-        <string>Switch</string>
+        <string>Start Video</string>
        </property>
       </widget>
      </item>
@@ -191,9 +191,31 @@ background-color: grey;
      <rect>
       <x>30</x>
       <y>80</y>
-      <width>881</width>
-      <height>581</height>
+      <width>900</width>
+      <height>675</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_2">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>80</y>
+      <width>180</width>
+      <height>135</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="NoBrush">
+      <color alpha="255">
+       <red>136</red>
+       <green>138</green>
+       <blue>133</blue>
+      </color>
+     </brush>
     </property>
    </widget>
   </widget>

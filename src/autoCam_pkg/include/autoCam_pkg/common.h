@@ -16,5 +16,6 @@
 namespace autoCam_pkg {
 
 extern cv_bridge::CvImagePtr my_global_cv_ptr;
+extern cv_bridge::CvImagePtr my_global_cv_ptr_2;
 
 }

@@ -1,0 +1,15 @@
+[35m[1mScanning dependencies of target autoCam_pkg[0m
+[  6%] [32mBuilding CXX object CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o[0m
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:84:36:[m[K [01;35m[Kwarning: [m[Kcharacter constant too long for its type
+   ui->Manual_SwitchButton->setText('Switch Cameras');
+[01;32m[K                                    ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:[m[K In member function '[01m[Kvoid autoCam_pkg::MainWindow::on_Manual_SwitchButton_pressed()[m[K':
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:84:5:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+   ui->Manual_SwitchButton->setText('Switch Cameras');
+[01;32m[K     ^[m[K
+CMakeFiles/autoCam_pkg.dir/build.make:163: recipe for target 'CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o' failed
+make[2]: *** [CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/autoCam_pkg.dir/all' failed
+make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
+Makefile:138: recipe for target 'all' failed
+make: *** [all] Error 2

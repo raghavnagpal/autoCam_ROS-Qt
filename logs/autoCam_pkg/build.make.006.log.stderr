@@ -1,0 +1,29 @@
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:84:35:[m[K [01;35m[Kwarning: [m[Kcharacter constant too long for its type
+   UI->Manual_SwitchButton.setText('Switch Cameras');
+[01;32m[K                                   ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:[m[K In member function '[01m[Kvoid autoCam_pkg::MainWindow::on_Manual_SwitchButton_pressed()[m[K':
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:84:3:[m[K [01;31m[Kerror: [m[K'[01m[KUI[m[K' was not declared in this scope
+   UI->Manual_SwitchButton.setText('Switch Cameras');
+[01;32m[K   ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:111:35:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+     QGraphicsView* makeLarger = ui->graphicsView;
+[01;32m[K                                   ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:112:36:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+     QGraphicsView* makeSmaller = ui->graphicsView_2;
+[01;32m[K                                    ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:113:7:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+     ui->statusBar->showMessage("Showing Head Camera",3500);
+[01;32m[K       ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:117:24:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+         makeLarger = ui->graphicsView_2;
+[01;32m[K                        ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:118:25:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+         makeSmaller = ui->graphicsView;
+[01;32m[K                         ^[m[K
+[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:119:11:[m[K [01;31m[Kerror: [m[Kbase operand of '[01m[K->[m[K' has non-pointer type '[01m[KUi::MainWindow[m[K'
+         ui->statusBar->showMessage("Showing Arm Camera",3500);
+[01;32m[K           ^[m[K
+make[2]: *** [CMakeFiles/autoCam_pkg.dir/src/main_window.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/autoCam_pkg.dir/all] Error 2
+make: *** [all] Error 2

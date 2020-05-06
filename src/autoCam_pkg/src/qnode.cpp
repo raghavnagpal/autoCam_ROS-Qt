@@ -21,6 +21,7 @@
 namespace autoCam_pkg {
 
 cv_bridge::CvImagePtr my_global_cv_ptr;
+cv_bridge::CvImagePtr my_global_cv_ptr_2;
 
 /*****************************************************************************
 ** Implementation
@@ -48,8 +49,10 @@ bool QNode::init() {
   ros::NodeHandle nh;
 	// Add your ros communications here.
   image_transport::ImageTransport it(nh);
-  image_sub = it.subscribe("/usb_cam/image_raw", 1, &QNode::imageCallback, this);
-	start();
+//  image_sub = it.subscribe("/usb_cam/image_raw", 1, &QNode::imageCallback, this);
+  image_sub = it.subscribe("/cam/camera1/image_raw1", 1, &QNode::imageCallback, this); //static camera
+  image_sub_2 = it.subscribe("/cam/camera/image_raw", 1, &QNode::imageCallback_2, this); //hand camera
+  start();
 	return true;
 }
 
@@ -63,9 +66,7 @@ void QNode::run() {
 
 void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
   try {
-
     try {
-//      std::cout << "Subscriber: image updated \n";
       my_global_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
 
     }
@@ -73,16 +74,26 @@ void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
       return;
     }
-
-//    bridge = cv_bridge::CvBridge()
-//    cv_image = bridge.imgmsg_to_cv2(image_message, desired_encoding='passthrough')
-   // cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
-   // cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e) {
     ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
   }
+}
 
+void QNode::imageCallback_2(const sensor_msgs::ImageConstPtr& msg) {
+  try {
+    try {
+      my_global_cv_ptr_2 = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+
+    }
+    catch (cv_bridge::Exception& e) {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+  }
+  catch (cv_bridge::Exception& e) {
+    ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
+  }
 }
 
 }  // namespace autoCam_pkg
