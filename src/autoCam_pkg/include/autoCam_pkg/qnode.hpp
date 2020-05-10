@@ -50,9 +50,10 @@ private:
 	char** init_argv;
   image_transport::Subscriber image_sub;
   image_transport::Subscriber image_sub_2;
+  ros::Subscriber cartesian_sub;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
   void imageCallback_2(const sensor_msgs::ImageConstPtr &msg);
-
+  void cartesianCallback(const gazebo_msgs::LinkStatesConstPtr &msg);
 };
 
 

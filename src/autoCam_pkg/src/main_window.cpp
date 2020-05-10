@@ -54,21 +54,21 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     ui.graphicsView_2->setScene(new QGraphicsScene(this));
     ui.graphicsView_2->scene()->addItem(&pixmap_2);
 
-  /*  */
-      QSlider *J1_horizontalSlider = new QSlider(Qt::Horizontal);
-      J1_horizontalSlider->setRange(-999999999, 999999999);
-      QSlider *J2_horizontalSlider = new QSlider(Qt::Horizontal);
-      J2_horizontalSlider->setRange(-128, 128);
-      QSlider *J3_horizontalSlider = new QSlider(Qt::Horizontal);
-      J3_horizontalSlider->setRange(-999999999, 999999999);
-      QSlider *J4_horizontalSlider = new QSlider(Qt::Horizontal);
-      J4_horizontalSlider->setRange(-147, 147);
-      QSlider *J5_horizontalSlider = new QSlider(Qt::Horizontal);
-      J5_horizontalSlider->setRange(-999999999, 999999999);
-      QSlider *J6_horizontalSlider = new QSlider(Qt::Horizontal);
-      J6_horizontalSlider->setRange(-120, 120);
-      QSlider *J7_horizontalSlider = new QSlider(Qt::Horizontal);
-      J7_horizontalSlider->setRange(-999999999, 999999999);
+  /* Set ragne of joint sliders */
+    QSlider *J1_horizontalSlider = new QSlider(Qt::Horizontal);
+    J1_horizontalSlider->setRange(-999999999, 999999999);
+    QSlider *J2_horizontalSlider = new QSlider(Qt::Horizontal);
+    J2_horizontalSlider->setRange(-128, 128);
+    QSlider *J3_horizontalSlider = new QSlider(Qt::Horizontal);
+    J3_horizontalSlider->setRange(-999999999, 999999999);
+    QSlider *J4_horizontalSlider = new QSlider(Qt::Horizontal);
+    J4_horizontalSlider->setRange(-147, 147);
+    QSlider *J5_horizontalSlider = new QSlider(Qt::Horizontal);
+    J5_horizontalSlider->setRange(-999999999, 999999999);
+    QSlider *J6_horizontalSlider = new QSlider(Qt::Horizontal);
+    J6_horizontalSlider->setRange(-120, 120);
+    QSlider *J7_horizontalSlider = new QSlider(Qt::Horizontal);
+    J7_horizontalSlider->setRange(-999999999, 999999999);
   /*////*/
 
 
@@ -94,7 +94,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 	QMainWindow::closeEvent(event);
 }
 
-void MainWindow::on_Manual_SwitchButton_clicked()
+void MainWindow::on_Manual_SwitchButton_pressed()
 {
   ui.Manual_SwitchButton->setText(QString("Switch Cameras"));
 
@@ -110,14 +110,16 @@ void MainWindow::on_Manual_SwitchButton_clicked()
       ui.statusBar->showMessage("Showing Arm Camera",3500);
   }
 
-  makeLarger->move(30,80);
-  makeLarger->resize(900,675);
-  makeSmaller->resize(180,135);
-  makeSmaller->move(750,80);
+  makeLarger->move(5,60);
+  makeLarger->resize(640,640);
+  makeSmaller->resize(180,180);
+  makeSmaller->move(465,60);
   makeSmaller->raise();
 
   //increment the counter
   switchCounter ++;
+  std::cout << "switching camera \n";
+
 
   //check that both image streams are populated with images
   if(my_global_cv_ptr != NULL && my_global_cv_ptr_2 != NULL){
@@ -296,30 +298,7 @@ void MainWindow::on_Pitch_verticalSlider_valueChanged(int value)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-void MainWindow::on_StandardView1_pushButton_clicked()
-{
 
-}
-
-void MainWindow::on_StandardView2_pushButton_clicked()
-{
-
-}
-
-void MainWindow::on_StandardView3_pushButton_clicked()
-{
-
-}
-
-void MainWindow::on_StandardView4_pushButton_clicked()
-{
-
-}
-
-void MainWindow::on_StandardView5_pushButton_clicked()
-{
-
-}
 /*/////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Command Window
@@ -710,9 +689,6 @@ void MainWindow::on_addView_pushButton_clicked()
 // TextEdit Box Names: XNEW_textEdit, YNEW_textEdit, ZNEW_textEdit
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
-int XNEWcounter = 0;
-int YNEWcounter = 0;
-int ZNEWcounter = 0;
 void MainWindow::on_NewUP_pushButton_clicked()
 {
     ZNEWcounter++;

@@ -63,7 +63,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
 
-  void on_Manual_SwitchButton_clicked();
+  void on_Manual_SwitchButton_pressed();
 
   void on_UP_pushButton_clicked();
 
@@ -108,16 +108,6 @@ private Q_SLOTS:
   void on_view5_pushButton_clicked();
 
   void on_addView_pushButton_clicked();
-
-  void on_StandardView1_pushButton_clicked();
-
-  void on_StandardView2_pushButton_clicked();
-
-  void on_StandardView3_pushButton_clicked();
-
-  void on_StandardView4_pushButton_clicked();
-
-  void on_StandardView5_pushButton_clicked();
 
   //void on_addName_textEdit_textChanged(QKeyEvent *e);
 
@@ -190,6 +180,9 @@ private:
   QGraphicsPixmapItem pixmap;
   QGraphicsPixmapItem pixmap_2;
   bool imageStream;
+  int XNEWcounter;
+  int YNEWcounter;
+  int ZNEWcounter;
 
 };
 

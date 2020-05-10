@@ -1,3 +1,0 @@
-[01m[K/home/swhite/autoCam_ws/src/autoCam_pkg/src/main_window.cpp:84:43:[m[K [01;35m[Kwarning: [m[Kcharacter constant too long for its type
-   ui.Manual_SwitchButton->setText(QString('Switch Cameras'));
-[01;32m[K                                           ^[m[K
