@@ -41,6 +41,7 @@ public:
 	virtual ~QNode();
 	bool init();
   void run();
+  void publishControl();
 
 Q_SIGNALS:
     void rosShutdown();
@@ -51,6 +52,7 @@ private:
   image_transport::Subscriber image_sub;
   image_transport::Subscriber image_sub_2;
   ros::Subscriber cartesian_sub;
+  ros::Publisher control_pub;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
   void imageCallback_2(const sensor_msgs::ImageConstPtr &msg);
   void cartesianCallback(const gazebo_msgs::LinkStatesConstPtr &msg);

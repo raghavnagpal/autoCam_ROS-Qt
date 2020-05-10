@@ -173,6 +173,8 @@ private Q_SLOTS:
 
   void on_LookAtHand_horizontalSlider_valueChanged(int value);
 
+  void on_comboBox_currentIndexChanged(const QString &arg1);
+
 private:
   Ui::MainWindow ui;
 	QNode qnode;

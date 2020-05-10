@@ -111,7 +111,7 @@ background-color: grey;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="mainCommandWindow">
      <attribute name="title">
@@ -184,6 +184,12 @@ p, li { white-space: pre-wrap; }
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-180</number>
+      </property>
+      <property name="maximum">
+       <number>180</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>

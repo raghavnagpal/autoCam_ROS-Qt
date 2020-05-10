@@ -23,7 +23,7 @@ namespace autoCam_pkg {
 cv_bridge::CvImagePtr my_global_cv_ptr;
 cv_bridge::CvImagePtr my_global_cv_ptr_2;
 geometry_msgs::Pose hand_camera_pose;
-
+std_msgs::String controlState;
 /*****************************************************************************
 ** Implementation
 *****************************************************************************/
@@ -50,11 +50,15 @@ bool QNode::init() {
   ros::NodeHandle nh;
 	// Add your ros communications here.
   image_transport::ImageTransport it(nh);
-//  image_sub = it.subscribe("/usb_cam/image_raw", 1, &QNode::imageCallback, this);
+  //  image_sub = it.subscribe("/usb_cam/image_raw", 1, &QNode::imageCallback, this);
   image_sub = it.subscribe("/cam/camera1/image_raw1", 1, &QNode::imageCallback, this); //static camera
   image_sub_2 = it.subscribe("/cam/camera/image_raw", 1, &QNode::imageCallback_2, this); //hand camera
 
   cartesian_sub = nh.subscribe("/gazebo/link_states", 1, &QNode::cartesianCallback, this); // cartesian position of hand camera
+
+  /* Publishers */
+  control_pub = nh.advertise<std_msgs::String>("/controlState", 1);
+
   start();
 	return true;
 }
@@ -107,6 +111,10 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 
 //  std::cout << Position_of_ee.x << "\n";
 
+}
+
+void QNode::publishControl() {
+  control_pub.publish(controlState);
 }
 
 }  // namespace autoCam_pkg

@@ -56,21 +56,20 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
   /* Set ragne of joint sliders */
     QSlider *J1_horizontalSlider = new QSlider(Qt::Horizontal);
-    J1_horizontalSlider->setRange(-999999999, 999999999);
+    J1_horizontalSlider->setRange(-180, 180);
     QSlider *J2_horizontalSlider = new QSlider(Qt::Horizontal);
     J2_horizontalSlider->setRange(-128, 128);
     QSlider *J3_horizontalSlider = new QSlider(Qt::Horizontal);
-    J3_horizontalSlider->setRange(-999999999, 999999999);
+    J3_horizontalSlider->setRange(-180, 180);
     QSlider *J4_horizontalSlider = new QSlider(Qt::Horizontal);
     J4_horizontalSlider->setRange(-147, 147);
     QSlider *J5_horizontalSlider = new QSlider(Qt::Horizontal);
-    J5_horizontalSlider->setRange(-999999999, 999999999);
+    J5_horizontalSlider->setRange(-180, 180);
     QSlider *J6_horizontalSlider = new QSlider(Qt::Horizontal);
     J6_horizontalSlider->setRange(-120, 120);
     QSlider *J7_horizontalSlider = new QSlider(Qt::Horizontal);
-    J7_horizontalSlider->setRange(-999999999, 999999999);
+    J7_horizontalSlider->setRange(-180, 180);
   /*////*/
-
 
 }
 
@@ -117,7 +116,7 @@ void MainWindow::on_Manual_SwitchButton_pressed()
   makeSmaller->raise();
 
   //increment the counter
-  switchCounter ++;
+  switchCounter = switchCounter + 1;
   std::cout << "switching camera \n";
 
 
@@ -1508,4 +1507,27 @@ void MainWindow::on_LookAtHand_horizontalSlider_valueChanged(int value)
     ui.HandWeight_textEdit->setText(b);
 }
 
+/* Change control method */
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+  std::stringstream ss;
+  if (arg1 == "joint"){
+    ss << "joint";
+
+  }
+  else if (arg1 == "cartesian") {
+    ss << "cartesian";
+
+  }
+  else {
+    ss << "objective";
+
+  }
+
+  controlState.data = ss.str();
+  qnode.publishControl();
+}
+
 }  // namespace autoCam_pkg
+
