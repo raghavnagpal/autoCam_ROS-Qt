@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.9.2, 2020-05-04T14:40:39. -->
+<!-- Written by QtCreator 4.9.2, 2020-05-10T22:01:04. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -126,7 +126,7 @@
      <value type="QString">ROS_PYTHON_VERSION=2</value>
      <value type="QString">ROS_ROOT=/opt/ros/kinetic/share/ros</value>
      <value type="QString">ROS_VERSION=1</value>
-     <value type="QString">SHLVL=562</value>
+     <value type="QString">SHLVL=100</value>
      <value type="QString">TERM=xterm</value>
      <value type="QString">TURTLEBOT_3D_SENSOR=asus_xtion_pro</value>
      <value type="QString">TURTLEBOT_BASE=kobuki</value>
@@ -192,7 +192,39 @@
     </valuemap>
     <value type="int" key="ProjectExplorer.BuildConfiguration.BuildStepListCount">2</value>
     <value type="bool" key="ProjectExplorer.BuildConfiguration.ClearSystemEnvironment">false</value>
-    <valuelist type="QVariantList" key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges"/>
+    <valuelist type="QVariantList" key="ProjectExplorer.BuildConfiguration.UserEnvironmentChanges">
+     <value type="QString">CMAKE_PREFIX_PATH=/home/swhite/autoCam_ws/devel:/opt/ros/kinetic</value>
+     <value type="QString">LD_LIBRARY_PATH=/home/swhite/autoCam_ws/devel/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu</value>
+     <value type="QString">PATH=/opt/ros/kinetic/bin:/home/swhite/bin:/home/swhite/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</value>
+     <value type="QString">PKG_CONFIG_PATH=/home/swhite/autoCam_ws/devel/lib/pkgconfig:/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig</value>
+     <value type="QString">PWD=/home/swhite/autoCam_ws</value>
+     <value type="QString">PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages</value>
+     <value type="QString">ROSLISP_PACKAGE_DIRECTORIES=/home/swhite/autoCam_ws/devel/share/common-lisp</value>
+     <value type="QString">ROS_DISTRO=kinetic</value>
+     <value type="QString">ROS_ETC_DIR=/opt/ros/kinetic/etc/ros</value>
+     <value type="QString">ROS_MASTER_URI=http://localhost:11311</value>
+     <value type="QString">ROS_PACKAGE_PATH=/home/swhite/autoCam_ws/src/autoCam_pkg:/opt/ros/kinetic/share</value>
+     <value type="QString">ROS_PYTHON_VERSION=2</value>
+     <value type="QString">ROS_ROOT=/opt/ros/kinetic/share/ros</value>
+     <value type="QString">ROS_VERSION=1</value>
+     <value type="QString">SHLVL=4</value>
+     <value type="QString">TERM=xterm</value>
+     <value type="QString">TURTLEBOT_3D_SENSOR=asus_xtion_pro</value>
+     <value type="QString">TURTLEBOT_BASE=kobuki</value>
+     <value type="QString">TURTLEBOT_BATTERY=/sys/class/power_supply/BAT0</value>
+     <value type="QString">TURTLEBOT_GAZEBO_MAP_FILE=/opt/ros/kinetic/share/turtlebot_gazebo/maps/playground.yaml</value>
+     <value type="QString">TURTLEBOT_GAZEBO_WORLD_FILE=/opt/ros/kinetic/share/turtlebot_gazebo/worlds/playground.world</value>
+     <value type="QString">TURTLEBOT_INTERACTIONS_LIST=[turtlebot_bringup/admin.interactions, turtlebot_bringup/documentation.interactions, turtlebot_bringup/pairing.interactions, turtlebot_bringup/visualisation.interactions]</value>
+     <value type="QString">TURTLEBOT_MAP_FILE=/opt/ros/kinetic/share/turtlebot_navigation/maps/willow-2010-02-18-0.10.yaml</value>
+     <value type="QString">TURTLEBOT_NAME=turtlebot</value>
+     <value type="QString">TURTLEBOT_RAPP_PACKAGE_BLACKLIST=[]</value>
+     <value type="QString">TURTLEBOT_RAPP_PACKAGE_WHITELIST=[rocon_apps, turtlebot_rapps]</value>
+     <value type="QString">TURTLEBOT_SERIAL_PORT=/dev/kobuki</value>
+     <value type="QString">TURTLEBOT_SIMULATION=false</value>
+     <value type="QString">TURTLEBOT_STACKS=hexagons</value>
+     <value type="QString">TURTLEBOT_TYPE=turtlebot</value>
+     <value type="QString">_=/usr/bin/env</value>
+    </valuelist>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Release</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Release</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ROSProjectManager.ROSBuildConfiguration</value>

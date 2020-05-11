@@ -11,6 +11,7 @@
 *****************************************************************************/
 #include <sstream>
 #include "../include/autoCam_pkg/qnode.hpp"
+#include "../include/autoCam_pkg/main_window.hpp"
 #include <opencv2/highgui/highgui.hpp>
 #include "../include/autoCam_pkg/common.h"
 
@@ -28,9 +29,10 @@ std_msgs::String controlState;
 ** Implementation
 *****************************************************************************/
 
-QNode::QNode(int argc, char** argv ) :
+QNode::QNode(int argc, char** argv, MainWindow* mw ) :
 	init_argc(argc),
-	init_argv(argv)
+  init_argv(argv),
+  theWindow(mw)
 	{}
 
 QNode::~QNode() {
@@ -110,7 +112,7 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 //  geometry_msgs::Quaternion Orientation_of_ee = msg->pose[9].orientation;
 
 //  std::cout << Position_of_ee.x << "\n";
-
+//theWindow->observeCartesian();
 
 }
 

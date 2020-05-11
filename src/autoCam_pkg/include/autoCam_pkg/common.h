@@ -25,5 +25,4 @@ extern cv_bridge::CvImagePtr my_global_cv_ptr_2;
 /* Camera robot */
 extern geometry_msgs::Pose hand_camera_pose;
 extern std_msgs::String controlState;
-
 }

@@ -180,6 +180,8 @@ private Q_SLOTS:
   void toggleCartesianControl(bool enable);
 
   void on_X_lineEdit_editingFinished();
+  void on_Y_lineEdit_editingFinished();
+  void on_Z_lineEdit_editingFinished();
 
 private:
   Ui::MainWindow ui;

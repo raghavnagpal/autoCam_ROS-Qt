@@ -30,7 +30,7 @@ using namespace Qt;
 
 MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	: QMainWindow(parent)
-	, qnode(argc,argv)
+  , qnode(argc,argv,this)
 {
   ui.setupUi(this); // Calling this incidentally connects all ui's triggers to on_...() callbacks in this class.
 
@@ -51,6 +51,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
     ui.graphicsView_2->setScene(new QGraphicsScene(this));
     ui.graphicsView_2->scene()->addItem(&pixmap_2);
+
+    ui.tabWidget->setCurrentIndex(0);
 
   /* Set ragne of joint sliders */
     QSlider *J1_horizontalSlider = new QSlider(Qt::Horizontal);
@@ -142,8 +144,9 @@ void MainWindow::on_Manual_SwitchButton_pressed()
                     QImage::Format_RGB888);
         pixmap_2.setPixmap( QPixmap::fromImage(qimg_2.rgbSwapped()) );
         ui.graphicsView_2->fitInView(&pixmap_2, Qt::KeepAspectRatio);
-      qApp->processEvents();
       }
+      observeCartesian();
+      qApp->processEvents();
     }
   }
 }
@@ -166,44 +169,61 @@ void MainWindow::on_Manual_SwitchButton_pressed()
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_UP_pushButton_clicked() {
-    Zcounter = Zcounter + 1.0;
+  Zcounter = Zcounter + 1.0;
+  observeCartesian();
 }
 
 void MainWindow::on_DOWN_pushButton_clicked() {
-    Zcounter = Zcounter - 1.0;
+  Zcounter = Zcounter - 1.0;
+  observeCartesian();
 }
 
 void MainWindow::on_OUT_pushButton_clicked() {
-    Xcounter = Xcounter + 1.0;
+  Xcounter = Xcounter + 1.0;
+  observeCartesian();
 }
 
 void MainWindow::on_IN_pushButton_clicked() {
-    Xcounter = Xcounter - 1.0;
+  Xcounter = Xcounter - 1.0;
+  observeCartesian();
 }
 
 void MainWindow::on_RIGHT_pushButton_clicked() {
-    Ycounter = Ycounter + 1.0;
+  Ycounter = Ycounter + 1.0;
+  observeCartesian();
 }
 
 void MainWindow::on_LEFT_pushButton_clicked() {
-    Ycounter = Ycounter - 1.0;
+  Ycounter = Ycounter - 1.0;
+  observeCartesian();
+}
+
+
+void MainWindow::on_X_lineEdit_editingFinished() {
+  Xcounter = ui.X_lineEdit->text().toFloat();
+  observeCartesian();
+}
+void MainWindow::on_Y_lineEdit_editingFinished() {
+    Ycounter = ui.Y_lineEdit->text().toFloat();
+    observeCartesian();
+}
+void MainWindow::on_Z_lineEdit_editingFinished() {
+    Zcounter = ui.Z_lineEdit->text().toFloat();
+    observeCartesian();
 }
 
 void MainWindow::observeCartesian(){
 
-  //update values
-  Xcounter = hand_camera_pose.position.x;
-  Ycounter = hand_camera_pose.position.y;
-  Zcounter = hand_camera_pose.position.z;
-
-
+  if (controlState.data != "cartesian") {
+    //update values
+    Xcounter = hand_camera_pose.position.x;
+    Ycounter = hand_camera_pose.position.y;
+    Zcounter = hand_camera_pose.position.z;
+  }
   //displays the values in the local variables
-  QString strX = QString::number(Xcounter);
-  ui.Y_lineEdit->setText(strX);
-  QString strY = QString::number(Ycounter);
-  ui.Y_lineEdit->setText(strY);
-  QString strZ = QString::number(Zcounter);
-  ui.Y_lineEdit->setText(strZ);
+  ui.X_lineEdit->setText(QString::number(Xcounter));
+  ui.Y_lineEdit->setText(QString::number(Ycounter));
+  ui.Z_lineEdit->setText(QString::number(Zcounter));
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -1502,12 +1522,6 @@ void MainWindow::on_LookAtHand_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
     ui.HandWeight_textEdit->setText(b);
-}
-
-
-void MainWindow::on_X_lineEdit_editingFinished()
-{
-
 }
 
 /* Change control method */

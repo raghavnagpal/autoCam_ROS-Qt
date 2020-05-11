@@ -33,11 +33,12 @@ namespace autoCam_pkg {
 /*****************************************************************************
 ** Class
 *****************************************************************************/
+class MainWindow;
 
 class QNode : public QThread {
     Q_OBJECT
 public:
-	QNode(int argc, char** argv );
+  QNode(int argc, char** argv, MainWindow* theWindow);
 	virtual ~QNode();
 	bool init();
   void run();
@@ -49,6 +50,7 @@ Q_SIGNALS:
 private:
 	int init_argc;
 	char** init_argv;
+  MainWindow *theWindow;
   image_transport::Subscriber image_sub;
   image_transport::Subscriber image_sub_2;
   ros::Subscriber cartesian_sub;
