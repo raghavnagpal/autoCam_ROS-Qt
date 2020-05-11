@@ -111,7 +111,7 @@ private Q_SLOTS:
 
   void on_addView_pushButton_clicked();
 
-  //void on_addName_textEdit_textChanged(QKeyEvent *e);
+  //void on_addName_lineEdit_textChanged(QKeyEvent *e);
 
   void on_applyNewName_pushButton_clicked();
 

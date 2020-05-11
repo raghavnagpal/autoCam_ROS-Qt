@@ -168,7 +168,7 @@ void MainWindow::on_Manual_SwitchButton_pressed()
 // Manual Cartesian Control
 // PushButton Names: UP_pushButton, DOWN_pushButton, LEFT_pushButton, RIGHT_pushButton
 //                   IN_pushButton, OUT_pushButton
-// TextEdit Box Names: X_textEdit, Y_textEdit, Z_textEdit
+// TextEdit Box Names: X_lineEdit, Y_lineEdit, Z_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_UP_pushButton_clicked() {
@@ -247,8 +247,8 @@ void MainWindow::observeCartesian(){
 // Horizontal Slider Names: J1_horizontalSlider, J2_horizontalSlider, J3_horizontalSlider,
 //                          J4_horizontalSlider, J5_horizontalSlider, J6_horizontalSlider,
 //                          J7_horizontalSlider
-// TextEdit Box Names: J1_textEdit, J2_textEdit, J3_textEdit,J4_textEdit, J5_textEdit,
-//                     J6_textEdit, J7_textEdit
+// TextEdit Box Names: J1_lineEdit, J2_lineEdit, J3_lineEdit,J4_lineEdit, J5_lineEdit,
+//                     J6_lineEdit, J7_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -256,68 +256,68 @@ void MainWindow::on_J1_horizontalSlider_valueChanged(int value)
 {
     //int intValue = value;
     QString b = QString::number(value);
-    ui.J1_textEdit->setText(b);
+    ui.J1_lineEdit->setText(b);
 }
 
 void MainWindow::on_J2_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J2_textEdit->setText(b);
+    ui.J2_lineEdit->setText(b);
 }
 
 void MainWindow::on_J3_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J3_textEdit->setText(b);
+    ui.J3_lineEdit->setText(b);
 }
 
 void MainWindow::on_J4_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J4_textEdit->setText(b);
+    ui.J4_lineEdit->setText(b);
 }
 
 void MainWindow::on_J5_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J5_textEdit->setText(b);
+    ui.J5_lineEdit->setText(b);
 }
 
 void MainWindow::on_J6_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J6_textEdit->setText(b);
+    ui.J6_lineEdit->setText(b);
 }
 
 void MainWindow::on_J7_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.J7_textEdit->setText(b);
+    ui.J7_lineEdit->setText(b);
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Command Window
 // Manual Camera Control
 // Dial and Slider Names: Roll_dial, Pitch_horizontalSlider, Yaw_verticalSlider
-// TextEdit Box Names: Roll_textEdit, Pitch_textEdit, Yaw_textEdit
+// TextEdit Box Names: Roll_lineEdit, Pitch_lineEdit, Yaw_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_Roll_dial_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.Roll_textEdit->setText(b);
+    ui.Roll_lineEdit->setText(b);
 }
 
 void MainWindow::on_Yaw_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.Yaw_textEdit->setText(b);
+    ui.Yaw_lineEdit->setText(b);
 }
 
 void MainWindow::on_Pitch_verticalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.Pitch_textEdit->setText(b);
+    ui.Pitch_lineEdit->setText(b);
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -367,7 +367,7 @@ void MainWindow::on_view5_pushButton_clicked()
 // Command Window
 // Add a View
 // Push Button Name: addView_pushButton
-// TextEdit Box Names:addName_textEdit
+// TextEdit Box Names:addName_lineEdit
 // Push Button Names: view1_pushButton, view2_pushButton, view3_pushButton, view4_pushButton,
 //                    view5_pushButton
 // Combo Box Name: view_ComboBox
@@ -382,9 +382,9 @@ void MainWindow::on_addView_pushButton_clicked()
         count++;
         if (count==1){
           //This view has a name
-          QString name1 = ui.addName_textEdit->toPlainText();
+          QString name1 = ui.addName_lineEdit->text();
           ui.view1_pushButton->setText("1: " + name1);
-          ui.addName_textEdit->clear();
+          ui.addName_lineEdit->clear();
           //This view has a cartesian pose for x,yz
           QString X1 = ui.X_lineEdit->text();
           QString Y1 = ui.Y_lineEdit->text();
@@ -393,13 +393,13 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.Y_lineEdit->clear();
           ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
-          QString J1_1 = ui.J1_textEdit->toPlainText();
-          QString J2_1 = ui.J2_textEdit->toPlainText();
-          QString J3_1 = ui.J3_textEdit->toPlainText();
-          QString J4_1 = ui.J4_textEdit->toPlainText();
-          QString J5_1 = ui.J5_textEdit->toPlainText();
-          QString J6_1 = ui.J6_textEdit->toPlainText();
-          QString J7_1 = ui.J7_textEdit->toPlainText();
+          QString J1_1 = ui.J1_lineEdit->text();
+          QString J2_1 = ui.J2_lineEdit->text();
+          QString J3_1 = ui.J3_lineEdit->text();
+          QString J4_1 = ui.J4_lineEdit->text();
+          QString J5_1 = ui.J5_lineEdit->text();
+          QString J6_1 = ui.J6_lineEdit->text();
+          QString J7_1 = ui.J7_lineEdit->text();
           ui.J1_horizontalSlider->setValue(0);
           ui.J2_horizontalSlider->setValue(0);
           ui.J3_horizontalSlider->setValue(0);
@@ -407,23 +407,23 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.J5_horizontalSlider->setValue(0);
           ui.J6_horizontalSlider->setValue(0);
           ui.J7_horizontalSlider->setValue(0);
-          ui.J1_textEdit->clear();
-          ui.J2_textEdit->clear();
-          ui.J3_textEdit->clear();
-          ui.J4_textEdit->clear();
-          ui.J5_textEdit->clear();
-          ui.J6_textEdit->clear();
-          ui.J7_textEdit->clear();
+          ui.J1_lineEdit->clear();
+          ui.J2_lineEdit->clear();
+          ui.J3_lineEdit->clear();
+          ui.J4_lineEdit->clear();
+          ui.J5_lineEdit->clear();
+          ui.J6_lineEdit->clear();
+          ui.J7_lineEdit->clear();
           //This view has a roll,pitch, and yaw
-          QString ROLL1 = ui.Roll_textEdit->toPlainText();
-          QString PITCH1 = ui.Pitch_textEdit->toPlainText();
-          QString YAW1 = ui.Yaw_textEdit->toPlainText();
+          QString ROLL1 = ui.Roll_lineEdit->text();
+          QString PITCH1 = ui.Pitch_lineEdit->text();
+          QString YAW1 = ui.Yaw_lineEdit->text();
           ui.Roll_dial->setValue(0);
           ui.Yaw_horizontalSlider->setValue(0);
           ui.Pitch_verticalSlider->setValue(0);
-          ui.Roll_textEdit->clear();
-          ui.Pitch_textEdit->clear();
-          ui.Yaw_textEdit->clear();
+          ui.Roll_lineEdit->clear();
+          ui.Pitch_lineEdit->clear();
+          ui.Yaw_lineEdit->clear();
           //Assign these views to View 1
           ui.NEWNAME1->setText(name1);
           ui.NewX1->setText(X1);
@@ -442,9 +442,9 @@ void MainWindow::on_addView_pushButton_clicked()
         }
         if (count==2){
           //This view has a name
-          QString name2 = ui.addName_textEdit->toPlainText();
+          QString name2 = ui.addName_lineEdit->text();
           ui.view2_pushButton->setText("2: " + name2);
-          ui.addName_textEdit->clear();
+          ui.addName_lineEdit->clear();
           //This view has a cartesian pose for x,yz
           QString X2 = ui.X_lineEdit->text();
           QString Y2 = ui.Y_lineEdit->text();
@@ -453,13 +453,13 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.Y_lineEdit->clear();
           ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
-          QString J1_2 = ui.J1_textEdit->toPlainText();
-          QString J2_2 = ui.J2_textEdit->toPlainText();
-          QString J3_2 = ui.J3_textEdit->toPlainText();
-          QString J4_2 = ui.J4_textEdit->toPlainText();
-          QString J5_2 = ui.J5_textEdit->toPlainText();
-          QString J6_2 = ui.J6_textEdit->toPlainText();
-          QString J7_2 = ui.J7_textEdit->toPlainText();
+          QString J1_2 = ui.J1_lineEdit->text();
+          QString J2_2 = ui.J2_lineEdit->text();
+          QString J3_2 = ui.J3_lineEdit->text();
+          QString J4_2 = ui.J4_lineEdit->text();
+          QString J5_2 = ui.J5_lineEdit->text();
+          QString J6_2 = ui.J6_lineEdit->text();
+          QString J7_2 = ui.J7_lineEdit->text();
           ui.J1_horizontalSlider->setValue(0);
           ui.J2_horizontalSlider->setValue(0);
           ui.J3_horizontalSlider->setValue(0);
@@ -467,23 +467,23 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.J5_horizontalSlider->setValue(0);
           ui.J6_horizontalSlider->setValue(0);
           ui.J7_horizontalSlider->setValue(0);
-          ui.J1_textEdit->clear();
-          ui.J2_textEdit->clear();
-          ui.J3_textEdit->clear();
-          ui.J4_textEdit->clear();
-          ui.J5_textEdit->clear();
-          ui.J6_textEdit->clear();
-          ui.J7_textEdit->clear();
+          ui.J1_lineEdit->clear();
+          ui.J2_lineEdit->clear();
+          ui.J3_lineEdit->clear();
+          ui.J4_lineEdit->clear();
+          ui.J5_lineEdit->clear();
+          ui.J6_lineEdit->clear();
+          ui.J7_lineEdit->clear();
           //This view has a roll,pitch, and yaw
-          QString ROLL2 = ui.Roll_textEdit->toPlainText();
-          QString PITCH2 = ui.Pitch_textEdit->toPlainText();
-          QString YAW2 = ui.Yaw_textEdit->toPlainText();
+          QString ROLL2 = ui.Roll_lineEdit->text();
+          QString PITCH2 = ui.Pitch_lineEdit->text();
+          QString YAW2 = ui.Yaw_lineEdit->text();
           ui.Roll_dial->setValue(0);
           ui.Yaw_horizontalSlider->setValue(0);
           ui.Pitch_verticalSlider->setValue(0);
-          ui.Roll_textEdit->clear();
-          ui.Pitch_textEdit->clear();
-          ui.Yaw_textEdit->clear();
+          ui.Roll_lineEdit->clear();
+          ui.Pitch_lineEdit->clear();
+          ui.Yaw_lineEdit->clear();
           //Assign these views to View 2
           ui.NEWNAME2->setText(name2);
           ui.NewX2->setText(X2);
@@ -502,9 +502,9 @@ void MainWindow::on_addView_pushButton_clicked()
         }
         if (count==3){
           //This view has a name
-          QString name3 = ui.addName_textEdit->toPlainText();
+          QString name3 = ui.addName_lineEdit->text();
           ui.view3_pushButton->setText("3: " + name3);
-          ui.addName_textEdit->clear();
+          ui.addName_lineEdit->clear();
           //This view has a cartesian pose for x,yz
           QString X3 = ui.X_lineEdit->text();
           QString Y3 = ui.Y_lineEdit->text();
@@ -513,13 +513,13 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.Y_lineEdit->clear();
           ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
-          QString J1_3 = ui.J1_textEdit->toPlainText();
-          QString J2_3 = ui.J2_textEdit->toPlainText();
-          QString J3_3 = ui.J3_textEdit->toPlainText();
-          QString J4_3 = ui.J4_textEdit->toPlainText();
-          QString J5_3 = ui.J5_textEdit->toPlainText();
-          QString J6_3 = ui.J6_textEdit->toPlainText();
-          QString J7_3 = ui.J7_textEdit->toPlainText();
+          QString J1_3 = ui.J1_lineEdit->text();
+          QString J2_3 = ui.J2_lineEdit->text();
+          QString J3_3 = ui.J3_lineEdit->text();
+          QString J4_3 = ui.J4_lineEdit->text();
+          QString J5_3 = ui.J5_lineEdit->text();
+          QString J6_3 = ui.J6_lineEdit->text();
+          QString J7_3 = ui.J7_lineEdit->text();
           ui.J1_horizontalSlider->setValue(0);
           ui.J2_horizontalSlider->setValue(0);
           ui.J3_horizontalSlider->setValue(0);
@@ -527,23 +527,23 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.J5_horizontalSlider->setValue(0);
           ui.J6_horizontalSlider->setValue(0);
           ui.J7_horizontalSlider->setValue(0);
-          ui.J1_textEdit->clear();
-          ui.J2_textEdit->clear();
-          ui.J3_textEdit->clear();
-          ui.J4_textEdit->clear();
-          ui.J5_textEdit->clear();
-          ui.J6_textEdit->clear();
-          ui.J7_textEdit->clear();
+          ui.J1_lineEdit->clear();
+          ui.J2_lineEdit->clear();
+          ui.J3_lineEdit->clear();
+          ui.J4_lineEdit->clear();
+          ui.J5_lineEdit->clear();
+          ui.J6_lineEdit->clear();
+          ui.J7_lineEdit->clear();
           //This view has a roll,pitch, and yaw
-          QString ROLL3 = ui.Roll_textEdit->toPlainText();
-          QString PITCH3 = ui.Pitch_textEdit->toPlainText();
-          QString YAW3 = ui.Yaw_textEdit->toPlainText();
+          QString ROLL3 = ui.Roll_lineEdit->text();
+          QString PITCH3 = ui.Pitch_lineEdit->text();
+          QString YAW3 = ui.Yaw_lineEdit->text();
           ui.Roll_dial->setValue(0);
           ui.Yaw_horizontalSlider->setValue(0);
           ui.Pitch_verticalSlider->setValue(0);
-          ui.Roll_textEdit->clear();
-          ui.Pitch_textEdit->clear();
-          ui.Yaw_textEdit->clear();
+          ui.Roll_lineEdit->clear();
+          ui.Pitch_lineEdit->clear();
+          ui.Yaw_lineEdit->clear();
           //Assign these views to View 3
           ui.NEWNAME3->setText(name3);
           ui.NewX3->setText(X3);
@@ -562,9 +562,9 @@ void MainWindow::on_addView_pushButton_clicked()
         }
         if (count==4){
           //This view has a name
-          QString name4 = ui.addName_textEdit->toPlainText();
+          QString name4 = ui.addName_lineEdit->text();
           ui.view4_pushButton->setText("4: " + name4);
-          ui.addName_textEdit->clear();
+          ui.addName_lineEdit->clear();
           //This view has a cartesian pose for x,yz
           QString X4 = ui.X_lineEdit->text();
           QString Y4 = ui.Y_lineEdit->text();
@@ -573,13 +573,13 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.Y_lineEdit->clear();
           ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
-          QString J1_4 = ui.J1_textEdit->toPlainText();
-          QString J2_4 = ui.J2_textEdit->toPlainText();
-          QString J3_4 = ui.J3_textEdit->toPlainText();
-          QString J4_4 = ui.J4_textEdit->toPlainText();
-          QString J5_4 = ui.J5_textEdit->toPlainText();
-          QString J6_4 = ui.J6_textEdit->toPlainText();
-          QString J7_4 = ui.J7_textEdit->toPlainText();
+          QString J1_4 = ui.J1_lineEdit->text();
+          QString J2_4 = ui.J2_lineEdit->text();
+          QString J3_4 = ui.J3_lineEdit->text();
+          QString J4_4 = ui.J4_lineEdit->text();
+          QString J5_4 = ui.J5_lineEdit->text();
+          QString J6_4 = ui.J6_lineEdit->text();
+          QString J7_4 = ui.J7_lineEdit->text();
           ui.J1_horizontalSlider->setValue(0);
           ui.J2_horizontalSlider->setValue(0);
           ui.J3_horizontalSlider->setValue(0);
@@ -587,23 +587,23 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.J5_horizontalSlider->setValue(0);
           ui.J6_horizontalSlider->setValue(0);
           ui.J7_horizontalSlider->setValue(0);
-          ui.J1_textEdit->clear();
-          ui.J2_textEdit->clear();
-          ui.J3_textEdit->clear();
-          ui.J4_textEdit->clear();
-          ui.J5_textEdit->clear();
-          ui.J6_textEdit->clear();
-          ui.J7_textEdit->clear();
+          ui.J1_lineEdit->clear();
+          ui.J2_lineEdit->clear();
+          ui.J3_lineEdit->clear();
+          ui.J4_lineEdit->clear();
+          ui.J5_lineEdit->clear();
+          ui.J6_lineEdit->clear();
+          ui.J7_lineEdit->clear();
           //This view has a roll,pitch, and yaw
-          QString ROLL4 = ui.Roll_textEdit->toPlainText();
-          QString PITCH4 = ui.Pitch_textEdit->toPlainText();
-          QString YAW4 = ui.Yaw_textEdit->toPlainText();
+          QString ROLL4 = ui.Roll_lineEdit->text();
+          QString PITCH4 = ui.Pitch_lineEdit->text();
+          QString YAW4 = ui.Yaw_lineEdit->text();
           ui.Roll_dial->setValue(0);
           ui.Yaw_horizontalSlider->setValue(0);
           ui.Pitch_verticalSlider->setValue(0);
-          ui.Roll_textEdit->clear();
-          ui.Pitch_textEdit->clear();
-          ui.Yaw_textEdit->clear();
+          ui.Roll_lineEdit->clear();
+          ui.Pitch_lineEdit->clear();
+          ui.Yaw_lineEdit->clear();
           //Assign these views to View 4
           ui.NEWNAME4->setText(name4);
           ui.NewX4->setText(X4);
@@ -622,9 +622,9 @@ void MainWindow::on_addView_pushButton_clicked()
         }
         if (count==5){
           //This view has a name
-          QString name5 = ui.addName_textEdit->toPlainText();
+          QString name5 = ui.addName_lineEdit->text();
           ui.view5_pushButton->setText("5: " + name5);
-          ui.addName_textEdit->clear();
+          ui.addName_lineEdit->clear();
           //This view has a cartesian pose for x,yz
           QString X5 = ui.X_lineEdit->text();
           QString Y5 = ui.Y_lineEdit->text();
@@ -633,13 +633,13 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.Y_lineEdit->clear();
           ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
-          QString J1_5 = ui.J1_textEdit->toPlainText();
-          QString J2_5 = ui.J2_textEdit->toPlainText();
-          QString J3_5 = ui.J3_textEdit->toPlainText();
-          QString J4_5 = ui.J4_textEdit->toPlainText();
-          QString J5_5 = ui.J5_textEdit->toPlainText();
-          QString J6_5 = ui.J6_textEdit->toPlainText();
-          QString J7_5 = ui.J7_textEdit->toPlainText();
+          QString J1_5 = ui.J1_lineEdit->text();
+          QString J2_5 = ui.J2_lineEdit->text();
+          QString J3_5 = ui.J3_lineEdit->text();
+          QString J4_5 = ui.J4_lineEdit->text();
+          QString J5_5 = ui.J5_lineEdit->text();
+          QString J6_5 = ui.J6_lineEdit->text();
+          QString J7_5 = ui.J7_lineEdit->text();
           ui.J1_horizontalSlider->setValue(0);
           ui.J2_horizontalSlider->setValue(0);
           ui.J3_horizontalSlider->setValue(0);
@@ -647,23 +647,23 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.J5_horizontalSlider->setValue(0);
           ui.J6_horizontalSlider->setValue(0);
           ui.J7_horizontalSlider->setValue(0);
-          ui.J1_textEdit->clear();
-          ui.J2_textEdit->clear();
-          ui.J3_textEdit->clear();
-          ui.J4_textEdit->clear();
-          ui.J5_textEdit->clear();
-          ui.J6_textEdit->clear();
-          ui.J7_textEdit->clear();
+          ui.J1_lineEdit->clear();
+          ui.J2_lineEdit->clear();
+          ui.J3_lineEdit->clear();
+          ui.J4_lineEdit->clear();
+          ui.J5_lineEdit->clear();
+          ui.J6_lineEdit->clear();
+          ui.J7_lineEdit->clear();
           //This view has a roll,pitch, and yaw
-          QString ROLL5 = ui.Roll_textEdit->toPlainText();
-          QString PITCH5 = ui.Pitch_textEdit->toPlainText();
-          QString YAW5 = ui.Yaw_textEdit->toPlainText();
+          QString ROLL5 = ui.Roll_lineEdit->text();
+          QString PITCH5 = ui.Pitch_lineEdit->text();
+          QString YAW5 = ui.Yaw_lineEdit->text();
           ui.Roll_dial->setValue(0);
           ui.Yaw_horizontalSlider->setValue(0);
           ui.Pitch_verticalSlider->setValue(0);
-          ui.Roll_textEdit->clear();
-          ui.Pitch_textEdit->clear();
-          ui.Yaw_textEdit->clear();
+          ui.Roll_lineEdit->clear();
+          ui.Pitch_lineEdit->clear();
+          ui.Yaw_lineEdit->clear();
           //Assign these views to View 5
           ui.NEWNAME5->setText(name5);
           ui.NewX5->setText(X5);
@@ -683,25 +683,25 @@ void MainWindow::on_addView_pushButton_clicked()
         /*else {
             QString currentState = ui.view_comboBox->currentText();
             if (currentState == "View 1"){
-                QString name1 = ui.addName_textEdit->toPlainText();
+                QString name1 = ui.addName_lineEdit->text();
                 ui.view1_pushButton->setText("1: " + name1);
-                ui.addName_textEdit->clear();}
+                ui.addName_lineEdit->clear();}
             if (currentState == "View 2"){
-                QString name2 = ui.addName_textEdit->toPlainText();
+                QString name2 = ui.addName_lineEdit->text();
                 ui.view2_pushButton->setText("2: " + name2);
-                ui.addName_textEdit->clear();}
+                ui.addName_lineEdit->clear();}
             if (currentState == "View 3"){
-                QString name3 = ui.addName_textEdit->toPlainText();
+                QString name3 = ui.addName_lineEdit->text();
                 ui.view3_pushButton->setText("3: " + name3);
-                ui.addName_textEdit->clear();}
+                ui.addName_lineEdit->clear();}
             if (currentState == "View 4"){
-                QString name4 = ui.addName_textEdit->toPlainText();
+                QString name4 = ui.addName_lineEdit->text();
                 ui.view4_pushButton->setText("4: " + name4);
-                ui.addName_textEdit->clear();}
+                ui.addName_lineEdit->clear();}
             if (currentState == "View 5"){
-                QString name5 = ui.addName_textEdit->toPlainText();
+                QString name5 = ui.addName_lineEdit->text();
                 ui.view5_pushButton->setText("5: " + name5);
-                ui.addName_textEdit->clear();
+                ui.addName_lineEdit->clear();
             }
         }*/
 }
@@ -716,49 +716,49 @@ void MainWindow::on_addView_pushButton_clicked()
 // Edit Cartesian Control
 // PushButton Names: NewUP_pushButton, NewDOWN_pushButton, NewLEFT_pushButton,
 //                   NewRIGHT_pushButton, NewIN_pushButton, NewOUT_pushButton
-// TextEdit Box Names: XNEW_textEdit, YNEW_textEdit, ZNEW_textEdit
+// TextEdit Box Names: XNEW_lineEdit, YNEW_lineEdit, ZNEW_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_NewUP_pushButton_clicked()
 {
     ZNEWcounter++;
     QString strZ = QString::number(ZNEWcounter);
-    ui.ZNEW_textEdit->setText(strZ);
+    ui.ZNEW_lineEdit->setText(strZ);
 }
 
 void MainWindow::on_NewDOWN_pushButton_clicked()
 {
     ZNEWcounter--;
     QString strZ = QString::number(ZNEWcounter);
-    ui.ZNEW_textEdit->setText(strZ);
+    ui.ZNEW_lineEdit->setText(strZ);
 }
 
 void MainWindow::on_NewLEFT_pushButton_clicked()
 {
     YNEWcounter--;
     QString strY = QString::number(YNEWcounter);
-    ui.YNEW_textEdit->setText(strY);
+    ui.YNEW_lineEdit->setText(strY);
 }
 
 void MainWindow::on_NewRIGHT_pushButton_clicked()
 {
     YNEWcounter++;
     QString strY = QString::number(YNEWcounter);
-    ui.YNEW_textEdit->setText(strY);
+    ui.YNEW_lineEdit->setText(strY);
 }
 
 void MainWindow::on_NewIN_pushButton_clicked()
 {
     XNEWcounter--;
     QString strX = QString::number(XNEWcounter);
-    ui.XNEW_textEdit->setText(strX);
+    ui.XNEW_lineEdit->setText(strX);
 }
 
 void MainWindow::on_NewOUT_pushButton_clicked()
 {
     XNEWcounter++;
     QString strX = QString::number(XNEWcounter);
-    ui.XNEW_textEdit->setText(strX);
+    ui.XNEW_lineEdit->setText(strX);
 }
 /*//////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -767,83 +767,83 @@ void MainWindow::on_NewOUT_pushButton_clicked()
 // Horizontal Slider Names: NewJ1_horizontalSlider, NewJ2_horizontalSlider, NewJ3_horizontalSlider,
 //                          NewJ4_horizontalSlider, NewJ5_horizontalSlider, NewJ6_horizontalSlider,
 //                          NewJ7_horizontalSlider
-// TextEdit Box Names: NewJ1_textEdit, NewJ2_textEdit, NewJ3_textEdit, NewJ4_textEdit,
-//                     NewJ5_textEdit, NewJ6_textEdit, NewJ7_textEdit
+// TextEdit Box Names: NewJ1_lineEdit, NewJ2_lineEdit, NewJ3_lineEdit, NewJ4_lineEdit,
+//                     NewJ5_lineEdit, NewJ6_lineEdit, NewJ7_lineEdit
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_NewJ1_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ1_textEdit->setText(b);
+    ui.NewJ1_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ2_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ2_textEdit->setText(b);
+    ui.NewJ2_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ3_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ3_textEdit->setText(b);
+    ui.NewJ3_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ4_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ4_textEdit->setText(b);
+    ui.NewJ4_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ5_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ5_textEdit->setText(b);
+    ui.NewJ5_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ6_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ6_textEdit->setText(b);
+    ui.NewJ6_lineEdit->setText(b);
 }
 
 void MainWindow::on_NewJ7_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewJ7_textEdit->setText(b);
+    ui.NewJ7_lineEdit->setText(b);
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Edit Views Window
 // Edit Camera Control
 // Dial and Slider Names: NewRoll_dial, NewPitch_horizontalSlider, NewYaw_verticalSlider
-// TextEdit Box Names: NewRoll_textEdit, NewPitch_textEdit, NewYaw_textEdit
+// TextEdit Box Names: NewRoll_lineEdit, NewPitch_lineEdit, NewYaw_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////*/
 
 void MainWindow::on_Newdial_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewRoll_textEdit->setText(b);
+    ui.NewRoll_lineEdit->setText(b);
 }
 
 void MainWindow::on_New_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewYaw_textEdit->setText(b);
+    ui.NewYaw_lineEdit->setText(b);
 }
 
 void MainWindow::on_New_verticalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.NewPitch_textEdit->setText(b);
+    ui.NewPitch_lineEdit->setText(b);
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Edit Views Window
 // Change View Name
 // Push Button Name: applyNewName_pushButton
-// TextEdit Box Names:newName_textEdit
+// TextEdit Box Names:newName_lineEdit
 // Push Button Names: view1_pushButton, view2_pushButton, view3_pushButton, view4_pushButton,
 //                    view5_pushButton
 // Combo Box Name: selectView_comboBox
@@ -853,31 +853,31 @@ void MainWindow::on_applyNewName_pushButton_clicked()
 {
     QString currentState = ui.selectView_comboBox->currentText();
     if (currentState == "View 1"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view1_pushButton->setText("1: " + name);
-        ui.newName_textEdit->clear();
+        ui.newName_lineEdit->clear();
         ui.NEWNAME1->setText(name);
     }
     if (currentState == "View 2"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view2_pushButton->setText("2: " + name);
-        ui.newName_textEdit->clear();
+        ui.newName_lineEdit->clear();
         ui.NEWNAME2->setText(name);
     }
     if (currentState == "View 3"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view3_pushButton->setText("3: " + name);
-        ui.newName_textEdit->clear();
+        ui.newName_lineEdit->clear();
     }
     if (currentState == "View 4"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view4_pushButton->setText("4: " + name);
-        ui.newName_textEdit->clear();
+        ui.newName_lineEdit->clear();
     }
     if (currentState == "View 5"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view5_pushButton->setText("5: " + name);
-        ui.newName_textEdit->clear();
+        ui.newName_lineEdit->clear();
     }
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -895,28 +895,28 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
 {
     QString currentState = ui.selectView_comboBox->currentText();
     if (currentState == "View 1"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view1_pushButton->setText("1: " + name);
         ui.NEWNAME1->setText(name);
-        //ui.newName_textEdit->clear();
+        //ui.newName_lineEdit->clear();
 
-        QString NewX1 = ui.XNEW_textEdit->toPlainText();
-        QString NewY1 = ui.YNEW_textEdit->toPlainText();
-        QString NewZ1 = ui.ZNEW_textEdit->toPlainText();
+        QString NewX1 = ui.XNEW_lineEdit->text();
+        QString NewY1 = ui.YNEW_lineEdit->text();
+        QString NewZ1 = ui.ZNEW_lineEdit->text();
         ui.NewX1->setText(NewX1);
         ui.NewY1->setText(NewY1);
         ui.NewZ1->setText(NewZ1);
-        /*ui.XNEW_textEdit->clear();
-        ui.YNEW_textEdit->clear();
-        ui.ZNEW_textEdit->clear();*/
+        /*ui.XNEW_lineEdit->clear();
+        ui.YNEW_lineEdit->clear();
+        ui.ZNEW_lineEdit->clear();*/
 
-        QString NewJ1_1 = ui.NewJ1_textEdit->toPlainText();
-        QString NewJ2_1 = ui.NewJ2_textEdit->toPlainText();
-        QString NewJ3_1 = ui.NewJ3_textEdit->toPlainText();
-        QString NewJ4_1 = ui.NewJ4_textEdit->toPlainText();
-        QString NewJ5_1 = ui.NewJ5_textEdit->toPlainText();
-        QString NewJ6_1 = ui.NewJ6_textEdit->toPlainText();
-        QString NewJ7_1 = ui.NewJ7_textEdit->toPlainText();
+        QString NewJ1_1 = ui.NewJ1_lineEdit->text();
+        QString NewJ2_1 = ui.NewJ2_lineEdit->text();
+        QString NewJ3_1 = ui.NewJ3_lineEdit->text();
+        QString NewJ4_1 = ui.NewJ4_lineEdit->text();
+        QString NewJ5_1 = ui.NewJ5_lineEdit->text();
+        QString NewJ6_1 = ui.NewJ6_lineEdit->text();
+        QString NewJ7_1 = ui.NewJ7_lineEdit->text();
         ui.NewJ1_1->setText(NewJ1_1);
         ui.NewJ2_1->setText(NewJ2_1);
         ui.NewJ3_1->setText(NewJ3_1);
@@ -924,23 +924,23 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ5_1->setText(NewJ5_1);
         ui.NewJ6_1->setText(NewJ6_1);
         ui.NewJ7_1->setText(NewJ7_1);
-        /*ui.NewJ1_textEdit->clear();
-        ui.NewJ2_textEdit->clear();
-        ui.NewJ3_textEdit->clear();
-        ui.NewJ4_textEdit->clear();
-        ui.NewJ5_textEdit->clear();
-        ui.NewJ6_textEdit->clear();
-        ui.NewJ7_textEdit->clear();*/
+        /*ui.NewJ1_lineEdit->clear();
+        ui.NewJ2_lineEdit->clear();
+        ui.NewJ3_lineEdit->clear();
+        ui.NewJ4_lineEdit->clear();
+        ui.NewJ5_lineEdit->clear();
+        ui.NewJ6_lineEdit->clear();
+        ui.NewJ7_lineEdit->clear();*/
 
-        QString NewROLL1 = ui.NewRoll_textEdit->toPlainText();
-        QString NewPITCH1 = ui.NewPitch_textEdit->toPlainText();
-        QString NewYAW1 = ui.NewYaw_textEdit->toPlainText();
+        QString NewROLL1 = ui.NewRoll_lineEdit->text();
+        QString NewPITCH1 = ui.NewPitch_lineEdit->text();
+        QString NewYAW1 = ui.NewYaw_lineEdit->text();
         ui.NewROLL1->setText(NewROLL1);
         ui.NewPITCH1->setText(NewPITCH1);
         ui.NewYAW1->setText(NewYAW1);
-        /*ui.NewRoll_textEdit->clear();
-        ui.NewPitch_textEdit->clear();
-        ui.NewYaw_textEdit->clear();*/
+        /*ui.NewRoll_lineEdit->clear();
+        ui.NewPitch_lineEdit->clear();
+        ui.NewYaw_lineEdit->clear();*/
 
        /* ui.NewJ1_horizontalSlider->setValue(0);
         ui.NewJ2_horizontalSlider->setValue(0);
@@ -951,28 +951,28 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ7_horizontalSlider->setValue(0);*/
     }
     if (currentState == "View 2"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view2_pushButton->setText("2: " + name);
         ui.NEWNAME2->setText(name);
-        //ui.newName_textEdit->clear();
+        //ui.newName_lineEdit->clear();
 
-        QString NewX2 = ui.XNEW_textEdit->toPlainText();
-        QString NewY2 = ui.YNEW_textEdit->toPlainText();
-        QString NewZ2 = ui.ZNEW_textEdit->toPlainText();
+        QString NewX2 = ui.XNEW_lineEdit->text();
+        QString NewY2 = ui.YNEW_lineEdit->text();
+        QString NewZ2 = ui.ZNEW_lineEdit->text();
         ui.NewX2->setText(NewX2);
         ui.NewY2->setText(NewY2);
         ui.NewZ2->setText(NewZ2);
-        /*ui.XNEW_textEdit->clear();
-        ui.YNEW_textEdit->clear();
-        ui.ZNEW_textEdit->clear();*/
+        /*ui.XNEW_lineEdit->clear();
+        ui.YNEW_lineEdit->clear();
+        ui.ZNEW_lineEdit->clear();*/
 
-        QString NewJ1_2 = ui.NewJ1_textEdit->toPlainText();
-        QString NewJ2_2 = ui.NewJ2_textEdit->toPlainText();
-        QString NewJ3_2 = ui.NewJ3_textEdit->toPlainText();
-        QString NewJ4_2 = ui.NewJ4_textEdit->toPlainText();
-        QString NewJ5_2 = ui.NewJ5_textEdit->toPlainText();
-        QString NewJ6_2 = ui.NewJ6_textEdit->toPlainText();
-        QString NewJ7_2 = ui.NewJ7_textEdit->toPlainText();
+        QString NewJ1_2 = ui.NewJ1_lineEdit->text();
+        QString NewJ2_2 = ui.NewJ2_lineEdit->text();
+        QString NewJ3_2 = ui.NewJ3_lineEdit->text();
+        QString NewJ4_2 = ui.NewJ4_lineEdit->text();
+        QString NewJ5_2 = ui.NewJ5_lineEdit->text();
+        QString NewJ6_2 = ui.NewJ6_lineEdit->text();
+        QString NewJ7_2 = ui.NewJ7_lineEdit->text();
         ui.NewJ1_2->setText(NewJ1_2);
         ui.NewJ2_2->setText(NewJ2_2);
         ui.NewJ3_2->setText(NewJ3_2);
@@ -980,47 +980,47 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ5_2->setText(NewJ5_2);
         ui.NewJ6_2->setText(NewJ6_2);
         ui.NewJ7_2->setText(NewJ7_2);
-        /*ui.NewJ1_textEdit->clear();
-        ui.NewJ2_textEdit->clear();
-        ui.NewJ3_textEdit->clear();
-        ui.NewJ4_textEdit->clear();
-        ui.NewJ5_textEdit->clear();
-        ui.NewJ6_textEdit->clear();
-        ui.NewJ7_textEdit->clear();*/
+        /*ui.NewJ1_lineEdit->clear();
+        ui.NewJ2_lineEdit->clear();
+        ui.NewJ3_lineEdit->clear();
+        ui.NewJ4_lineEdit->clear();
+        ui.NewJ5_lineEdit->clear();
+        ui.NewJ6_lineEdit->clear();
+        ui.NewJ7_lineEdit->clear();*/
 
-        QString NewROLL2 = ui.NewRoll_textEdit->toPlainText();
-        QString NewPITCH2 = ui.NewPitch_textEdit->toPlainText();
-        QString NewYAW2 = ui.NewYaw_textEdit->toPlainText();
+        QString NewROLL2 = ui.NewRoll_lineEdit->text();
+        QString NewPITCH2 = ui.NewPitch_lineEdit->text();
+        QString NewYAW2 = ui.NewYaw_lineEdit->text();
         ui.NewROLL2->setText(NewROLL2);
         ui.NewPITCH2->setText(NewPITCH2);
         ui.NewYAW2->setText(NewYAW2);
-        /*ui.NewRoll_textEdit->clear();
-        ui.NewPitch_textEdit->clear();
-        ui.NewYaw_textEdit->clear();*/
+        /*ui.NewRoll_lineEdit->clear();
+        ui.NewPitch_lineEdit->clear();
+        ui.NewYaw_lineEdit->clear();*/
     }
     if (currentState == "View 3"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view3_pushButton->setText("3: " + name);
-        //ui.newName_textEdit->clear();
+        //ui.newName_lineEdit->clear();
         ui.NEWNAME3->setText(name);
 
-        QString NewX3 = ui.XNEW_textEdit->toPlainText();
-        QString NewY3 = ui.YNEW_textEdit->toPlainText();
-        QString NewZ3 = ui.ZNEW_textEdit->toPlainText();
+        QString NewX3 = ui.XNEW_lineEdit->text();
+        QString NewY3 = ui.YNEW_lineEdit->text();
+        QString NewZ3 = ui.ZNEW_lineEdit->text();
         ui.NewX3->setText(NewX3);
         ui.NewY3->setText(NewY3);
         ui.NewZ3->setText(NewZ3);
-        /*ui.XNEW_textEdit->clear();
-        ui.YNEW_textEdit->clear();
-        ui.ZNEW_textEdit->clear();*/
+        /*ui.XNEW_lineEdit->clear();
+        ui.YNEW_lineEdit->clear();
+        ui.ZNEW_lineEdit->clear();*/
 
-        QString NewJ1_3 = ui.NewJ1_textEdit->toPlainText();
-        QString NewJ2_3 = ui.NewJ2_textEdit->toPlainText();
-        QString NewJ3_3 = ui.NewJ3_textEdit->toPlainText();
-        QString NewJ4_3 = ui.NewJ4_textEdit->toPlainText();
-        QString NewJ5_3 = ui.NewJ5_textEdit->toPlainText();
-        QString NewJ6_3 = ui.NewJ6_textEdit->toPlainText();
-        QString NewJ7_3 = ui.NewJ7_textEdit->toPlainText();
+        QString NewJ1_3 = ui.NewJ1_lineEdit->text();
+        QString NewJ2_3 = ui.NewJ2_lineEdit->text();
+        QString NewJ3_3 = ui.NewJ3_lineEdit->text();
+        QString NewJ4_3 = ui.NewJ4_lineEdit->text();
+        QString NewJ5_3 = ui.NewJ5_lineEdit->text();
+        QString NewJ6_3 = ui.NewJ6_lineEdit->text();
+        QString NewJ7_3 = ui.NewJ7_lineEdit->text();
         ui.NewJ1_3->setText(NewJ1_3);
         ui.NewJ2_3->setText(NewJ2_3);
         ui.NewJ3_3->setText(NewJ3_3);
@@ -1028,47 +1028,47 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ5_3->setText(NewJ5_3);
         ui.NewJ6_3->setText(NewJ6_3);
         ui.NewJ7_3->setText(NewJ7_3);
-        /*ui.NewJ1_textEdit->clear();
-        ui.NewJ2_textEdit->clear();
-        ui.NewJ3_textEdit->clear();
-        ui.NewJ4_textEdit->clear();
-        ui.NewJ5_textEdit->clear();
-        ui.NewJ6_textEdit->clear();
-        ui.NewJ7_textEdit->clear();*/
+        /*ui.NewJ1_lineEdit->clear();
+        ui.NewJ2_lineEdit->clear();
+        ui.NewJ3_lineEdit->clear();
+        ui.NewJ4_lineEdit->clear();
+        ui.NewJ5_lineEdit->clear();
+        ui.NewJ6_lineEdit->clear();
+        ui.NewJ7_lineEdit->clear();*/
 
-        QString NewROLL3 = ui.NewRoll_textEdit->toPlainText();
-        QString NewPITCH3 = ui.NewPitch_textEdit->toPlainText();
-        QString NewYAW3 = ui.NewYaw_textEdit->toPlainText();
+        QString NewROLL3 = ui.NewRoll_lineEdit->text();
+        QString NewPITCH3 = ui.NewPitch_lineEdit->text();
+        QString NewYAW3 = ui.NewYaw_lineEdit->text();
         ui.NewROLL3->setText(NewROLL3);
         ui.NewPITCH3->setText(NewPITCH3);
         ui.NewYAW3->setText(NewYAW3);
-        /*ui.NewRoll_textEdit->clear();
-        ui.NewPitch_textEdit->clear();
-        ui.NewYaw_textEdit->clear();*/
+        /*ui.NewRoll_lineEdit->clear();
+        ui.NewPitch_lineEdit->clear();
+        ui.NewYaw_lineEdit->clear();*/
     }
     if (currentState == "View 4"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view4_pushButton->setText("4: " + name);
-        //ui.newName_textEdit->clear();
+        //ui.newName_lineEdit->clear();
         ui.NEWNAME4->setText(name);
 
-        QString NewX4 = ui.XNEW_textEdit->toPlainText();
-        QString NewY4 = ui.YNEW_textEdit->toPlainText();
-        QString NewZ4 = ui.ZNEW_textEdit->toPlainText();
+        QString NewX4 = ui.XNEW_lineEdit->text();
+        QString NewY4 = ui.YNEW_lineEdit->text();
+        QString NewZ4 = ui.ZNEW_lineEdit->text();
         ui.NewX4->setText(NewX4);
         ui.NewY4->setText(NewY4);
         ui.NewZ4->setText(NewZ4);
-        /*ui.XNEW_textEdit->clear();
-        ui.YNEW_textEdit->clear();
-        ui.ZNEW_textEdit->clear();*/
+        /*ui.XNEW_lineEdit->clear();
+        ui.YNEW_lineEdit->clear();
+        ui.ZNEW_lineEdit->clear();*/
 
-        QString NewJ1_4 = ui.NewJ1_textEdit->toPlainText();
-        QString NewJ2_4 = ui.NewJ2_textEdit->toPlainText();
-        QString NewJ3_4 = ui.NewJ3_textEdit->toPlainText();
-        QString NewJ4_4 = ui.NewJ4_textEdit->toPlainText();
-        QString NewJ5_4 = ui.NewJ5_textEdit->toPlainText();
-        QString NewJ6_4 = ui.NewJ6_textEdit->toPlainText();
-        QString NewJ7_4 = ui.NewJ7_textEdit->toPlainText();
+        QString NewJ1_4 = ui.NewJ1_lineEdit->text();
+        QString NewJ2_4 = ui.NewJ2_lineEdit->text();
+        QString NewJ3_4 = ui.NewJ3_lineEdit->text();
+        QString NewJ4_4 = ui.NewJ4_lineEdit->text();
+        QString NewJ5_4 = ui.NewJ5_lineEdit->text();
+        QString NewJ6_4 = ui.NewJ6_lineEdit->text();
+        QString NewJ7_4 = ui.NewJ7_lineEdit->text();
         ui.NewJ1_4->setText(NewJ1_4);
         ui.NewJ2_4->setText(NewJ2_4);
         ui.NewJ3_4->setText(NewJ3_4);
@@ -1076,47 +1076,47 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ5_4->setText(NewJ5_4);
         ui.NewJ6_4->setText(NewJ6_4);
         ui.NewJ7_4->setText(NewJ7_4);
-        /*ui.NewJ1_textEdit->clear();
-        ui.NewJ2_textEdit->clear();
-        ui.NewJ3_textEdit->clear();
-        ui.NewJ4_textEdit->clear();
-        ui.NewJ5_textEdit->clear();
-        ui.NewJ6_textEdit->clear();
-        ui.NewJ7_textEdit->clear();*/
+        /*ui.NewJ1_lineEdit->clear();
+        ui.NewJ2_lineEdit->clear();
+        ui.NewJ3_lineEdit->clear();
+        ui.NewJ4_lineEdit->clear();
+        ui.NewJ5_lineEdit->clear();
+        ui.NewJ6_lineEdit->clear();
+        ui.NewJ7_lineEdit->clear();*/
 
-        QString NewROLL4 = ui.NewRoll_textEdit->toPlainText();
-        QString NewPITCH4 = ui.NewPitch_textEdit->toPlainText();
-        QString NewYAW4 = ui.NewYaw_textEdit->toPlainText();
+        QString NewROLL4 = ui.NewRoll_lineEdit->text();
+        QString NewPITCH4 = ui.NewPitch_lineEdit->text();
+        QString NewYAW4 = ui.NewYaw_lineEdit->text();
         ui.NewROLL4->setText(NewROLL4);
         ui.NewPITCH4->setText(NewPITCH4);
         ui.NewYAW4->setText(NewYAW4);
-        /*ui.NewRoll_textEdit->clear();
-        ui.NewPitch_textEdit->clear();
-        ui.NewYaw_textEdit->clear();*/
+        /*ui.NewRoll_lineEdit->clear();
+        ui.NewPitch_lineEdit->clear();
+        ui.NewYaw_lineEdit->clear();*/
     }
     if (currentState == "View 5"){
-        QString name = ui.newName_textEdit->toPlainText();
+        QString name = ui.newName_lineEdit->text();
         ui.view5_pushButton->setText("5: " + name);
-        //ui.newName_textEdit->clear();
+        //ui.newName_lineEdit->clear();
         ui.NEWNAME5->setText(name);
 
-        QString NewX5 = ui.XNEW_textEdit->toPlainText();
-        QString NewY5 = ui.YNEW_textEdit->toPlainText();
-        QString NewZ5 = ui.ZNEW_textEdit->toPlainText();
+        QString NewX5 = ui.XNEW_lineEdit->text();
+        QString NewY5 = ui.YNEW_lineEdit->text();
+        QString NewZ5 = ui.ZNEW_lineEdit->text();
         ui.NewX5->setText(NewX5);
         ui.NewY5->setText(NewY5);
         ui.NewZ5->setText(NewZ5);
-        /*ui.XNEW_textEdit->clear();
-        ui.YNEW_textEdit->clear();
-        ui.ZNEW_textEdit->clear();*/
+        /*ui.XNEW_lineEdit->clear();
+        ui.YNEW_lineEdit->clear();
+        ui.ZNEW_lineEdit->clear();*/
 
-        QString NewJ1_5 = ui.NewJ1_textEdit->toPlainText();
-        QString NewJ2_5 = ui.NewJ2_textEdit->toPlainText();
-        QString NewJ3_5 = ui.NewJ3_textEdit->toPlainText();
-        QString NewJ4_5 = ui.NewJ4_textEdit->toPlainText();
-        QString NewJ5_5 = ui.NewJ5_textEdit->toPlainText();
-        QString NewJ6_5 = ui.NewJ6_textEdit->toPlainText();
-        QString NewJ7_5 = ui.NewJ7_textEdit->toPlainText();
+        QString NewJ1_5 = ui.NewJ1_lineEdit->text();
+        QString NewJ2_5 = ui.NewJ2_lineEdit->text();
+        QString NewJ3_5 = ui.NewJ3_lineEdit->text();
+        QString NewJ4_5 = ui.NewJ4_lineEdit->text();
+        QString NewJ5_5 = ui.NewJ5_lineEdit->text();
+        QString NewJ6_5 = ui.NewJ6_lineEdit->text();
+        QString NewJ7_5 = ui.NewJ7_lineEdit->text();
         ui.NewJ1_5->setText(NewJ1_5);
         ui.NewJ2_5->setText(NewJ2_5);
         ui.NewJ3_5->setText(NewJ3_5);
@@ -1124,23 +1124,23 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
         ui.NewJ5_5->setText(NewJ5_5);
         ui.NewJ6_5->setText(NewJ6_5);
         ui.NewJ7_5->setText(NewJ7_5);
-        /*ui.NewJ1_textEdit->clear();
-        ui.NewJ2_textEdit->clear();
-        ui.NewJ3_textEdit->clear();
-        ui.NewJ4_textEdit->clear();
-        ui.NewJ5_textEdit->clear();
-        ui.NewJ6_textEdit->clear();
-        ui.NewJ7_textEdit->clear();*/
+        /*ui.NewJ1_lineEdit->clear();
+        ui.NewJ2_lineEdit->clear();
+        ui.NewJ3_lineEdit->clear();
+        ui.NewJ4_lineEdit->clear();
+        ui.NewJ5_lineEdit->clear();
+        ui.NewJ6_lineEdit->clear();
+        ui.NewJ7_lineEdit->clear();*/
 
-        QString NewROLL5 = ui.NewRoll_textEdit->toPlainText();
-        QString NewPITCH5 = ui.NewPitch_textEdit->toPlainText();
-        QString NewYAW5 = ui.NewYaw_textEdit->toPlainText();
+        QString NewROLL5 = ui.NewRoll_lineEdit->text();
+        QString NewPITCH5 = ui.NewPitch_lineEdit->text();
+        QString NewYAW5 = ui.NewYaw_lineEdit->text();
         ui.NewROLL5->setText(NewROLL5);
         ui.NewPITCH5->setText(NewPITCH5);
         ui.NewYAW5->setText(NewYAW5);
-        /*ui.NewRoll_textEdit->clear();
-        ui.NewPitch_textEdit->clear();
-        ui.NewYaw_textEdit->clear();*/
+        /*ui.NewRoll_lineEdit->clear();
+        ui.NewPitch_lineEdit->clear();
+        ui.NewYaw_lineEdit->clear();*/
     }
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -1157,229 +1157,229 @@ void MainWindow::on_ApplyAllChanges_pushButton_clicked()
 void MainWindow::on_selectView_comboBox_activated(const QString &arg1)
 {
     if(arg1 == "View 1"){
-        QString NEWNAME1 = ui.NEWNAME1->toPlainText();
-        QString NewX1 = ui.NewX1->toPlainText();
-        QString NewY1 = ui.NewY1->toPlainText();
-        QString NewZ1 = ui.NewZ1->toPlainText();
-        QString NewJ1_1 = ui.NewJ1_1->toPlainText();
-        QString NewJ2_1 = ui.NewJ2_1->toPlainText();
-        QString NewJ3_1 = ui.NewJ3_1->toPlainText();
-        QString NewJ4_1 = ui.NewJ4_1->toPlainText();
-        QString NewJ5_1 = ui.NewJ5_1->toPlainText();
-        QString NewJ6_1 = ui.NewJ6_1->toPlainText();
-        QString NewJ7_1 = ui.NewJ7_1->toPlainText();
-        QString NewROLL1 = ui.NewROLL1->toPlainText();
-        QString NewPITCH1 = ui.NewPITCH1->toPlainText();
-        QString NewYAW1 = ui.NewYAW1->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME1);
-        ui.XNEW_textEdit->setText(NewX1);
-        ui.YNEW_textEdit->setText(NewY1);
-        ui.ZNEW_textEdit->setText(NewZ1);
-        ui.NewJ1_textEdit->setText(NewJ1_1);
+        QString NEWNAME1 = ui.NEWNAME1->text();
+        QString NewX1 = ui.NewX1->text();
+        QString NewY1 = ui.NewY1->text();
+        QString NewZ1 = ui.NewZ1->text();
+        QString NewJ1_1 = ui.NewJ1_1->text();
+        QString NewJ2_1 = ui.NewJ2_1->text();
+        QString NewJ3_1 = ui.NewJ3_1->text();
+        QString NewJ4_1 = ui.NewJ4_1->text();
+        QString NewJ5_1 = ui.NewJ5_1->text();
+        QString NewJ6_1 = ui.NewJ6_1->text();
+        QString NewJ7_1 = ui.NewJ7_1->text();
+        QString NewROLL1 = ui.NewROLL1->text();
+        QString NewPITCH1 = ui.NewPITCH1->text();
+        QString NewYAW1 = ui.NewYAW1->text();
+        ui.newName_lineEdit->setText(NEWNAME1);
+        ui.XNEW_lineEdit->setText(NewX1);
+        ui.YNEW_lineEdit->setText(NewY1);
+        ui.ZNEW_lineEdit->setText(NewZ1);
+        ui.NewJ1_lineEdit->setText(NewJ1_1);
         float value1 = NewJ1_1.toFloat();
         ui.NewJ1_horizontalSlider->setValue(value1);
-        ui.NewJ2_textEdit->setText(NewJ2_1);
+        ui.NewJ2_lineEdit->setText(NewJ2_1);
         float value2 = NewJ2_1.toFloat();
         ui.NewJ2_horizontalSlider->setValue(value2);
-        ui.NewJ3_textEdit->setText(NewJ3_1);
+        ui.NewJ3_lineEdit->setText(NewJ3_1);
         float value3 = NewJ3_1.toFloat();
         ui.NewJ3_horizontalSlider->setValue(value3);
-        ui.NewJ4_textEdit->setText(NewJ4_1);
+        ui.NewJ4_lineEdit->setText(NewJ4_1);
         float value4 = NewJ4_1.toFloat();
         ui.NewJ4_horizontalSlider->setValue(value4);
-        ui.NewJ5_textEdit->setText(NewJ5_1);
+        ui.NewJ5_lineEdit->setText(NewJ5_1);
         float value5 = NewJ5_1.toFloat();
         ui.NewJ5_horizontalSlider->setValue(value5);
-        ui.NewJ6_textEdit->setText(NewJ6_1);
+        ui.NewJ6_lineEdit->setText(NewJ6_1);
         float value6 = NewJ6_1.toFloat();
         ui.NewJ6_horizontalSlider->setValue(value6);
-        ui.NewJ7_textEdit->setText(NewJ7_1);
+        ui.NewJ7_lineEdit->setText(NewJ7_1);
         float value7 = NewJ7_1.toFloat();
         ui.NewJ7_horizontalSlider->setValue(value7);
-        ui.NewRoll_textEdit->setText(NewROLL1);
-        ui.NewPitch_textEdit->setText(NewPITCH1);
-        ui.NewYaw_textEdit->setText(NewYAW1);
+        ui.NewRoll_lineEdit->setText(NewROLL1);
+        ui.NewPitch_lineEdit->setText(NewPITCH1);
+        ui.NewYaw_lineEdit->setText(NewYAW1);
     }
     else if(arg1 == "View 2"){
-        QString NEWNAME2 = ui.NEWNAME2->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME2);
-        QString NewX2 = ui.NewX2->toPlainText();
-        QString NewY2 = ui.NewY2->toPlainText();
-        QString NewZ2 = ui.NewZ2->toPlainText();
-        QString NewJ1_2 = ui.NewJ1_2->toPlainText();
-        QString NewJ2_2 = ui.NewJ2_2->toPlainText();
-        QString NewJ3_2 = ui.NewJ3_2->toPlainText();
-        QString NewJ4_2 = ui.NewJ4_2->toPlainText();
-        QString NewJ5_2 = ui.NewJ5_2->toPlainText();
-        QString NewJ6_2 = ui.NewJ6_2->toPlainText();
-        QString NewJ7_2 = ui.NewJ7_2->toPlainText();
-        QString NewROLL2 = ui.NewROLL2->toPlainText();
-        QString NewPITCH2 = ui.NewPITCH2->toPlainText();
-        QString NewYAW2 = ui.NewYAW2->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME2);
-        ui.XNEW_textEdit->setText(NewX2);
-        ui.YNEW_textEdit->setText(NewY2);
-        ui.ZNEW_textEdit->setText(NewZ2);
-        ui.NewJ1_textEdit->setText(NewJ1_2);
+        QString NEWNAME2 = ui.NEWNAME2->text();
+        ui.newName_lineEdit->setText(NEWNAME2);
+        QString NewX2 = ui.NewX2->text();
+        QString NewY2 = ui.NewY2->text();
+        QString NewZ2 = ui.NewZ2->text();
+        QString NewJ1_2 = ui.NewJ1_2->text();
+        QString NewJ2_2 = ui.NewJ2_2->text();
+        QString NewJ3_2 = ui.NewJ3_2->text();
+        QString NewJ4_2 = ui.NewJ4_2->text();
+        QString NewJ5_2 = ui.NewJ5_2->text();
+        QString NewJ6_2 = ui.NewJ6_2->text();
+        QString NewJ7_2 = ui.NewJ7_2->text();
+        QString NewROLL2 = ui.NewROLL2->text();
+        QString NewPITCH2 = ui.NewPITCH2->text();
+        QString NewYAW2 = ui.NewYAW2->text();
+        ui.newName_lineEdit->setText(NEWNAME2);
+        ui.XNEW_lineEdit->setText(NewX2);
+        ui.YNEW_lineEdit->setText(NewY2);
+        ui.ZNEW_lineEdit->setText(NewZ2);
+        ui.NewJ1_lineEdit->setText(NewJ1_2);
         float value1 = NewJ1_2.toFloat();
         ui.NewJ1_horizontalSlider->setValue(value1);
-        ui.NewJ2_textEdit->setText(NewJ2_2);
+        ui.NewJ2_lineEdit->setText(NewJ2_2);
         float value2 = NewJ2_2.toFloat();
         ui.NewJ2_horizontalSlider->setValue(value2);
-        ui.NewJ3_textEdit->setText(NewJ3_2);
+        ui.NewJ3_lineEdit->setText(NewJ3_2);
         float value3 = NewJ3_2.toFloat();
         ui.NewJ3_horizontalSlider->setValue(value3);
-        ui.NewJ4_textEdit->setText(NewJ4_2);
+        ui.NewJ4_lineEdit->setText(NewJ4_2);
         float value4 = NewJ4_2.toFloat();
         ui.NewJ4_horizontalSlider->setValue(value4);
-        ui.NewJ5_textEdit->setText(NewJ5_2);
+        ui.NewJ5_lineEdit->setText(NewJ5_2);
         float value5 = NewJ5_2.toFloat();
         ui.NewJ5_horizontalSlider->setValue(value5);
-        ui.NewJ6_textEdit->setText(NewJ6_2);
+        ui.NewJ6_lineEdit->setText(NewJ6_2);
         float value6 = NewJ6_2.toFloat();
         ui.NewJ6_horizontalSlider->setValue(value6);
-        ui.NewJ7_textEdit->setText(NewJ7_2);
+        ui.NewJ7_lineEdit->setText(NewJ7_2);
         float value7 = NewJ7_2.toFloat();
         ui.NewJ7_horizontalSlider->setValue(value7);
-        ui.NewRoll_textEdit->setText(NewROLL2);
-        ui.NewPitch_textEdit->setText(NewPITCH2);
-        ui.NewYaw_textEdit->setText(NewYAW2);
+        ui.NewRoll_lineEdit->setText(NewROLL2);
+        ui.NewPitch_lineEdit->setText(NewPITCH2);
+        ui.NewYaw_lineEdit->setText(NewYAW2);
 
     }
     else if(arg1 == "View 3"){
-        QString NEWNAME3 = ui.NEWNAME3->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME3);
-        QString NewX3 = ui.NewX3->toPlainText();
-        QString NewY3 = ui.NewY3->toPlainText();
-        QString NewZ3 = ui.NewZ3->toPlainText();
-        QString NewJ1_3 = ui.NewJ1_3->toPlainText();
-        QString NewJ2_3 = ui.NewJ2_3->toPlainText();
-        QString NewJ3_3 = ui.NewJ3_3->toPlainText();
-        QString NewJ4_3 = ui.NewJ4_3->toPlainText();
-        QString NewJ5_3 = ui.NewJ5_3->toPlainText();
-        QString NewJ6_3 = ui.NewJ6_3->toPlainText();
-        QString NewJ7_3 = ui.NewJ7_3->toPlainText();
-        QString NewROLL3 = ui.NewROLL3->toPlainText();
-        QString NewPITCH3 = ui.NewPITCH3->toPlainText();
-        QString NewYAW3 = ui.NewYAW3->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME3);
-        ui.XNEW_textEdit->setText(NewX3);
-        ui.YNEW_textEdit->setText(NewY3);
-        ui.ZNEW_textEdit->setText(NewZ3);
-        ui.NewJ1_textEdit->setText(NewJ1_3);
+        QString NEWNAME3 = ui.NEWNAME3->text();
+        ui.newName_lineEdit->setText(NEWNAME3);
+        QString NewX3 = ui.NewX3->text();
+        QString NewY3 = ui.NewY3->text();
+        QString NewZ3 = ui.NewZ3->text();
+        QString NewJ1_3 = ui.NewJ1_3->text();
+        QString NewJ2_3 = ui.NewJ2_3->text();
+        QString NewJ3_3 = ui.NewJ3_3->text();
+        QString NewJ4_3 = ui.NewJ4_3->text();
+        QString NewJ5_3 = ui.NewJ5_3->text();
+        QString NewJ6_3 = ui.NewJ6_3->text();
+        QString NewJ7_3 = ui.NewJ7_3->text();
+        QString NewROLL3 = ui.NewROLL3->text();
+        QString NewPITCH3 = ui.NewPITCH3->text();
+        QString NewYAW3 = ui.NewYAW3->text();
+        ui.newName_lineEdit->setText(NEWNAME3);
+        ui.XNEW_lineEdit->setText(NewX3);
+        ui.YNEW_lineEdit->setText(NewY3);
+        ui.ZNEW_lineEdit->setText(NewZ3);
+        ui.NewJ1_lineEdit->setText(NewJ1_3);
         float value1 = NewJ1_3.toFloat();
         ui.NewJ1_horizontalSlider->setValue(value1);
-        ui.NewJ2_textEdit->setText(NewJ2_3);
+        ui.NewJ2_lineEdit->setText(NewJ2_3);
         float value2 = NewJ2_3.toFloat();
         ui.NewJ2_horizontalSlider->setValue(value2);
-        ui.NewJ3_textEdit->setText(NewJ3_3);
+        ui.NewJ3_lineEdit->setText(NewJ3_3);
         float value3 = NewJ3_3.toFloat();
         ui.NewJ3_horizontalSlider->setValue(value3);
-        ui.NewJ4_textEdit->setText(NewJ4_3);
+        ui.NewJ4_lineEdit->setText(NewJ4_3);
         float value4 = NewJ4_3.toFloat();
         ui.NewJ4_horizontalSlider->setValue(value4);
-        ui.NewJ5_textEdit->setText(NewJ5_3);
+        ui.NewJ5_lineEdit->setText(NewJ5_3);
         float value5 = NewJ5_3.toFloat();
         ui.NewJ5_horizontalSlider->setValue(value5);
-        ui.NewJ6_textEdit->setText(NewJ6_3);
+        ui.NewJ6_lineEdit->setText(NewJ6_3);
         float value6 = NewJ6_3.toFloat();
         ui.NewJ6_horizontalSlider->setValue(value6);
-        ui.NewJ7_textEdit->setText(NewJ7_3);
+        ui.NewJ7_lineEdit->setText(NewJ7_3);
         float value7 = NewJ7_3.toFloat();
         ui.NewJ7_horizontalSlider->setValue(value7);
-        ui.NewRoll_textEdit->setText(NewROLL3);
-        ui.NewPitch_textEdit->setText(NewPITCH3);
-        ui.NewYaw_textEdit->setText(NewYAW3);
+        ui.NewRoll_lineEdit->setText(NewROLL3);
+        ui.NewPitch_lineEdit->setText(NewPITCH3);
+        ui.NewYaw_lineEdit->setText(NewYAW3);
     }
     else if(arg1 == "View 4"){
-        QString NEWNAME4 = ui.NEWNAME4->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME4);
-        QString NewX4 = ui.NewX4->toPlainText();
-        QString NewY4 = ui.NewY4->toPlainText();
-        QString NewZ4 = ui.NewZ4->toPlainText();
-        QString NewJ1_4 = ui.NewJ1_4->toPlainText();
-        QString NewJ2_4 = ui.NewJ2_4->toPlainText();
-        QString NewJ3_4 = ui.NewJ3_4->toPlainText();
-        QString NewJ4_4 = ui.NewJ4_4->toPlainText();
-        QString NewJ5_4 = ui.NewJ5_4->toPlainText();
-        QString NewJ6_4 = ui.NewJ6_4->toPlainText();
-        QString NewJ7_4 = ui.NewJ7_4->toPlainText();
-        QString NewROLL4 = ui.NewROLL4->toPlainText();
-        QString NewPITCH4 = ui.NewPITCH4->toPlainText();
-        QString NewYAW4 = ui.NewYAW4->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME4);
-        ui.XNEW_textEdit->setText(NewX4);
-        ui.YNEW_textEdit->setText(NewY4);
-        ui.ZNEW_textEdit->setText(NewZ4);
-        ui.NewJ1_textEdit->setText(NewJ1_4);
+        QString NEWNAME4 = ui.NEWNAME4->text();
+        ui.newName_lineEdit->setText(NEWNAME4);
+        QString NewX4 = ui.NewX4->text();
+        QString NewY4 = ui.NewY4->text();
+        QString NewZ4 = ui.NewZ4->text();
+        QString NewJ1_4 = ui.NewJ1_4->text();
+        QString NewJ2_4 = ui.NewJ2_4->text();
+        QString NewJ3_4 = ui.NewJ3_4->text();
+        QString NewJ4_4 = ui.NewJ4_4->text();
+        QString NewJ5_4 = ui.NewJ5_4->text();
+        QString NewJ6_4 = ui.NewJ6_4->text();
+        QString NewJ7_4 = ui.NewJ7_4->text();
+        QString NewROLL4 = ui.NewROLL4->text();
+        QString NewPITCH4 = ui.NewPITCH4->text();
+        QString NewYAW4 = ui.NewYAW4->text();
+        ui.newName_lineEdit->setText(NEWNAME4);
+        ui.XNEW_lineEdit->setText(NewX4);
+        ui.YNEW_lineEdit->setText(NewY4);
+        ui.ZNEW_lineEdit->setText(NewZ4);
+        ui.NewJ1_lineEdit->setText(NewJ1_4);
         float value1 = NewJ1_4.toFloat();
         ui.NewJ1_horizontalSlider->setValue(value1);
-        ui.NewJ2_textEdit->setText(NewJ2_4);
+        ui.NewJ2_lineEdit->setText(NewJ2_4);
         float value2 = NewJ2_4.toFloat();
         ui.NewJ2_horizontalSlider->setValue(value2);
-        ui.NewJ3_textEdit->setText(NewJ3_4);
+        ui.NewJ3_lineEdit->setText(NewJ3_4);
         float value3 = NewJ3_4.toFloat();
         ui.NewJ3_horizontalSlider->setValue(value3);
-        ui.NewJ4_textEdit->setText(NewJ4_4);
+        ui.NewJ4_lineEdit->setText(NewJ4_4);
         float value4 = NewJ4_4.toFloat();
         ui.NewJ4_horizontalSlider->setValue(value4);
-        ui.NewJ5_textEdit->setText(NewJ5_4);
+        ui.NewJ5_lineEdit->setText(NewJ5_4);
         float value5 = NewJ5_4.toFloat();
         ui.NewJ5_horizontalSlider->setValue(value5);
-        ui.NewJ6_textEdit->setText(NewJ6_4);
+        ui.NewJ6_lineEdit->setText(NewJ6_4);
         float value6 = NewJ6_4.toFloat();
         ui.NewJ6_horizontalSlider->setValue(value6);
-        ui.NewJ7_textEdit->setText(NewJ7_4);
+        ui.NewJ7_lineEdit->setText(NewJ7_4);
         float value7 = NewJ7_4.toFloat();
         ui.NewJ7_horizontalSlider->setValue(value7);
-        ui.NewRoll_textEdit->setText(NewROLL4);
-        ui.NewPitch_textEdit->setText(NewPITCH4);
-        ui.NewYaw_textEdit->setText(NewYAW4);
+        ui.NewRoll_lineEdit->setText(NewROLL4);
+        ui.NewPitch_lineEdit->setText(NewPITCH4);
+        ui.NewYaw_lineEdit->setText(NewYAW4);
     }
     else if (arg1 == "View 5"){
-        QString NEWNAME5 = ui.NEWNAME5->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME5);
-        QString NewX5 = ui.NewX5->toPlainText();
-        QString NewY5 = ui.NewY5->toPlainText();
-        QString NewZ5 = ui.NewZ5->toPlainText();
-        QString NewJ1_5 = ui.NewJ1_5->toPlainText();
-        QString NewJ2_5 = ui.NewJ2_5->toPlainText();
-        QString NewJ3_5 = ui.NewJ3_5->toPlainText();
-        QString NewJ4_5 = ui.NewJ4_5->toPlainText();
-        QString NewJ5_5 = ui.NewJ5_5->toPlainText();
-        QString NewJ6_5 = ui.NewJ6_5->toPlainText();
-        QString NewJ7_5 = ui.NewJ7_5->toPlainText();
-        QString NewROLL5 = ui.NewROLL5->toPlainText();
-        QString NewPITCH5 = ui.NewPITCH5->toPlainText();
-        QString NewYAW5 = ui.NewYAW5->toPlainText();
-        ui.newName_textEdit->setText(NEWNAME5);
-        ui.XNEW_textEdit->setText(NewX5);
-        ui.YNEW_textEdit->setText(NewY5);
-        ui.ZNEW_textEdit->setText(NewZ5);
-        ui.NewJ1_textEdit->setText(NewJ1_5);
+        QString NEWNAME5 = ui.NEWNAME5->text();
+        ui.newName_lineEdit->setText(NEWNAME5);
+        QString NewX5 = ui.NewX5->text();
+        QString NewY5 = ui.NewY5->text();
+        QString NewZ5 = ui.NewZ5->text();
+        QString NewJ1_5 = ui.NewJ1_5->text();
+        QString NewJ2_5 = ui.NewJ2_5->text();
+        QString NewJ3_5 = ui.NewJ3_5->text();
+        QString NewJ4_5 = ui.NewJ4_5->text();
+        QString NewJ5_5 = ui.NewJ5_5->text();
+        QString NewJ6_5 = ui.NewJ6_5->text();
+        QString NewJ7_5 = ui.NewJ7_5->text();
+        QString NewROLL5 = ui.NewROLL5->text();
+        QString NewPITCH5 = ui.NewPITCH5->text();
+        QString NewYAW5 = ui.NewYAW5->text();
+        ui.newName_lineEdit->setText(NEWNAME5);
+        ui.XNEW_lineEdit->setText(NewX5);
+        ui.YNEW_lineEdit->setText(NewY5);
+        ui.ZNEW_lineEdit->setText(NewZ5);
+        ui.NewJ1_lineEdit->setText(NewJ1_5);
         float value1 = NewJ1_5.toFloat();
         ui.NewJ1_horizontalSlider->setValue(value1);
-        ui.NewJ2_textEdit->setText(NewJ2_5);
+        ui.NewJ2_lineEdit->setText(NewJ2_5);
         float value2 = NewJ2_5.toFloat();
         ui.NewJ2_horizontalSlider->setValue(value2);
-        ui.NewJ3_textEdit->setText(NewJ3_5);
+        ui.NewJ3_lineEdit->setText(NewJ3_5);
         float value3 = NewJ3_5.toFloat();
         ui.NewJ3_horizontalSlider->setValue(value3);
-        ui.NewJ4_textEdit->setText(NewJ4_5);
+        ui.NewJ4_lineEdit->setText(NewJ4_5);
         float value4 = NewJ4_5.toFloat();
         ui.NewJ4_horizontalSlider->setValue(value4);
-        ui.NewJ5_textEdit->setText(NewJ5_5);
+        ui.NewJ5_lineEdit->setText(NewJ5_5);
         float value5 = NewJ5_5.toFloat();
         ui.NewJ5_horizontalSlider->setValue(value5);
-        ui.NewJ6_textEdit->setText(NewJ6_5);
+        ui.NewJ6_lineEdit->setText(NewJ6_5);
         float value6 = NewJ6_5.toFloat();
         ui.NewJ6_horizontalSlider->setValue(value6);
-        ui.NewJ7_textEdit->setText(NewJ7_5);
+        ui.NewJ7_lineEdit->setText(NewJ7_5);
         float value7 = NewJ7_5.toFloat();
         ui.NewJ7_horizontalSlider->setValue(value7);
-        ui.NewRoll_textEdit->setText(NewROLL5);
-        ui.NewPitch_textEdit->setText(NewPITCH5);
-        ui.NewYaw_textEdit->setText(NewYAW5);    }
+        ui.NewRoll_lineEdit->setText(NewROLL5);
+        ui.NewPitch_lineEdit->setText(NewPITCH5);
+        ui.NewYaw_lineEdit->setText(NewYAW5);    }
 }
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////    Rlexed IK Editor Tab    ////////////////////////////////////////////////////////////*/
@@ -1396,38 +1396,38 @@ void MainWindow::on_selectView_comboBox_activated(const QString &arg1)
 /////////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_SpeedUpdate_pushButton_clicked()
 {
-    //QString CurrentSpeedVal = ui.SpeedVal_textEdit->toPlainText();
-    //ui.SpeedVal_textEdit->setText(CurrentSpeedVal);
-    QString CurrentSpeedWeight = ui.SpeedWeight_textEdit->toPlainText();
-    ui.SpeedWeight_textEdit->setText(CurrentSpeedWeight);
+    //QString CurrentSpeedVal = ui.SpeedVal_lineEdit->text();
+    //ui.SpeedVal_lineEdit->setText(CurrentSpeedVal);
+    QString CurrentSpeedWeight = ui.SpeedWeight_lineEdit->text();
+    ui.SpeedWeight_lineEdit->setText(CurrentSpeedWeight);
 }
 
 void MainWindow::on_ViewingUpdate_pushButton_clicked()
 {
-    //QString CurrentViewingVal = ui.ViewingVal_textEdit->toPlainText();
-    //ui.ViewingVal_textEdit->setText(CurrentViewingVal);
-    QString CurrentViewingWeight = ui.ViewingWeight_textEdit->toPlainText();
-    ui.ViewingWeight_textEdit->setText(CurrentViewingWeight);
+    //QString CurrentViewingVal = ui.ViewingVal_lineEdit->text();
+    //ui.ViewingVal_lineEdit->setText(CurrentViewingVal);
+    QString CurrentViewingWeight = ui.ViewingWeight_lineEdit->text();
+    ui.ViewingWeight_lineEdit->setText(CurrentViewingWeight);
 }
 
 void MainWindow::on_ElecationUpdate_pushButton_clicked()
 {
-    //QString CurrentElevationVal = ui.ElevationVal_textEdit->toPlainText();
-    //ui.ElevationVal_textEdit->setText(CurrentElevationVal);
-    QString CurrentElevationWeight = ui.ElevationWeight_textEdit->toPlainText();
-    ui.ElevationWeight_textEdit->setText(CurrentElevationWeight);
+    //QString CurrentElevationVal = ui.ElevationVal_lineEdit->text();
+    //ui.ElevationVal_lineEdit->setText(CurrentElevationVal);
+    QString CurrentElevationWeight = ui.ElevationWeight_lineEdit->text();
+    ui.ElevationWeight_lineEdit->setText(CurrentElevationWeight);
 }
 
 void MainWindow::on_RollUpdate_pushButton_clicked()
 {
-    QString CurrentRollWeight = ui.RollWeight_textEdit->toPlainText();
-    ui.RollWeight_textEdit->setText(CurrentRollWeight);
+    QString CurrentRollWeight = ui.RollWeight_lineEdit->text();
+    ui.RollWeight_lineEdit->setText(CurrentRollWeight);
 }
 
 void MainWindow::on_HandUpdate_pushButton_clicked()
 {
-    QString CurrentHandWeight = ui.HandWeight_textEdit->toPlainText();
-    ui.HandWeight_textEdit->setText(CurrentHandWeight);
+    QString CurrentHandWeight = ui.HandWeight_lineEdit->text();
+    ui.HandWeight_lineEdit->setText(CurrentHandWeight);
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -1441,19 +1441,19 @@ void MainWindow::on_HandUpdate_pushButton_clicked()
 /////////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_ResetVar_pushButton_clicked()
 {
-    ui.SpeedWeight_textEdit->setText("6");
+    ui.SpeedWeight_lineEdit->setText("6");
     ui.Speed_horizontalSlider->setValue(6);
 
-    ui.ViewingWeight_textEdit->setText("50");
+    ui.ViewingWeight_lineEdit->setText("50");
     ui.ViewingDistance_horizontalSlider->setValue(50);
 
-    ui.ElevationWeight_textEdit->setText("10");
+    ui.ElevationWeight_lineEdit->setText("10");
     ui.Elevation_horizontalSlider->setValue(10);
 
-    ui.RollWeight_textEdit->setText("2");
+    ui.RollWeight_lineEdit->setText("2");
     ui.CameraRoll_horizontalSlider->setValue(2);
 
-    ui.HandWeight_textEdit->setText("5");
+    ui.HandWeight_lineEdit->setText("5");
     ui.LookAtHand_horizontalSlider->setValue(5);
 }
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -1467,35 +1467,35 @@ void MainWindow::on_ResetVar_pushButton_clicked()
 /////////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_UpdateAllVars_pushButton_clicked()
 {
-    //QString CurrentSpeedVal = ui.SpeedVal_textEdit->toPlainText();
-    //ui.SpeedVal_textEdit->setText(CurrentSpeedVal);
-    QString CurrentSpeedWeight = ui.SpeedWeight_textEdit->toPlainText();
-    ui.SpeedWeight_textEdit->setText(CurrentSpeedWeight);
+    //QString CurrentSpeedVal = ui.SpeedVal_lineEdit->text();
+    //ui.SpeedVal_lineEdit->setText(CurrentSpeedVal);
+    QString CurrentSpeedWeight = ui.SpeedWeight_lineEdit->text();
+    ui.SpeedWeight_lineEdit->setText(CurrentSpeedWeight);
     float value1 = CurrentSpeedWeight.toFloat();
     ui.Speed_horizontalSlider->setValue(value1);
 
-    //QString CurrentViewingVal = ui.ViewingVal_textEdit->toPlainText();
-    //ui.ViewingVal_textEdit->setText(CurrentViewingVal);
-    QString CurrentViewingWeight = ui.ViewingWeight_textEdit->toPlainText();
-    ui.ViewingWeight_textEdit->setText(CurrentViewingWeight);
+    //QString CurrentViewingVal = ui.ViewingVal_lineEdit->text();
+    //ui.ViewingVal_lineEdit->setText(CurrentViewingVal);
+    QString CurrentViewingWeight = ui.ViewingWeight_lineEdit->text();
+    ui.ViewingWeight_lineEdit->setText(CurrentViewingWeight);
     float value2 = CurrentViewingWeight.toFloat();
     ui.ViewingDistance_horizontalSlider->setValue(value2);
 
-    //QString CurrentElevationVal = ui.ElevationVal_textEdit->toPlainText();
-    //ui.ElevationVal_textEdit->setText(CurrentElevationVal);
-    QString CurrentElevationWeight = ui.ElevationWeight_textEdit->toPlainText();
-    ui.ElevationWeight_textEdit->setText(CurrentElevationWeight);
+    //QString CurrentElevationVal = ui.ElevationVal_lineEdit->text();
+    //ui.ElevationVal_lineEdit->setText(CurrentElevationVal);
+    QString CurrentElevationWeight = ui.ElevationWeight_lineEdit->text();
+    ui.ElevationWeight_lineEdit->setText(CurrentElevationWeight);
     float value3 = CurrentElevationWeight.toFloat();
     ui.Elevation_horizontalSlider->setValue(value3);
 
-    QString CurrentRollWeight = ui.RollWeight_textEdit->toPlainText();
-    ui.RollWeight_textEdit->setText(CurrentRollWeight);
+    QString CurrentRollWeight = ui.RollWeight_lineEdit->text();
+    ui.RollWeight_lineEdit->setText(CurrentRollWeight);
     float value4 = CurrentRollWeight.toFloat();
     ui.CameraRoll_horizontalSlider->setValue(value4);
 
 
-    QString CurrentHandWeight = ui.HandWeight_textEdit->toPlainText();
-    ui.HandWeight_textEdit->setText(CurrentHandWeight);
+    QString CurrentHandWeight = ui.HandWeight_lineEdit->text();
+    ui.HandWeight_lineEdit->setText(CurrentHandWeight);
     float value5 = CurrentHandWeight.toFloat();
     ui.LookAtHand_horizontalSlider->setValue(value5);
 }
@@ -1511,31 +1511,31 @@ void MainWindow::on_UpdateAllVars_pushButton_clicked()
 void MainWindow::on_Speed_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.SpeedWeight_textEdit->setText(b);
+    ui.SpeedWeight_lineEdit->setText(b);
 }
 
 void MainWindow::on_ViewingDistance_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.ViewingWeight_textEdit->setText(b);
+    ui.ViewingWeight_lineEdit->setText(b);
 }
 
 void MainWindow::on_Elevation_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.ElevationWeight_textEdit->setText(b);
+    ui.ElevationWeight_lineEdit->setText(b);
 }
 
 void MainWindow::on_CameraRoll_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.RollWeight_textEdit->setText(b);
+    ui.RollWeight_lineEdit->setText(b);
 }
 
 void MainWindow::on_LookAtHand_horizontalSlider_valueChanged(int value)
 {
     QString b = QString::number(value);
-    ui.HandWeight_textEdit->setText(b);
+    ui.HandWeight_lineEdit->setText(b);
 }
 
 /* Change control method */
