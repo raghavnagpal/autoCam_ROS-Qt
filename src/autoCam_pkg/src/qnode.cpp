@@ -25,6 +25,7 @@ cv_bridge::CvImagePtr my_global_cv_ptr;
 cv_bridge::CvImagePtr my_global_cv_ptr_2;
 geometry_msgs::Pose hand_camera_pose;
 std_msgs::String controlState;
+geometry_msgs::Pose commandCardtesianPose;
 /*****************************************************************************
 ** Implementation
 *****************************************************************************/
@@ -60,6 +61,7 @@ bool QNode::init() {
 
   /* Publishers */
   control_pub = nh.advertise<std_msgs::String>("/controlState", 1);
+  cartesian_pub = nh.advertise<geometry_msgs::Pose>("/uiCartesianPose", 1);
 
   start();
 	return true;
@@ -117,7 +119,12 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 }
 
 void QNode::publishControl() {
+  // Publish the control mode: "joint", "cartesian", or "objective"
   control_pub.publish(controlState);
+  // If in cartesian mode, publish cartesian pose
+  if (controlState.data == "cartesian") {
+    cartesian_pub.publish(commandCardtesianPose);
+  }
 }
 
 }  // namespace autoCam_pkg

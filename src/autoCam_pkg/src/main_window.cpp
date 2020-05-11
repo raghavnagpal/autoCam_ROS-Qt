@@ -145,7 +145,10 @@ void MainWindow::on_Manual_SwitchButton_pressed()
         pixmap_2.setPixmap( QPixmap::fromImage(qimg_2.rgbSwapped()) );
         ui.graphicsView_2->fitInView(&pixmap_2, Qt::KeepAspectRatio);
       }
-      observeCartesian();
+      //you dont want to be spamming this during cartesian control because you won't be able to type in the boxes
+      if (controlState.data != "cartesian") {
+        observeCartesian();
+      }
       qApp->processEvents();
     }
   }
@@ -220,6 +223,17 @@ void MainWindow::observeCartesian(){
     Ycounter = hand_camera_pose.position.y;
     Zcounter = hand_camera_pose.position.z;
   }
+  else{
+    commandCardtesianPose.position.x = Xcounter;
+    commandCardtesianPose.position.y = Ycounter;
+    commandCardtesianPose.position.z = Zcounter;
+    commandCardtesianPose.orientation.x = 0;
+    commandCardtesianPose.orientation.y = 0;
+    commandCardtesianPose.orientation.z = 0;
+    commandCardtesianPose.orientation.w = 1;
+    qnode.publishControl();
+  }
+
   //displays the values in the local variables
   ui.X_lineEdit->setText(QString::number(Xcounter));
   ui.Y_lineEdit->setText(QString::number(Ycounter));
