@@ -61,9 +61,11 @@ public Q_SLOTS:
     *******************************************/
 //    void updateLoggingView(); // no idea why this can't connect automatically
 
+private Q_SLOTS:
+
   void observeCartesian();
 
-private Q_SLOTS:
+  void observeJoint();
 
   void on_Manual_SwitchButton_pressed();
 
@@ -178,10 +180,23 @@ private Q_SLOTS:
   void on_comboBox_currentIndexChanged(const QString &arg1);
 
   void toggleCartesianControl(bool enable);
+  void toggleJointControl(bool enable);
 
   void on_X_lineEdit_editingFinished();
   void on_Y_lineEdit_editingFinished();
   void on_Z_lineEdit_editingFinished();
+
+  void on_J1_lineEdit_editingFinished();
+  void on_J2_lineEdit_editingFinished();
+  void on_J3_lineEdit_editingFinished();
+  void on_J4_lineEdit_editingFinished();
+  void on_J5_lineEdit_editingFinished();
+  void on_J6_lineEdit_editingFinished();
+  void on_J7_lineEdit_editingFinished();
+
+  void on_Roll_lineEdit_editingFinished();
+  void on_Pitch_lineEdit_editingFinished();
+  void on_Yaw_lineEdit_editingFinished();
 
 private:
   Ui::MainWindow ui;
@@ -196,7 +211,19 @@ private:
   float Xcounter;
   float Ycounter;
   float Zcounter;
-
+  double RollCounter;
+  double PitchCounter;
+  double YawCounter;
+  double RollCounter_rad;
+  double PitchCounter_rad;
+  double YawCounter_rad;
+  float J1counter;
+  float J2counter;
+  float J3counter;
+  float J4counter;
+  float J5counter;
+  float J6counter;
+  float J7counter;
 };
 
 }  // namespace autoCam_pkg

@@ -11,7 +11,6 @@
 *****************************************************************************/
 #include <sstream>
 #include "../include/autoCam_pkg/qnode.hpp"
-#include "../include/autoCam_pkg/main_window.hpp"
 #include <opencv2/highgui/highgui.hpp>
 #include "../include/autoCam_pkg/common.h"
 
@@ -30,10 +29,9 @@ geometry_msgs::Pose commandCardtesianPose;
 ** Implementation
 *****************************************************************************/
 
-QNode::QNode(int argc, char** argv, MainWindow* mw ) :
+QNode::QNode(int argc, char** argv) :
 	init_argc(argc),
-  init_argv(argv),
-  theWindow(mw)
+  init_argv(argv)
 	{}
 
 QNode::~QNode() {

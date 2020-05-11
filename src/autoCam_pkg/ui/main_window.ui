@@ -84,6 +84,11 @@ background-color: grey;
        </property>
        <item>
         <property name="text">
+         <string>&lt;select&gt;</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>joint</string>
         </property>
        </item>
@@ -121,7 +126,7 @@ background-color: grey;
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>40</y>
+        <y>10</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -134,7 +139,7 @@ background-color: grey;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>400</y>
+        <y>320</y>
         <width>441</width>
         <height>20</height>
        </rect>
@@ -149,8 +154,8 @@ background-color: grey;
      <widget class="QLabel" name="label_39">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>450</y>
+        <x>340</x>
+        <y>180</y>
         <width>51</width>
         <height>21</height>
        </rect>
@@ -163,10 +168,13 @@ background-color: grey;
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>280</y>
+        <y>460</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -177,10 +185,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J1_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>190</y>
+        <y>370</y>
         <width>211</width>
         <height>22</height>
        </rect>
@@ -195,27 +206,17 @@ p, li { white-space: pre-wrap; }
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_40">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>420</y>
-        <width>111</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Camera Control:</string>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="J3_lineEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>250</y>
+        <y>430</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -229,10 +230,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>190</y>
+        <y>370</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -246,7 +250,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>160</y>
+        <y>340</y>
         <width>131</width>
         <height>21</height>
        </rect>
@@ -261,8 +265,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>450</y>
+        <x>270</x>
+        <y>180</y>
         <width>22</width>
         <height>81</height>
        </rect>
@@ -278,13 +282,22 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J7_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>370</y>
+        <y>550</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-180</number>
+      </property>
+      <property name="value">
+       <number>0</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -323,10 +336,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>340</y>
+        <y>520</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -342,8 +358,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>490</y>
+        <x>340</x>
+        <y>220</y>
         <width>121</width>
         <height>22</height>
        </rect>
@@ -362,10 +378,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>220</y>
+        <y>400</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -378,8 +397,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_43">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>450</y>
+        <x>200</x>
+        <y>180</y>
         <width>51</width>
         <height>21</height>
        </rect>
@@ -394,8 +413,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>470</y>
+        <x>80</x>
+        <y>200</y>
         <width>61</width>
         <height>71</height>
        </rect>
@@ -410,8 +429,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QLabel" name="label_44">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>450</y>
+        <x>90</x>
+        <y>180</y>
         <width>51</width>
         <height>21</height>
        </rect>
@@ -421,13 +440,22 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J6_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>340</y>
+        <y>520</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-120</number>
+      </property>
+      <property name="maximum">
+       <number>120</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -463,13 +491,22 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J2_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>220</y>
+        <y>400</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-128</number>
+      </property>
+      <property name="maximum">
+       <number>128</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -479,10 +516,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>310</y>
+        <y>490</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -544,10 +584,13 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>370</y>
+        <y>550</y>
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html" stdset="0">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -558,26 +601,44 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J4_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>280</y>
+        <y>460</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-147</number>
+      </property>
+      <property name="maximum">
+       <number>147</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
      <widget class="QSlider" name="J5_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>310</y>
+        <y>490</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-180</number>
+      </property>
+      <property name="maximum">
+       <number>180</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -623,13 +684,22 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QSlider" name="J3_horizontalSlider">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>250</y>
+        <y>430</y>
         <width>211</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="minimum">
+       <number>-180</number>
+      </property>
+      <property name="maximum">
+       <number>180</number>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -670,24 +740,11 @@ color: red;
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_47">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>10</y>
-        <width>111</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Manual Control</string>
-      </property>
-     </widget>
      <widget class="Line" name="line_22">
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>580</y>
+        <y>590</y>
         <width>441</width>
         <height>20</height>
        </rect>
@@ -731,8 +788,8 @@ color: red;
       </property>
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>550</y>
+        <x>80</x>
+        <y>280</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -751,8 +808,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>550</y>
+        <x>200</x>
+        <y>280</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -774,8 +831,8 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>550</y>
+        <x>340</x>
+        <y>280</y>
         <width>91</width>
         <height>31</height>
        </rect>

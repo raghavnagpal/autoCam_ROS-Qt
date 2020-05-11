@@ -28,9 +28,9 @@ using namespace Qt;
 ** Implementation [MainWindow]
 *****************************************************************************/
 
-MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
-	: QMainWindow(parent)
-  , qnode(argc,argv,this)
+MainWindow::MainWindow(int argc, char** argv, QWidget *parent) :
+  QMainWindow(parent),
+  qnode(argc,argv)
 {
   ui.setupUi(this); // Calling this incidentally connects all ui's triggers to on_...() callbacks in this class.
 
@@ -54,26 +54,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 
     ui.tabWidget->setCurrentIndex(0);
 
-  /* Set ragne of joint sliders */
-    QSlider *J1_horizontalSlider = new QSlider(Qt::Horizontal);
-    J1_horizontalSlider->setRange(-180, 180);
-    QSlider *J2_horizontalSlider = new QSlider(Qt::Horizontal);
-    J2_horizontalSlider->setRange(-128, 128);
-    QSlider *J3_horizontalSlider = new QSlider(Qt::Horizontal);
-    J3_horizontalSlider->setRange(-180, 180);
-    QSlider *J4_horizontalSlider = new QSlider(Qt::Horizontal);
-    J4_horizontalSlider->setRange(-147, 147);
-    QSlider *J5_horizontalSlider = new QSlider(Qt::Horizontal);
-    J5_horizontalSlider->setRange(-180, 180);
-    QSlider *J6_horizontalSlider = new QSlider(Qt::Horizontal);
-    J6_horizontalSlider->setRange(-120, 120);
-    QSlider *J7_horizontalSlider = new QSlider(Qt::Horizontal);
-    J7_horizontalSlider->setRange(-180, 180);
-  /*////*/
-
 }
-
-
 
 MainWindow::~MainWindow() {}
 
@@ -88,15 +69,13 @@ void MainWindow::showNoMasterMessage() {
     close();
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
-{
+void MainWindow::closeEvent(QCloseEvent *event) {
   imageStream = false;
   //WriteSettings();
 	QMainWindow::closeEvent(event);
 }
 
-void MainWindow::on_Manual_SwitchButton_pressed()
-{
+void MainWindow::on_Manual_SwitchButton_pressed() {
   ui.Manual_SwitchButton->setText(QString("Switch Cameras"));
 
   //figure out which widget should be made larger or smaller
@@ -169,6 +148,8 @@ void MainWindow::on_Manual_SwitchButton_pressed()
 // PushButton Names: UP_pushButton, DOWN_pushButton, LEFT_pushButton, RIGHT_pushButton
 //                   IN_pushButton, OUT_pushButton
 // TextEdit Box Names: X_lineEdit, Y_lineEdit, Z_lineEdit
+// Dial and Slider Names: Roll_dial, Pitch_horizontalSlider, Yaw_verticalSlider
+// TextEdit Box Names: Roll_lineEdit, Pitch_lineEdit, Yaw_lineEdit
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
 void MainWindow::on_UP_pushButton_clicked() {
@@ -215,22 +196,66 @@ void MainWindow::on_Z_lineEdit_editingFinished() {
     observeCartesian();
 }
 
+void MainWindow::on_Roll_lineEdit_editingFinished() {
+    RollCounter = ui.Roll_lineEdit->text().toDouble();
+    observeCartesian();
+}
+
+void MainWindow::on_Pitch_lineEdit_editingFinished() {
+    PitchCounter = ui.Pitch_lineEdit->text().toDouble();
+    observeCartesian();
+}
+
+void MainWindow::on_Yaw_lineEdit_editingFinished() {
+    YawCounter = ui.Yaw_lineEdit->text().toDouble();
+    observeCartesian();
+}
+
+void MainWindow::on_Roll_dial_valueChanged(int value) {
+  RollCounter = double(value);
+  observeCartesian();
+}
+
+void MainWindow::on_Yaw_horizontalSlider_valueChanged(int value) {
+  YawCounter = double(value);
+  observeCartesian();
+}
+
+void MainWindow::on_Pitch_verticalSlider_valueChanged(int value) {
+  PitchCounter = double(value);
+  observeCartesian();
+}
+
 void MainWindow::observeCartesian(){
 
   if (controlState.data != "cartesian") {
-    //update values
+    /* Update position values */
     Xcounter = hand_camera_pose.position.x;
     Ycounter = hand_camera_pose.position.y;
     Zcounter = hand_camera_pose.position.z;
+    /* Update orientation values */
+    tf2::Quaternion quat_tf;
+    tf2::fromMsg(hand_camera_pose.orientation, quat_tf);
+    tf2::Matrix3x3(quat_tf).getRPY(RollCounter_rad, PitchCounter_rad, YawCounter_rad);
+    RollCounter = RollCounter_rad * 180.0 / M_PI;
+    PitchCounter = PitchCounter_rad * 180.0 / M_PI;
+    YawCounter = YawCounter_rad * 180.0 / M_PI;
   }
-  else{
+  else {
+    //set position
     commandCardtesianPose.position.x = Xcounter;
     commandCardtesianPose.position.y = Ycounter;
     commandCardtesianPose.position.z = Zcounter;
-    commandCardtesianPose.orientation.x = 0;
-    commandCardtesianPose.orientation.y = 0;
-    commandCardtesianPose.orientation.z = 0;
-    commandCardtesianPose.orientation.w = 1;
+
+    //set orientation
+    RollCounter_rad = RollCounter * M_PI / 180.0;
+    PitchCounter_rad = PitchCounter * M_PI / 180.0;
+    YawCounter_rad = YawCounter * M_PI / 180.0;
+    tf2::Quaternion quat_tf_pub;
+    quat_tf_pub.setRPY(RollCounter_rad, PitchCounter_rad, YawCounter_rad);
+    commandCardtesianPose.orientation = tf2::toMsg(quat_tf_pub);
+
+    //publish
     qnode.publishControl();
   }
 
@@ -238,6 +263,15 @@ void MainWindow::observeCartesian(){
   ui.X_lineEdit->setText(QString::number(Xcounter));
   ui.Y_lineEdit->setText(QString::number(Ycounter));
   ui.Z_lineEdit->setText(QString::number(Zcounter));
+
+  ui.Roll_lineEdit->setText(QString::number(RollCounter));
+  ui.Pitch_lineEdit->setText(QString::number(PitchCounter));
+  ui.Yaw_lineEdit->setText(QString::number(YawCounter));
+
+  ui.Roll_dial->setValue(int(RollCounter));
+  ui.Pitch_verticalSlider->setValue(int(PitchCounter));
+  ui.Yaw_horizontalSlider->setValue(int(YawCounter));
+
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -252,73 +286,77 @@ void MainWindow::observeCartesian(){
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////*/
 
-void MainWindow::on_J1_horizontalSlider_valueChanged(int value)
-{
-    //int intValue = value;
-    QString b = QString::number(value);
-    ui.J1_lineEdit->setText(b);
+void MainWindow::on_J1_horizontalSlider_valueChanged(int value) {
+  J1counter = float(value);
 }
 
-void MainWindow::on_J2_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J2_lineEdit->setText(b);
+void MainWindow::on_J2_horizontalSlider_valueChanged(int value) {
+  J2counter = float(value);
 }
 
-void MainWindow::on_J3_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J3_lineEdit->setText(b);
+void MainWindow::on_J3_horizontalSlider_valueChanged(int value) {
+  J3counter = float(value);
 }
 
-void MainWindow::on_J4_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J4_lineEdit->setText(b);
+void MainWindow::on_J4_horizontalSlider_valueChanged(int value) {
+  J4counter = float(value);
 }
 
-void MainWindow::on_J5_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J5_lineEdit->setText(b);
+void MainWindow::on_J5_horizontalSlider_valueChanged(int value) {
+  J5counter = float(value);
 }
 
-void MainWindow::on_J6_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J6_lineEdit->setText(b);
+void MainWindow::on_J6_horizontalSlider_valueChanged(int value) {
+  J6counter = float(value);
 }
 
-void MainWindow::on_J7_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.J7_lineEdit->setText(b);
+void MainWindow::on_J7_horizontalSlider_valueChanged(int value) {
+  J7counter = float(value);
 }
+
+void MainWindow::on_J1_lineEdit_editingFinished() {
+  J1counter = ui.J1_lineEdit->text().toFloat();
+}
+void MainWindow::on_J2_lineEdit_editingFinished() {
+  J2counter = ui.J2_lineEdit->text().toFloat();
+}
+void MainWindow::on_J3_lineEdit_editingFinished() {
+  J3counter = ui.J3_lineEdit->text().toFloat();
+}
+void MainWindow::on_J4_lineEdit_editingFinished() {
+  J4counter = ui.J4_lineEdit->text().toFloat();
+}
+void MainWindow::on_J5_lineEdit_editingFinished() {
+  J5counter = ui.J5_lineEdit->text().toFloat();
+}
+void MainWindow::on_J6_lineEdit_editingFinished() {
+  J6counter = ui.J6_lineEdit->text().toFloat();
+}
+void MainWindow::on_J7_lineEdit_editingFinished() {
+  J7counter = ui.J7_lineEdit->text().toFloat();
+}
+
+void MainWindow::observeJoint(){
+
+  if (controlState.data != "joint") {
+
+    //update values
+//    J1counter = ;
+
+  }
+  else{
+    //sensor_msgs::jointState
+//    commandJointPose = J1counter;
+    qnode.publishControl();
+  }
+
+  //displays the values in the local variables
+//  ui.J1_lineEdit->setText(QString::number(J1counter));
+//  u1.J1_horizontalSlider->setValue(QString::number(J1counter));
+}
+
 /*/////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////
-// Command Window
-// Manual Camera Control
-// Dial and Slider Names: Roll_dial, Pitch_horizontalSlider, Yaw_verticalSlider
-// TextEdit Box Names: Roll_lineEdit, Pitch_lineEdit, Yaw_lineEdit
-///////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////*/
-void MainWindow::on_Roll_dial_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.Roll_lineEdit->setText(b);
-}
 
-void MainWindow::on_Yaw_horizontalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.Yaw_lineEdit->setText(b);
-}
-
-void MainWindow::on_Pitch_verticalSlider_valueChanged(int value)
-{
-    QString b = QString::number(value);
-    ui.Pitch_lineEdit->setText(b);
-}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Command Window
@@ -1542,19 +1580,26 @@ void MainWindow::on_LookAtHand_horizontalSlider_valueChanged(int value)
 
 void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 {
+  //removes the initial <select> item upon selecting a control method
+  if (ui.comboBox->count() > 3) {
+    ui.comboBox->removeItem(0);
+  }
   /* Build the string message */
   std::stringstream ss;
   if (arg1 == "joint"){
     ss << "joint";
     toggleCartesianControl(false);
+    toggleJointControl(true);
   }
   else if (arg1 == "cartesian") {
     ss << "cartesian";
     toggleCartesianControl(true);
+    toggleJointControl(false);
   }
   else {
     ss << "objective";
     toggleCartesianControl(false);
+    toggleJointControl(false);
   }
 
   /* publish updated control method */
@@ -1565,17 +1610,25 @@ void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 /* enables or disables cartesian controls, when disabled they display current state */
 void MainWindow::toggleCartesianControl(bool enable) {
   if (enable) {
-    //buttons
+    //position buttons
     ui.LEFT_pushButton->setEnabled(true);
     ui.RIGHT_pushButton->setEnabled(true);
     ui.UP_pushButton->setEnabled(true);
     ui.DOWN_pushButton->setEnabled(true);
     ui.IN_pushButton->setEnabled(true);
     ui.OUT_pushButton->setEnabled(true);
-    //text edits
+    //position line edits
     ui.X_lineEdit->setReadOnly(false);
     ui.Y_lineEdit->setReadOnly(false);
     ui.Z_lineEdit->setReadOnly(false);
+    //orientation buttons
+    ui.Roll_dial->setEnabled(true);
+    ui.Yaw_horizontalSlider->setEnabled(true);
+    ui.Pitch_verticalSlider->setEnabled(true);
+    //orientation line edits
+    ui.Roll_lineEdit->setReadOnly(false);
+    ui.Yaw_lineEdit->setReadOnly(false);
+    ui.Pitch_lineEdit->setReadOnly(false);
   }
   else {
     //buttons
@@ -1589,6 +1642,56 @@ void MainWindow::toggleCartesianControl(bool enable) {
     ui.X_lineEdit->setReadOnly(true);
     ui.Y_lineEdit->setReadOnly(true);
     ui.Z_lineEdit->setReadOnly(true);
+    //orientation buttons
+    ui.Roll_dial->setEnabled(false);
+    ui.Yaw_horizontalSlider->setEnabled(false);
+    ui.Pitch_verticalSlider->setEnabled(false);
+    //orientation line edits
+    ui.Roll_lineEdit->setReadOnly(true);
+    ui.Yaw_lineEdit->setReadOnly(true);
+    ui.Pitch_lineEdit->setReadOnly(true);
+  }
+}
+
+/* enables or disables joint controls, when disabled they display current state */
+void MainWindow::toggleJointControl(bool enable) {
+  if (enable) {
+    //joint sliders
+    ui.J1_horizontalSlider->setEnabled(true);
+    ui.J2_horizontalSlider->setEnabled(true);
+    ui.J3_horizontalSlider->setEnabled(true);
+    ui.J4_horizontalSlider->setEnabled(true);
+    ui.J5_horizontalSlider->setEnabled(true);
+    ui.J6_horizontalSlider->setEnabled(true);
+    ui.J7_horizontalSlider->setEnabled(true);
+
+    //joint line edits
+    ui.J1_lineEdit->setReadOnly(false);
+    ui.J2_lineEdit->setReadOnly(false);
+    ui.J3_lineEdit->setReadOnly(false);
+    ui.J4_lineEdit->setReadOnly(false);
+    ui.J5_lineEdit->setReadOnly(false);
+    ui.J6_lineEdit->setReadOnly(false);
+    ui.J7_lineEdit->setReadOnly(false);
+  }
+  else {
+    //joint sliders
+    ui.J1_horizontalSlider->setEnabled(false);
+    ui.J2_horizontalSlider->setEnabled(false);
+    ui.J3_horizontalSlider->setEnabled(false);
+    ui.J4_horizontalSlider->setEnabled(false);
+    ui.J5_horizontalSlider->setEnabled(false);
+    ui.J6_horizontalSlider->setEnabled(false);
+    ui.J7_horizontalSlider->setEnabled(false);
+
+    //joint line edits
+    ui.J1_lineEdit->setReadOnly(true);
+    ui.J2_lineEdit->setReadOnly(true);
+    ui.J3_lineEdit->setReadOnly(true);
+    ui.J4_lineEdit->setReadOnly(true);
+    ui.J5_lineEdit->setReadOnly(true);
+    ui.J6_lineEdit->setReadOnly(true);
+    ui.J7_lineEdit->setReadOnly(true);
   }
 }
 
