@@ -61,6 +61,8 @@ public Q_SLOTS:
     *******************************************/
 //    void updateLoggingView(); // no idea why this can't connect automatically
 
+  void observeCartesian();
+
 private Q_SLOTS:
 
   void on_Manual_SwitchButton_pressed();
@@ -175,6 +177,10 @@ private Q_SLOTS:
 
   void on_comboBox_currentIndexChanged(const QString &arg1);
 
+  void toggleCartesianControl(bool enable);
+
+  void on_X_lineEdit_editingFinished();
+
 private:
   Ui::MainWindow ui;
 	QNode qnode;
@@ -185,6 +191,9 @@ private:
   int XNEWcounter;
   int YNEWcounter;
   int ZNEWcounter;
+  float Xcounter;
+  float Ycounter;
+  float Zcounter;
 
 };
 

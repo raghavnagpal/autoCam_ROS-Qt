@@ -111,7 +111,7 @@ background-color: grey;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="mainCommandWindow">
      <attribute name="title">
@@ -295,6 +295,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="IN_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -417,6 +420,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="UP_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -460,6 +466,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="LEFT_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -473,6 +482,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="DOWN_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -486,6 +498,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="OUT_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -542,6 +557,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="RIGHT_pushButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -554,7 +572,7 @@ p, li { white-space: pre-wrap; }
        <string>RIGHT</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="Z_textEdit">
+     <widget class="QLineEdit" name="Z_lineEdit">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -590,7 +608,7 @@ p, li { white-space: pre-wrap; }
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QTextEdit" name="Y_textEdit">
+     <widget class="QLineEdit" name="Y_lineEdit">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -748,7 +766,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'.AppleSystemUIFont'; font-size:13pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="X_textEdit">
+     <widget class="QLineEdit" name="X_lineEdit">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -768,7 +786,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>40</x>
         <y>90</y>
-        <width>101</width>
+        <width>121</width>
         <height>21</height>
        </rect>
       </property>
@@ -777,6 +795,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewUP_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>200</x>
@@ -790,12 +811,15 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewIN_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>200</x>
         <y>130</y>
-        <width>51</width>
-        <height>41</height>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -803,12 +827,15 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewOUT_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>130</y>
-        <width>51</width>
-        <height>41</height>
+        <x>200</x>
+        <y>150</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -816,6 +843,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewDOWN_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>200</x>
@@ -829,6 +859,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewRIGHT_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>270</x>
@@ -842,6 +875,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="NewLEFT_pushButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>140</x>
@@ -963,6 +999,9 @@ p, li { white-space: pre-wrap; }
         <height>31</height>
        </rect>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QTextEdit" name="YNEW_textEdit">
       <property name="geometry">
@@ -973,6 +1012,9 @@ p, li { white-space: pre-wrap; }
         <height>31</height>
        </rect>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QTextEdit" name="ZNEW_textEdit">
       <property name="geometry">
@@ -982,6 +1024,9 @@ p, li { white-space: pre-wrap; }
         <width>91</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_9">

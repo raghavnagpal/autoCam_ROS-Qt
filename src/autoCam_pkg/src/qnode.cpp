@@ -111,6 +111,7 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 
 //  std::cout << Position_of_ee.x << "\n";
 
+
 }
 
 void QNode::publishControl() {

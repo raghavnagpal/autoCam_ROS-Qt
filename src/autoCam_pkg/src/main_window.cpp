@@ -28,7 +28,6 @@ using namespace Qt;
 ** Implementation [MainWindow]
 *****************************************************************************/
 
-
 MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
 	: QMainWindow(parent)
 	, qnode(argc,argv)
@@ -45,7 +44,6 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     if ( !qnode.init() ) {
       showNoMasterMessage();
     }
-
 
   /* Attach scene and pixmap to the graphics views for the cameras. */
     ui.graphicsView->setScene(new QGraphicsScene(this));
@@ -72,6 +70,8 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
   /*////*/
 
 }
+
+
 
 MainWindow::~MainWindow() {}
 
@@ -165,50 +165,47 @@ void MainWindow::on_Manual_SwitchButton_pressed()
 // TextEdit Box Names: X_textEdit, Y_textEdit, Z_textEdit
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////*/
-int Xcounter = 0;
-int Ycounter = 0;
-int Zcounter = 0;
-void MainWindow::on_UP_pushButton_clicked()
-{
-    Zcounter++;
-    QString strZ = QString::number(Zcounter);
-    ui.Z_textEdit->setText(strZ);
+void MainWindow::on_UP_pushButton_clicked() {
+    Zcounter = Zcounter + 1.0;
 }
 
-void MainWindow::on_DOWN_pushButton_clicked()
-{
-    Zcounter--;
-    QString strZ = QString::number(Zcounter);
-    ui.Z_textEdit->setText(strZ);
+void MainWindow::on_DOWN_pushButton_clicked() {
+    Zcounter = Zcounter - 1.0;
 }
 
-void MainWindow::on_OUT_pushButton_clicked()
-{
-    Xcounter++;
-    QString strX = QString::number(Xcounter);
-    ui.X_textEdit->setText(strX);
+void MainWindow::on_OUT_pushButton_clicked() {
+    Xcounter = Xcounter + 1.0;
 }
 
-void MainWindow::on_IN_pushButton_clicked()
-{
-    Xcounter--;
-    QString strX = QString::number(Xcounter);
-    ui.X_textEdit->setText(strX);
+void MainWindow::on_IN_pushButton_clicked() {
+    Xcounter = Xcounter - 1.0;
 }
 
-void MainWindow::on_RIGHT_pushButton_clicked()
-{
-    Ycounter++;
-    QString strY = QString::number(Ycounter);
-    ui.Y_textEdit->setText(strY);
+void MainWindow::on_RIGHT_pushButton_clicked() {
+    Ycounter = Ycounter + 1.0;
 }
 
-void MainWindow::on_LEFT_pushButton_clicked()
-{
-    Ycounter--;
-    QString strY = QString::number(Ycounter);
-    ui.Y_textEdit->setText(strY);
+void MainWindow::on_LEFT_pushButton_clicked() {
+    Ycounter = Ycounter - 1.0;
 }
+
+void MainWindow::observeCartesian(){
+
+  //update values
+  Xcounter = hand_camera_pose.position.x;
+  Ycounter = hand_camera_pose.position.y;
+  Zcounter = hand_camera_pose.position.z;
+
+
+  //displays the values in the local variables
+  QString strX = QString::number(Xcounter);
+  ui.Y_lineEdit->setText(strX);
+  QString strY = QString::number(Ycounter);
+  ui.Y_lineEdit->setText(strY);
+  QString strZ = QString::number(Zcounter);
+  ui.Y_lineEdit->setText(strZ);
+}
+
 /*/////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Command Window
@@ -355,12 +352,12 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.view1_pushButton->setText("1: " + name1);
           ui.addName_textEdit->clear();
           //This view has a cartesian pose for x,yz
-          QString X1 = ui.X_textEdit->toPlainText();
-          QString Y1 = ui.Y_textEdit->toPlainText();
-          QString Z1 = ui.Z_textEdit->toPlainText();
-          ui.X_textEdit->clear();
-          ui.Y_textEdit->clear();
-          ui.Z_textEdit->clear();
+          QString X1 = ui.X_lineEdit->text();
+          QString Y1 = ui.Y_lineEdit->text();
+          QString Z1 = ui.Z_lineEdit->text();
+          ui.X_lineEdit->clear();
+          ui.Y_lineEdit->clear();
+          ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
           QString J1_1 = ui.J1_textEdit->toPlainText();
           QString J2_1 = ui.J2_textEdit->toPlainText();
@@ -415,12 +412,12 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.view2_pushButton->setText("2: " + name2);
           ui.addName_textEdit->clear();
           //This view has a cartesian pose for x,yz
-          QString X2 = ui.X_textEdit->toPlainText();
-          QString Y2 = ui.Y_textEdit->toPlainText();
-          QString Z2 = ui.Z_textEdit->toPlainText();
-          ui.X_textEdit->clear();
-          ui.Y_textEdit->clear();
-          ui.Z_textEdit->clear();
+          QString X2 = ui.X_lineEdit->text();
+          QString Y2 = ui.Y_lineEdit->text();
+          QString Z2 = ui.Z_lineEdit->text();
+          ui.X_lineEdit->clear();
+          ui.Y_lineEdit->clear();
+          ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
           QString J1_2 = ui.J1_textEdit->toPlainText();
           QString J2_2 = ui.J2_textEdit->toPlainText();
@@ -475,12 +472,12 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.view3_pushButton->setText("3: " + name3);
           ui.addName_textEdit->clear();
           //This view has a cartesian pose for x,yz
-          QString X3 = ui.X_textEdit->toPlainText();
-          QString Y3 = ui.Y_textEdit->toPlainText();
-          QString Z3 = ui.Z_textEdit->toPlainText();
-          ui.X_textEdit->clear();
-          ui.Y_textEdit->clear();
-          ui.Z_textEdit->clear();
+          QString X3 = ui.X_lineEdit->text();
+          QString Y3 = ui.Y_lineEdit->text();
+          QString Z3 = ui.Z_lineEdit->text();
+          ui.X_lineEdit->clear();
+          ui.Y_lineEdit->clear();
+          ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
           QString J1_3 = ui.J1_textEdit->toPlainText();
           QString J2_3 = ui.J2_textEdit->toPlainText();
@@ -535,12 +532,12 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.view4_pushButton->setText("4: " + name4);
           ui.addName_textEdit->clear();
           //This view has a cartesian pose for x,yz
-          QString X4 = ui.X_textEdit->toPlainText();
-          QString Y4 = ui.Y_textEdit->toPlainText();
-          QString Z4 = ui.Z_textEdit->toPlainText();
-          ui.X_textEdit->clear();
-          ui.Y_textEdit->clear();
-          ui.Z_textEdit->clear();
+          QString X4 = ui.X_lineEdit->text();
+          QString Y4 = ui.Y_lineEdit->text();
+          QString Z4 = ui.Z_lineEdit->text();
+          ui.X_lineEdit->clear();
+          ui.Y_lineEdit->clear();
+          ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
           QString J1_4 = ui.J1_textEdit->toPlainText();
           QString J2_4 = ui.J2_textEdit->toPlainText();
@@ -595,12 +592,12 @@ void MainWindow::on_addView_pushButton_clicked()
           ui.view5_pushButton->setText("5: " + name5);
           ui.addName_textEdit->clear();
           //This view has a cartesian pose for x,yz
-          QString X5 = ui.X_textEdit->toPlainText();
-          QString Y5 = ui.Y_textEdit->toPlainText();
-          QString Z5 = ui.Z_textEdit->toPlainText();
-          ui.X_textEdit->clear();
-          ui.Y_textEdit->clear();
-          ui.Z_textEdit->clear();
+          QString X5 = ui.X_lineEdit->text();
+          QString Y5 = ui.Y_lineEdit->text();
+          QString Z5 = ui.Z_lineEdit->text();
+          ui.X_lineEdit->clear();
+          ui.Y_lineEdit->clear();
+          ui.Z_lineEdit->clear();
           //This view has 7DOF joint angles
           QString J1_5 = ui.J1_textEdit->toPlainText();
           QString J2_5 = ui.J2_textEdit->toPlainText();
@@ -1507,27 +1504,65 @@ void MainWindow::on_LookAtHand_horizontalSlider_valueChanged(int value)
     ui.HandWeight_textEdit->setText(b);
 }
 
+
+void MainWindow::on_X_lineEdit_editingFinished()
+{
+
+}
+
 /* Change control method */
 
 void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
 {
+  /* Build the string message */
   std::stringstream ss;
   if (arg1 == "joint"){
     ss << "joint";
-
+    toggleCartesianControl(false);
   }
   else if (arg1 == "cartesian") {
     ss << "cartesian";
-
+    toggleCartesianControl(true);
   }
   else {
     ss << "objective";
-
+    toggleCartesianControl(false);
   }
 
+  /* publish updated control method */
   controlState.data = ss.str();
   qnode.publishControl();
 }
 
-}  // namespace autoCam_pkg
+/* enables or disables cartesian controls, when disabled they display current state */
+void MainWindow::toggleCartesianControl(bool enable) {
+  if (enable) {
+    //buttons
+    ui.LEFT_pushButton->setEnabled(true);
+    ui.RIGHT_pushButton->setEnabled(true);
+    ui.UP_pushButton->setEnabled(true);
+    ui.DOWN_pushButton->setEnabled(true);
+    ui.IN_pushButton->setEnabled(true);
+    ui.OUT_pushButton->setEnabled(true);
+    //text edits
+    ui.X_lineEdit->setReadOnly(false);
+    ui.Y_lineEdit->setReadOnly(false);
+    ui.Z_lineEdit->setReadOnly(false);
+  }
+  else {
+    //buttons
+    ui.LEFT_pushButton->setEnabled(false);
+    ui.RIGHT_pushButton->setEnabled(false);
+    ui.UP_pushButton->setEnabled(false);
+    ui.DOWN_pushButton->setEnabled(false);
+    ui.IN_pushButton->setEnabled(false);
+    ui.OUT_pushButton->setEnabled(false);
+    //text edits
+    ui.X_lineEdit->setReadOnly(true);
+    ui.Y_lineEdit->setReadOnly(true);
+    ui.Z_lineEdit->setReadOnly(true);
+  }
+}
 
+
+}  // namespace autoCam_pkg
