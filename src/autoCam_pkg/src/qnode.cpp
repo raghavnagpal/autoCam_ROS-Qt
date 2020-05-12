@@ -107,6 +107,7 @@ void QNode::imageCallback_2(const sensor_msgs::ImageConstPtr& msg) {
 void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
   /* Note that index = 9 corresponds to 'robot::leftbracelet_link'*/
 //  std::cout << msg->name[9] << "\n";
+  //change to rightbracelet_link when new simulation comes in
   hand_camera_pose = msg->pose[9];
 //  geometry_msgs::Point Position_of_ee = msg->pose[9].position;
 //  geometry_msgs::Quaternion Orientation_of_ee = msg->pose[9].orientation;
@@ -119,6 +120,11 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 void QNode::publishControl() {
   // Publish the control mode: "joint", "cartesian", or "objective"
   control_pub.publish(controlState);
+  control_pub.publish(controlState);
+  control_pub.publish(controlState);
+  control_pub.publish(controlState);
+  control_pub.publish(controlState);
+
   // If in cartesian mode, publish cartesian pose
   if (controlState.data == "cartesian") {
     cartesian_pub.publish(commandCardtesianPose);
