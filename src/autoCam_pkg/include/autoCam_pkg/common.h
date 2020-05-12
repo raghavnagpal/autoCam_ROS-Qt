@@ -9,7 +9,9 @@
 #include <string>
 #include <std_msgs/String.h>
 #include <sensor_msgs/Image.h>
+#include <sensor_msgs/JointState.h>
 #include <gazebo_msgs/LinkStates.h>
+#include <trajectory_msgs/JointTrajectory.h>
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Point.h>
 #include <geometry_msgs/Quaternion.h>
@@ -30,5 +32,6 @@ extern cv_bridge::CvImagePtr my_global_cv_ptr_2;
 extern geometry_msgs::Pose hand_camera_pose;
 extern std_msgs::String controlState;
 extern geometry_msgs::Pose commandCardtesianPose;
-
+extern sensor_msgs::JointState jointState;
+extern sensor_msgs::JointState commandJointPose;
 }

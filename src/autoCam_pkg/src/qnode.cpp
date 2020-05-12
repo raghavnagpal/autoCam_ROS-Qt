@@ -25,6 +25,8 @@ cv_bridge::CvImagePtr my_global_cv_ptr_2;
 geometry_msgs::Pose hand_camera_pose;
 std_msgs::String controlState;
 geometry_msgs::Pose commandCardtesianPose;
+sensor_msgs::JointState jointState;
+sensor_msgs::JointState commandJointPose;
 /*****************************************************************************
 ** Implementation
 *****************************************************************************/
@@ -57,10 +59,12 @@ bool QNode::init() {
 
   cartesian_sub = nh.subscribe("/gazebo/link_states", 1, &QNode::cartesianCallback, this); // cartesian position of hand camera
 
+  joint_sub = nh.subscribe("/joint_states", 1, &QNode::jointStatesCallback, this);
+
   /* Publishers */
   control_pub = nh.advertise<std_msgs::String>("/controlState", 1);
   cartesian_pub = nh.advertise<geometry_msgs::Pose>("/uiCartesianPose", 1);
-
+  joint_pub = nh.advertise<sensor_msgs::JointState>("/uiJointPose",5);
   start();
 	return true;
 }
@@ -107,8 +111,7 @@ void QNode::imageCallback_2(const sensor_msgs::ImageConstPtr& msg) {
 void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
   /* Note that index = 9 corresponds to 'robot::leftbracelet_link'*/
 //  std::cout << msg->name[9] << "\n";
-  //change to rightbracelet_link when new simulation comes in
-  hand_camera_pose = msg->pose[9];
+  hand_camera_pose = msg->pose[17];
 //  geometry_msgs::Point Position_of_ee = msg->pose[9].position;
 //  geometry_msgs::Quaternion Orientation_of_ee = msg->pose[9].orientation;
 
@@ -129,6 +132,15 @@ void QNode::publishControl() {
   if (controlState.data == "cartesian") {
     cartesian_pub.publish(commandCardtesianPose);
   }
+  if (controlState.data == "joint") {
+    joint_pub.publish(commandJointPose);
+  }
+}
+
+void QNode::jointStatesCallback(const sensor_msgs::JointStateConstPtr &msg)
+{
+  jointState = *msg;
+//  std::cout<<jointState.position[0];
 }
 
 }  // namespace autoCam_pkg

@@ -61,7 +61,15 @@ MainWindow::~MainWindow() {}
 /*****************************************************************************
 ** Implementation [Slots]
 *****************************************************************************/
-
+float round(float var)
+{
+    // 37.66666 * 100 =3766.66
+    // 3766.66 + .5 =3767.16    for rounding off value
+    // then type cast to int so value is 3767
+    // then divided by 100 so the value converted into 37.67
+    float value = (int)(var * 100 + .5);
+    return (float)value / 100;
+}
 void MainWindow::showNoMasterMessage() {
 	QMessageBox msgBox;
   msgBox.setText("Couldn't find the ROS master.");
@@ -102,7 +110,7 @@ void MainWindow::on_Manual_SwitchButton_pressed() {
 
 
   //check that both image streams are populated with images
-  if(my_global_cv_ptr != NULL && my_global_cv_ptr_2 != NULL){
+  if(my_global_cv_ptr != nullptr && my_global_cv_ptr_2 != nullptr){
     imageStream = true;
 //    std::cout << "Display: image not null \n";
     while(imageStream) {
@@ -125,9 +133,8 @@ void MainWindow::on_Manual_SwitchButton_pressed() {
         ui.graphicsView_2->fitInView(&pixmap_2, Qt::KeepAspectRatio);
       }
       //you dont want to be spamming this during cartesian control because you won't be able to type in the boxes
-      if (controlState.data != "cartesian") {
         observeCartesian();
-      }
+        observeJoint();
       qApp->processEvents();
     }
   }
@@ -260,13 +267,13 @@ void MainWindow::observeCartesian(){
   }
 
   //displays the values in the local variables
-  ui.X_lineEdit->setText(QString::number(Xcounter));
-  ui.Y_lineEdit->setText(QString::number(Ycounter));
-  ui.Z_lineEdit->setText(QString::number(Zcounter));
+  ui.X_lineEdit->setText(QString::number(double(round(Xcounter))));
+  ui.Y_lineEdit->setText(QString::number(double(round(Ycounter))));
+  ui.Z_lineEdit->setText(QString::number(double(round(Zcounter))));
 
-  ui.Roll_lineEdit->setText(QString::number(RollCounter));
-  ui.Pitch_lineEdit->setText(QString::number(PitchCounter));
-  ui.Yaw_lineEdit->setText(QString::number(YawCounter));
+  ui.Roll_lineEdit->setText(QString::number(double(round(RollCounter))));
+  ui.Pitch_lineEdit->setText(QString::number(double(round(PitchCounter))));
+  ui.Yaw_lineEdit->setText(QString::number(double(round(YawCounter))));
 
   ui.Roll_dial->setValue(int(RollCounter));
   ui.Pitch_verticalSlider->setValue(int(PitchCounter));
@@ -288,52 +295,66 @@ void MainWindow::observeCartesian(){
 
 void MainWindow::on_J1_horizontalSlider_valueChanged(int value) {
   J1counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J2_horizontalSlider_valueChanged(int value) {
   J2counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J3_horizontalSlider_valueChanged(int value) {
   J3counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J4_horizontalSlider_valueChanged(int value) {
   J4counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J5_horizontalSlider_valueChanged(int value) {
   J5counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J6_horizontalSlider_valueChanged(int value) {
   J6counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J7_horizontalSlider_valueChanged(int value) {
   J7counter = float(value);
+  observeJoint();
 }
 
 void MainWindow::on_J1_lineEdit_editingFinished() {
   J1counter = ui.J1_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J2_lineEdit_editingFinished() {
   J2counter = ui.J2_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J3_lineEdit_editingFinished() {
   J3counter = ui.J3_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J4_lineEdit_editingFinished() {
   J4counter = ui.J4_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J5_lineEdit_editingFinished() {
   J5counter = ui.J5_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J6_lineEdit_editingFinished() {
   J6counter = ui.J6_lineEdit->text().toFloat();
+  observeJoint();
 }
 void MainWindow::on_J7_lineEdit_editingFinished() {
   J7counter = ui.J7_lineEdit->text().toFloat();
+  observeJoint();
 }
 
 void MainWindow::observeJoint(){
@@ -341,18 +362,48 @@ void MainWindow::observeJoint(){
   if (controlState.data != "joint") {
 
     //update values
-//    J1counter = ;
-
+    J1counter = float(jointState.position[7])*180.0/M_PI;
+    J2counter = float(jointState.position[8])*180.0/M_PI;
+    J3counter = float(jointState.position[9])*180.0/M_PI;
+    J4counter = float(jointState.position[10])*180.0/M_PI;
+    J5counter = float(jointState.position[11])*180.0/M_PI;
+    J6counter = float(jointState.position[12])*180.0/M_PI;
+    J7counter = float(jointState.position[13])*180.0/M_PI;
+    //std::cout<<jointState.position[7];
   }
   else{
     //sensor_msgs::jointState
-//    commandJointPose = J1counter;
+    commandJointPose.position = {double(J1counter*M_PI/180.0),double(J2counter*M_PI/180.0),double(J3counter*M_PI/180.0),double(J4counter*M_PI/180.0),
+                                 double(J5counter*M_PI/180.0),double(J6counter*M_PI/180.0),double(J7counter*M_PI/180.0)};
+    commandJointPose.name = {"rightjoint_1", "rightjoint_2", "rightjoint_3", "rightjoint_4", "rightjoint_5", "rightjoint_6",
+                             "rightjoint_7"};
+//    commandJointPose.position[8] = double(J2counter);
+//    commandJointPose.position[9] = double(J3counter);
+//    commandJointPose.position[7] = double(J1counter);
+//    commandJointPose.position[10] = double(J4counter);
+//    commandJointPose.position[11] = double(J5counter);
+//    commandJointPose.position[12] = double(J6counter);
+//    commandJointPose.position[13] = double(J7counter);
     qnode.publishControl();
   }
 
   //displays the values in the local variables
-//  ui.J1_lineEdit->setText(QString::number(J1counter));
-//  u1.J1_horizontalSlider->setValue(QString::number(J1counter));
+    ui.J1_lineEdit->setText(QString::number(double(round(J1counter))));
+    ui.J2_lineEdit->setText(QString::number(double(round(J2counter))));
+    ui.J3_lineEdit->setText(QString::number(double(round(J3counter))));
+    ui.J4_lineEdit->setText(QString::number(double(round(J4counter))));
+    ui.J5_lineEdit->setText(QString::number(double(round(J5counter))));
+    ui.J6_lineEdit->setText(QString::number(double(round(J6counter))));
+    ui.J7_lineEdit->setText(QString::number(double(round(J7counter))));
+
+    ui.J1_horizontalSlider->setValue(int(J1counter));
+    ui.J2_horizontalSlider->setValue(int(J2counter));
+    ui.J3_horizontalSlider->setValue(int(J3counter));
+    ui.J4_horizontalSlider->setValue(int(J4counter));
+    ui.J5_horizontalSlider->setValue(int(J5counter));
+    ui.J6_horizontalSlider->setValue(int(J6counter));
+    ui.J7_horizontalSlider->setValue(int(J7counter));
+
 }
 
 /*/////////////////////////////////////////////////////////////////////////////////////////

@@ -54,9 +54,12 @@ private:
   ros::Subscriber cartesian_sub;
   ros::Publisher control_pub;
   ros::Publisher cartesian_pub;
+  ros::Publisher joint_pub;
+  ros::Subscriber joint_sub;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
   void imageCallback_2(const sensor_msgs::ImageConstPtr &msg);
   void cartesianCallback(const gazebo_msgs::LinkStatesConstPtr &msg);
+  void jointStatesCallback(const sensor_msgs::JointStateConstPtr &msg);
 };
 
 
