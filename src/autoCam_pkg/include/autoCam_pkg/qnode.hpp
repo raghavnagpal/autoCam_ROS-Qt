@@ -55,6 +55,7 @@ private:
   ros::Publisher control_pub;
   ros::Publisher cartesian_pub;
   ros::Publisher joint_pub;
+  ros::Publisher relaxedik_pub;
   ros::Subscriber joint_sub;
   void imageCallback(const sensor_msgs::ImageConstPtr &msg);
   void imageCallback_2(const sensor_msgs::ImageConstPtr &msg);

@@ -21,12 +21,15 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
+
 #endif
 
 namespace autoCam_pkg {
 /* Image streams for cameras */
 extern cv_bridge::CvImagePtr my_global_cv_ptr;
 extern cv_bridge::CvImagePtr my_global_cv_ptr_2;
+extern cv_bridge::CvImage object1;
+extern cv_bridge::CvImage object2;
 
 /* Camera robot */
 extern geometry_msgs::Pose hand_camera_pose;
@@ -34,4 +37,5 @@ extern std_msgs::String controlState;
 extern geometry_msgs::Pose commandCardtesianPose;
 extern sensor_msgs::JointState jointState;
 extern sensor_msgs::JointState commandJointPose;
+extern sensor_msgs::JointState relaxedik_weights;
 }

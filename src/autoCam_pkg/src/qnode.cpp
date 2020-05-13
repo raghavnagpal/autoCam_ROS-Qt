@@ -13,7 +13,8 @@
 #include "../include/autoCam_pkg/qnode.hpp"
 #include <opencv2/highgui/highgui.hpp>
 #include "../include/autoCam_pkg/common.h"
-
+#include <opencv2/imgproc/imgproc.hpp>
+#include <cv_bridge/cv_bridge.h>
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
@@ -21,12 +22,15 @@
 namespace autoCam_pkg {
 
 cv_bridge::CvImagePtr my_global_cv_ptr;
+cv_bridge::CvImage object1;
+cv_bridge::CvImage object2;
 cv_bridge::CvImagePtr my_global_cv_ptr_2;
 geometry_msgs::Pose hand_camera_pose;
 std_msgs::String controlState;
 geometry_msgs::Pose commandCardtesianPose;
 sensor_msgs::JointState jointState;
 sensor_msgs::JointState commandJointPose;
+sensor_msgs::JointState relaxedik_weights;
 /*****************************************************************************
 ** Implementation
 *****************************************************************************/
@@ -65,6 +69,7 @@ bool QNode::init() {
   control_pub = nh.advertise<std_msgs::String>("/controlState", 1);
   cartesian_pub = nh.advertise<geometry_msgs::Pose>("/uiCartesianPose", 1);
   joint_pub = nh.advertise<sensor_msgs::JointState>("/uiJointPose",5);
+  relaxedik_pub = nh.advertise<sensor_msgs::JointState>("/uiRelaxedIk",5);
   start();
 	return true;
 }
@@ -81,7 +86,7 @@ void QNode::imageCallback(const sensor_msgs::ImageConstPtr& msg) {
   try {
     try {
       my_global_cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-
+      object1 = *my_global_cv_ptr;
     }
     catch (cv_bridge::Exception& e) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
@@ -97,7 +102,7 @@ void QNode::imageCallback_2(const sensor_msgs::ImageConstPtr& msg) {
   try {
     try {
       my_global_cv_ptr_2 = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-
+      object2 = *my_global_cv_ptr_2;
     }
     catch (cv_bridge::Exception& e) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
@@ -111,7 +116,7 @@ void QNode::imageCallback_2(const sensor_msgs::ImageConstPtr& msg) {
 void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
   /* Note that index = 9 corresponds to 'robot::leftbracelet_link'*/
 //  std::cout << msg->name[9] << "\n";
-  hand_camera_pose = msg->pose[17];
+  hand_camera_pose = msg->pose[21];
 //  geometry_msgs::Point Position_of_ee = msg->pose[9].position;
 //  geometry_msgs::Quaternion Orientation_of_ee = msg->pose[9].orientation;
 
@@ -123,11 +128,6 @@ void QNode::cartesianCallback(const gazebo_msgs::LinkStatesConstPtr& msg) {
 void QNode::publishControl() {
   // Publish the control mode: "joint", "cartesian", or "objective"
   control_pub.publish(controlState);
-  control_pub.publish(controlState);
-  control_pub.publish(controlState);
-  control_pub.publish(controlState);
-  control_pub.publish(controlState);
-
   // If in cartesian mode, publish cartesian pose
   if (controlState.data == "cartesian") {
     cartesian_pub.publish(commandCardtesianPose);
@@ -135,6 +135,7 @@ void QNode::publishControl() {
   if (controlState.data == "joint") {
     joint_pub.publish(commandJointPose);
   }
+  relaxedik_pub.publish(relaxedik_weights);
 }
 
 void QNode::jointStatesCallback(const sensor_msgs::JointStateConstPtr &msg)
@@ -142,5 +143,6 @@ void QNode::jointStatesCallback(const sensor_msgs::JointStateConstPtr &msg)
   jointState = *msg;
 //  std::cout<<jointState.position[0];
 }
+
 
 }  // namespace autoCam_pkg
